@@ -17,17 +17,14 @@ popq %rbx
 retq
 _go:
 subq $0, %rsp
-movq $5, %rdi
-movq $_g_ret, -8(%rsp)
-subq $8, %rsp
-jmp _g
-_g_ret:
-addq $0, %rsp
-ret
-_g:
-subq $0, %rsp
-addq $7, %rdi
-subq $1, %rdi
+movq $-5, %rdi
+movq $5, %rsi
+cmpq %rsi, %rdi
+setle %dil
+movzbq %dil, %rdi
+movq $1, %rbx
+salq %bl, %rdi
+addq $1, %rdi
 call print
 addq $0, %rsp
 ret

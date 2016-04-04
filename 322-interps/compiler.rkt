@@ -96,7 +96,7 @@
     [arrow-assign (l r)  (format "movq ~A, ~A\n" (compile r) (compile l))]
     [cmp-assign (dest op1 cmp op2) (type-case L1-expr op1
                                      [num (n1) (type-case L1-expr op2
-                                                 [num (n2) (format "movq $~A, ~A" ((cmp-map cmp) op1 op2) (8-bit-reg dest))]
+                                                 [num (n2) (format "movq $~A, ~A\n" (if ((cmp-map cmp) n1 n2) 1 0)  (compile dest))]
                                                  [else (cond
                                                         [(symbol=? cmp '<=) (format "cmpq ~A, ~A\nsetge %~A\nmovzbq %~A, ~A\n" (compile op1) (compile op2) (8-bit-reg (register-name dest)) (8-bit-reg (register-name dest)) (compile  dest))]
                                                         [(symbol=? cmp '=) (format "cmpq ~A, ~A\nsete %~A\nmovzbq %~A, ~A\n" (compile op1) (compile op2) (8-bit-reg (register-name dest)) (8-bit-reg (register-name dest)) (compile dest))]
@@ -181,4 +181,5 @@ retq\n"
   (call-with-input-file
       (vector-ref (current-command-line-arguments) 0)
       (lambda (x) (display (L1->Assembly (read x))))))
+
 
