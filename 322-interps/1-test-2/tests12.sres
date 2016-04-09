@@ -1,0 +1,1 @@
+(:f 0 1 ((mem rsp 0) <- 7) (b <- 7) (s0 <- (mem rsp 0)) (cjump s0 = b :t :f) :t (s1 <- (mem rsp 0)) (s1 += b) :f (s2 <- (mem rsp 0)) (s2 -= b))

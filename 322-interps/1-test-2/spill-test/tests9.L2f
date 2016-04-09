@@ -1,0 +1,1 @@
+(:f 0 0 (a <- 3) (rax <- a) (rax *= a) (a <- rax)) a s
