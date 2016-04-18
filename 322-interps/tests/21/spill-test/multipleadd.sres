@@ -1,0 +1,14 @@
+(:man
+	0 1
+	((mem rsp 0) <- 2)
+
+	(mm_0 <- (mem rsp 0))
+	(mm_0 += mm_0)
+	((mem rsp 0) <- mm_0)
+	(rax <- 2)
+	(mm_1 <- (mem rsp 0))
+	(rax += mm_1)
+	(mm_2 <- (mem rsp 0))
+	(mm_2 += rax)
+	((mem rsp 0) <- mm_2)
+	(return))

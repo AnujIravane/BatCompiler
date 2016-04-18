@@ -1,0 +1,40 @@
+(:go
+  (:insert_Element
+   3 0
+   ((mem rsp -8 ) <- r12)
+   (r12 <- rdi)
+   (r8 <- rsi)
+   (rsi <- (mem rdi 0))
+   :recheck
+   (cjump rsi = 0 :replace :multip)
+
+  :multip
+    (rdi += 8)
+    (rsi -= 1)
+    (goto :recheck)
+
+  :replace
+    ;(r12 += 1)
+    ;(rdi += 1)
+    ;(r12 += rdi)
+    ;(r12 -= 2)
+    ((mem rdi 0 ) <- rdx)
+    (rax <- r12)
+    (r12 <- (mem rsp -8))
+    (return))
+
+  (:go
+   0 0
+   (rdi <- 7)
+   (rsi <- 5)
+   (call allocate 2)
+   
+   (rdi <- rax)
+   (rsi <- 5)
+   (rdx <- 9)
+   ((mem rsp -8) <- :insert_ret)
+   (call :insert_Element 3)
+   :insert_ret
+   (rdi <- rax)
+   (call print 1)
+   (return)))

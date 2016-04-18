@@ -1,0 +1,8 @@
+(:mult
+0 1
+(s_0 <- (mem rsp 0))
+(s_0 += a)
+((mem rsp 0) <- s_0)
+(a *= 3)
+(s_1 <- (mem rsp 0))
+(c <- a = s_1))

@@ -1,0 +1,12 @@
+  (:goA
+    2 5
+
+    (x <- x)
+    (myVar2 += rdi5)
+
+    (rdi <- 5)
+    (call print 1)
+    (return)
+  )
+
+  rdi50 s

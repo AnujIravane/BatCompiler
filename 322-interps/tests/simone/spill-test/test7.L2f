@@ -1,0 +1,9 @@
+  (:go
+    2 5
+
+    (myVar2 += myVar)
+
+    (return)
+  )
+
+  myVar2 s_

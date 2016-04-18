@@ -1,0 +1,55 @@
+(:main
+  (:main
+    0 1
+    (rdi <- 21)
+    (rsi <- 1)
+    (call allocate 2)
+    ((mem rax 8) <- 5)
+    ((mem rax 16) <- 3)
+    ((mem rax 24) <- 11)
+    ((mem rax 32) <- 7)
+    ((mem rax 40) <- 9)
+    ((mem rax 48) <- 19)
+    ((mem rax 56) <- 15)
+    ((mem rax 64) <- 13)
+    ((mem rax 72) <- 21)
+    ((mem rax 80) <- 17)
+    ((mem rsp 0) <- rax)
+    (rdi <- rax)
+    (call print 1)
+    (rdi <- 19)
+    (call print 1)
+    ((mem rsp -8) <- :find_array_ret)
+    (rdi <- (mem rsp 0))
+    (rsi <- 19)
+    (call :find_in_array 2)
+    :find_array_ret
+    (rax *= 2)
+    (rax += 1)
+    (rdi <- rax)
+    (call print 1)
+    (return))
+  (:find_in_array
+    2 0
+    (rax <- -1)
+    (r8 <- rdi)
+    (r8 += 8)
+    (r9 <- (mem rdi 0))
+    (r9 <<= 8)
+    (r9 += rdi)
+    (r10 <- 0)
+    :forstart
+    (cjump r8 <= r9 :forbody :forend)
+    :forbody
+    (r11 <- (mem r8 0))
+    (cjump r11 = rsi :found :continue)
+    :found
+    (rax <- r10)
+    (goto :forend)
+    :continue
+    (r8 += 8)
+    (r10 += 1)
+    (goto :forstart)
+    :forend
+    (return))
+)

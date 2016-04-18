@@ -1,0 +1,1 @@
+(:rshift 0 0 (rax >>= a)) a s_

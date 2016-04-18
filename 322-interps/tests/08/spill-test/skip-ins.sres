@@ -1,0 +1,6 @@
+(:foobar
+0 1
+(rdi <- 6)
+((mem rsp 0) <- 5)
+(rdi *= rdi)
+(rsi <- (mem rsp 0)))

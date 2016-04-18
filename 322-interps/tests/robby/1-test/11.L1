@@ -1,0 +1,13 @@
+(:main
+ (:main
+  0
+  0
+  (rsi <- 1001)
+  (rdi <- 999)
+  (rax <- 2)
+  (rax <- rsi <= rdi)
+  (rax += rax)
+  (rax += 1)
+  (rdi <- rax)
+  (call print 1)
+  (return)))

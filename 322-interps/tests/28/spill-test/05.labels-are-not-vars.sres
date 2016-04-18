@@ -1,0 +1,2 @@
+(:test5 0 1
+    (tail-call :test5 0))

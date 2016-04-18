@@ -1,0 +1,9 @@
+  (:goA
+    2 5
+
+    (myVar2 += myVar)
+
+    (return)
+  )
+
+  myVar8 s_

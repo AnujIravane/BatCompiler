@@ -1,0 +1,18 @@
+  (:go
+    0 1
+
+    ((mem rsp 0) <- 5)
+
+    (rax <- (mem rsp 0))
+    (call print 1)
+
+    (myVar <- (mem rsp 0))
+    (myVar += 5)
+
+    (rax <- myVar)
+    (call print 1)
+
+    (return)
+  )
+
+  myVar s_

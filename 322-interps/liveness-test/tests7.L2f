@@ -1,0 +1,21 @@
+(:f
+ 1 0
+ (curr <- rdi)
+ (curr += 8)
+ (end <- (mem rdi 0))
+ (end <<= 3)
+ (end += rdi)
+ (rax <- 0)
+ :start
+ (cjump curr <= end :body :end)
+ :body
+ (val <- (mem curr 0))
+ (val -= 1)
+ (val >>= 1)
+ (rax += val)
+ (curr += 8)
+ (goto :start)
+ :end
+ (rax <<= 1)
+ (rax += 1)
+ (return))

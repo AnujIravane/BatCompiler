@@ -1,0 +1,23 @@
+(:go
+  (:go
+	0 0
+	((mem rsp -8) <- :n_sum_return)
+	(rdi <- 21)
+	(rsi <- 1)
+	(call :n_sum 2)
+	:n_sum_return
+	(rdi <- rax)
+	(call print 1)
+	(return))
+
+  (:n_sum
+	2 0
+	(cjump rdi = 1 :exit :continue)
+	:continue
+	(rsi += rdi)
+	(rsi -= 1)
+	(rdi -= 2)
+	(tail-call :n_sum 2)
+	:exit
+	(rax <- rsi)
+	(return)))

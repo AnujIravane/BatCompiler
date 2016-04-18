@@ -1,0 +1,7 @@
+(:mem
+	0 0
+	(q <- (mem qq 0))
+	(rdi <- q)
+	(call print 1)
+	(return))
+qq mem_

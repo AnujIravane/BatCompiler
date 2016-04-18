@@ -1,0 +1,7 @@
+(:f 0 5
+  (call print 1)
+  (call allocate 2)
+  (call array-error 2)
+  (return)
+  :label
+  (goto :label))

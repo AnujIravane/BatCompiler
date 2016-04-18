@@ -1,0 +1,17 @@
+(:comp
+	3 2
+	((mem rsp 8) <- rax)
+	(rax <- (mem rsp 8))
+	(rax <- rax)
+	(_00 <- (mem rsp 8))
+	(_00 += rax)
+	((mem rsp 8) <- _00)
+	(_01 <- (mem rsp 8))
+	(rax += _01)
+	(rax *= rax)
+	(_02 <- (mem rsp 8))
+	(_02 *= _02)
+	((mem rsp 8) <- _02)
+	(rdi <- (mem rsp 8))
+	(call print 1)
+	(return))

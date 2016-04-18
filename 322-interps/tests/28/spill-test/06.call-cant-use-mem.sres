@@ -1,0 +1,4 @@
+(:call 0 1
+    (stk0 <- (mem rsp 0))
+    (call stk0 0)
+    (return))

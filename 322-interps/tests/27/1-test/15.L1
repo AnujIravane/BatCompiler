@@ -1,0 +1,44 @@
+;; assumes positive integer
+(:go
+	(:factorial
+		1 0	;; base
+		(rax <- rdi)
+		(cjump rdi = 0 :is_zero :loop)
+
+		:loop
+		(rdi -= 1)
+		(cjump rdi = 0 :done :more)
+		
+		:more
+		(rax *= rdi)
+		(goto :loop)
+
+		:is_zero
+		(rax <- 1)
+		:done
+		(return))
+
+	(:go
+		0 0
+		(rdi <- 5)
+		((mem rsp -8) <- :ret1)
+        	(call :factorial 1)
+        	
+		:ret1
+        	(rdi <- rax)
+		;; encode
+        	(rdi <<= 1)
+        	(rdi += 1)
+        	(call print 1)
+
+        	(rdi <- 4)
+		((mem rsp -8) <- :ret2)
+        	(call :factorial 1)
+
+        	:ret2
+        	(rdi <- rax)
+		;; encode
+        	(rdi <<= 1)
+        	(rdi += 1)
+        	(call print 1)
+		(return)))

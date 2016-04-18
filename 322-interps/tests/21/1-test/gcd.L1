@@ -1,0 +1,34 @@
+(:main
+	(:main
+		0 0
+		(rdi <- 105)
+		(rsi <- 70)
+		((mem rsp -8) <- :ret)
+		(call :gcd 2)
+		:ret
+		(rdi <- rax)
+		(tail-call :p 1))
+
+	(:gcd
+		2 0
+		(cjump rdi = 0 :end :go)
+		:end
+		(rax <- rsi)
+		(return)
+		:go
+		(cjump rsi < rdi :swap :noswap)
+		:swap
+		(rax <- rsi)
+		(rsi <- rdi)
+		(rdi <- rax)
+		(tail-call :gcd 2)
+		:noswap
+		(rsi -= rdi)
+		(tail-call :gcd 2))
+
+	(:p
+		1 0
+		(rdi *= 2)
+		(rdi += 1)
+		(call print 1)
+		(return)))

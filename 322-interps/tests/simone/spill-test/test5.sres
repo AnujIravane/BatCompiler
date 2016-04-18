@@ -1,0 +1,8 @@
+  (:go
+    2 6
+
+    (s_0 <- (mem rsp 40))
+    (myVar2 += s_0)
+
+    (return)
+  )

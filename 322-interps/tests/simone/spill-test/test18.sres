@@ -1,0 +1,8 @@
+  (:go
+    1 1
+
+    (s_0 <- (stack-arg 0))
+    ((mem rsp 0) <- s_0)
+
+    (return)
+  )

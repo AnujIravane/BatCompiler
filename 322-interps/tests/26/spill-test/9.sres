@@ -1,0 +1,54 @@
+(:big
+  8 2
+  (one <- rdi)
+  (two <- rsi)
+  (three <- rdx)
+  (four <- rcx)
+  (five <- r8)
+  (six <- r9)
+  (seven <- (stack-arg 8))
+  (eight <- (stack-arg 0))
+
+  ((mem rsp 8) <- one)
+
+  (s_0 <- (mem rsp 8))
+  (s_0 -= two)
+  ((mem rsp 8) <- s_0)
+
+  (s_1 <- (mem rsp 8))
+  (s_1 -= three)
+  ((mem rsp 8) <- s_1)
+
+
+  (s_2 <- (mem rsp 8))
+  (s_2 -= four)
+  ((mem rsp 8) <- s_2)
+
+
+  (s_3 <- (mem rsp 8))
+  (s_3 -= five)
+  ((mem rsp 8) <- s_3)
+
+
+  (s_4 <- (mem rsp 8))
+  (s_4 -= six)
+  ((mem rsp 8) <- s_4)
+
+
+  (s_5 <- (mem rsp 8))
+  (s_5 -= seven)
+  ((mem rsp 8) <- s_5)
+
+
+  (s_6 <- (mem rsp 8))
+  (s_6 -= eight)
+  ((mem rsp 8) <- s_6)
+
+
+  (rdi <- (mem rsp 8))
+  (rdi <<= 1)
+  (rdi += 1)
+  ((mem rsp 0) <- rdi)
+  (call print 1)
+  (rax <- (mem rsp 0))
+  (return))

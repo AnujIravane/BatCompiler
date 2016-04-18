@@ -1,0 +1,6 @@
+(:xchg 0 2
+    (s0 <- (mem rsp 8))
+    ((mem rsp 0) <- s0)
+    ((mem rsp 8) <- c)
+    (c <- (mem rsp 0))
+    (return))

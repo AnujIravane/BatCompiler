@@ -1,0 +1,10 @@
+(:f 
+  8 0
+  (x <- rdi)
+  (y <- (stack-arg 0))
+  (z <- (stack-arg 8))
+  (a <- 3)
+  (a += x)
+  (a += y)
+  (a += z))
+a s

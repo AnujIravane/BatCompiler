@@ -1,0 +1,7 @@
+(:main 0 1
+    ((mem rsp 0) <- 1)
+    (s_0 <- (mem rsp 0))
+    (b <- 14)
+    (rax <- b)
+    (rax += s_0)
+    (return)) b var

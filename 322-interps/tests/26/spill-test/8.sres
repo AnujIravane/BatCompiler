@@ -1,0 +1,31 @@
+(:dist
+ 2 3
+ (x <- rdi)
+ ((mem rsp 16) <- rsi)
+ ((mem rsp 0) <- x)
+
+ (r_0 <- (mem rsp 16))
+ ((mem rsp 8) <- r_0)
+
+ (rdi <- x)
+ ((mem rsp -8) <- :sqr1)
+ (call sqr 1)
+ :sqr1
+ (x <- rax)
+
+ (rdi <- (mem rsp 16))
+ ((mem rsp -8) <- :sqr2)
+ (call sqr 1)
+ :sqr2
+ ((mem rsp 16) <- rax)
+
+ (s <- x)
+ (r_1 <- (mem rsp 16))
+ (s += r_1)
+ (rdi <- s)
+ ((mem rsp -8) <- :sqrt1)
+ (call sqrt 1)
+ :sqrt1
+ (s <- rax)
+ (rax <- s)
+ (return))

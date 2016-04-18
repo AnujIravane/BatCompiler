@@ -1,0 +1,10 @@
+  (:go
+    1 0
+
+    (myVar <- :myF)
+    (call myVar 5)
+
+    (return)
+  )
+
+  myVar _s_

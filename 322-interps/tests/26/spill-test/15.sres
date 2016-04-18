@@ -1,0 +1,5 @@
+(:main
+ 0 1
+ ((mem rsp 0) <- :fun)
+ (s_0 <- (mem rsp 0))
+ (tail-call s_0 0))

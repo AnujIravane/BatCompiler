@@ -1,0 +1,12 @@
+(:f
+  0 1
+    ((mem rsp 0) <- 1)
+    (y <- 3)
+    (s0 <- (mem rsp 0))
+    (y <<= s0)
+    (s1 <- (mem rsp 0))
+    (s1 += s1)
+    ((mem rsp 0) <- s1)
+    (s2 <- (mem rsp 0))
+    (y += s2))
+     

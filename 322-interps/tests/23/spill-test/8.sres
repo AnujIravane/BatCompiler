@@ -1,0 +1,1 @@
+(:f 7 1 ((mem rsp 0) <- :f_ret) (s_0 <- (mem rsp 0)) (call s_0 0) :f_ret (s_1 <-(mem rsp 0)) ((mem rsp 0) <- s_1)) x s_

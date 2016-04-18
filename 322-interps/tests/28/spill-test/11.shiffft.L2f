@@ -1,0 +1,6 @@
+(:shiffft 1 0
+    (x <- rdi)
+    (x &= x)
+    (sx <- x)
+    (rax <<= sx)
+    (return)) x s

@@ -1,0 +1,3 @@
+(:call 0 0
+    (call b 0)
+    (return)) b stk

@@ -1,0 +1,1 @@
+(:f 6 3 (cx <- 2 <= rsp) (cx <- 2 <= rsp) (cx <- 2 <= rsp) (cx <- 2 <= rsp)) cx s

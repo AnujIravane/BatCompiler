@@ -1,0 +1,8 @@
+(:printfive 0 1
+  ((mem rsp 0) <- 11)
+  (rsi <- 0)
+  (s_0 <- (mem rsp 0))
+  (rsi += s_0)
+  (rdi <- (mem rsp 0))
+  (call print 1)
+  (return)) x s_

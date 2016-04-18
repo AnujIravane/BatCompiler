@@ -1,0 +1,17 @@
+(:main
+	(:main
+		0 0
+		(rdi <- 33)
+		((mem rsp -8) <- :ret)
+		(call :square 1)
+		:ret
+		(rdi <- rax)
+		(rdi *= 2)
+		(rdi += 1)
+		(call print 1)
+		(return))
+	(:square
+		1 0
+		(rax <- rdi)
+		(rax *= rax)
+		(return)))

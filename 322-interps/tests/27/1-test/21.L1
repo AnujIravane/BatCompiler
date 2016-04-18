@@ -1,0 +1,21 @@
+(:go
+  (:mask
+   2 0 
+	(rax <- rdi)
+	(rcx <- rsi)
+	(rax >>= rcx)
+	(rax <<= rcx)
+     (return))
+
+  (:go
+  0 0
+  (rdi <- 4567)
+  (rsi <- 11)
+  ((mem rsp -8) <- :mask_ret)
+  (call :mask 2)
+  :mask_ret
+  (rdi <- rax)
+  (rdi += 1)
+  (call print 1)
+  (return)))
+

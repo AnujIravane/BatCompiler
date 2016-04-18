@@ -1,0 +1,6 @@
+(:f 7 1
+    (x <- (stack-arg 0))
+    (s_0 <- (mem rsp 0))
+    (s_0 += x)
+    ((mem rsp 0) <- s_0)
+    (rax <- (mem rsp 0)))

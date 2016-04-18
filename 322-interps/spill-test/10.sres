@@ -1,0 +1,5 @@
+(:f 
+  0 1
+    ((mem rsp 0) <- :g)
+    (s0 <- (mem rsp 0))
+    (call s0 0))

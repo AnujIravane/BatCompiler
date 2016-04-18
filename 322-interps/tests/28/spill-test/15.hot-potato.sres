@@ -1,0 +1,6 @@
+(:hot_potato 0 1
+    (potato0 <- (mem rsp 0))
+    ((mem rsp 0) <- potato0)
+    (potato1 <- (mem rsp 8))
+    ((mem rsp 0) <- potato1)
+    (return))

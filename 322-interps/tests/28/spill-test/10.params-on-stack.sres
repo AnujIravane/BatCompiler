@@ -1,0 +1,8 @@
+(:params_on_stack 7 1
+    (glarg_0 <- (stack-arg 0))
+    ((mem rsp 0) <- glarg_0)
+    (glarg_1 <- (mem rsp 0))
+    (glarg_1 -= 5)
+    ((mem rsp 0) <- glarg_1)
+    (rax <- (mem rsp 0))
+    (return))

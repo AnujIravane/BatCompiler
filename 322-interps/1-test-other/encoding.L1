@@ -1,0 +1,20 @@
+; encoding.L1
+; Function for encoding the numeric representation in L1 language..
+
+(:main
+  (:main
+    0 0
+    (rdi <- 10)
+    ((mem rsp -8) <- :encode_ret)
+    (call :encode 1)
+    :encode_ret
+    (rdi <- rax)
+    (call print 1)
+    (return))
+  (:encode
+    1 0
+    (rdi *= 2)
+    (rdi += 1)
+    (rax <- rdi)
+    (return))
+)

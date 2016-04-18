@@ -1,0 +1,8 @@
+  (:go
+    0 1
+
+    (s_0 <- (mem rsp 0))
+    (cjump s_0 < myVar2 :l1 :myVar)
+
+    (return)
+  )

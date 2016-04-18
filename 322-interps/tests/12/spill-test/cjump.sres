@@ -1,0 +1,12 @@
+(:f 0 1
+  (s0 <- (mem rsp 0))
+  (cjump s0 < y :true :false)
+  :true
+  (s1 <- (mem rsp 0))
+  (s1 += 1)
+  ((mem rsp 0) <- s1)
+  :false
+  (s2 <- (mem rsp 0))
+  (s2 -= 2)
+  ((mem rsp 0) <- s2)
+  (return))

@@ -1,0 +1,16 @@
+(:main
+  0 1
+  (rdi <- 22)
+  ((mem rsp -8) <- :ret1)
+  (call :encode 1)
+  :ret1
+  ((mem rsp 0) <- rax)
+  (rdi <- (mem rsp 0))
+  (call print 1)
+  (rdi <- (mem rsp 0))
+  ((mem rsp -8) <- :ret2)
+  (call :encode 1)
+  :ret2
+  (rdi <- rax)
+  (call print 1)
+  (return))

@@ -1,0 +1,5 @@
+(:f 7 0
+    (x <- (stack-arg 0))
+    (rax <- x))
+y
+s_

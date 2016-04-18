@@ -1,0 +1,5 @@
+(:f 0 0
+  (xyz <- 3)
+  (yzx <- rax)
+  (zxy <- :label))
+x __s_

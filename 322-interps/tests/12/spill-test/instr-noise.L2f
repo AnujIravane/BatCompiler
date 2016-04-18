@@ -1,0 +1,10 @@
+(:f 0 0
+  (x <- 1)
+  (x += y)
+  (x -= 3)
+  (z <- 2)
+  (rdi <- 3)
+  (call print 1)
+  (return))
+z
+s

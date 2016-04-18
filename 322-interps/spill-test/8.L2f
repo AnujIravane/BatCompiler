@@ -1,0 +1,10 @@
+(:f 
+  8 0
+  (x <- rdi)
+  (y <- (mem rsp 0))
+  (z <- (mem rsp 8))
+  (a <- 3)
+  (a += x)
+  (a += y)
+  (a += z))
+a s

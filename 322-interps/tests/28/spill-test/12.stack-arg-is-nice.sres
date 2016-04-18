@@ -1,0 +1,7 @@
+(:stack_arg_is_nice 8 1
+    (rax <- (stack-arg 8))
+    (s0 <- (stack-arg 0))
+    ((mem rsp 0) <- s0)
+    (s1 <- (mem rsp 0))
+    (rax += s1)
+    (return))

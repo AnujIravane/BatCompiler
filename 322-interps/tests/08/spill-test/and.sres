@@ -1,0 +1,6 @@
+(:barf
+0 1
+((mem rsp 0) <- 5)
+(u_0 <- (mem rsp 0))
+(u_0 *= u_0)
+((mem rsp 0) <- u_0))

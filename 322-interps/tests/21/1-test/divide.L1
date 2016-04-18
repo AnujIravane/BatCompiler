@@ -1,0 +1,31 @@
+(:main
+	(:main
+		0 0
+		(rdi <- 87)
+		(rsi <- 17)
+		((mem rsp -8) <- :ret)
+		(call :div 2)
+		:ret
+		(rdi <- rax)
+		(tail-call :p 1))
+
+	(:div
+		2 0
+		(rax <- 0)
+		:check
+		(cjump rdi < rsi :done :top)
+		:top
+		(rax += 1)
+		(rdi -= rsi)
+		(goto :check)
+
+
+		:done
+		(return))
+
+	(:p
+		1 0
+		(rdi *= 2)
+		(rdi += 1)
+		(call print 1)
+		(return)))

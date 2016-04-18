@@ -1,0 +1,1 @@
+(:func 0 0 (rdi <- 7) (rsi <- 9) ((mem rsp -8) <- :f_ret) (call :f 2) :f_ret (rdi <- rax) (call print 1) (return)) x s_

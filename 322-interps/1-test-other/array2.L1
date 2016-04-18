@@ -1,0 +1,21 @@
+; array2.L1
+; Allocate an array of array
+; Except each array is different
+
+(:main
+  (:main
+    0 1
+    (rdi <- 5)
+    (rsi <- 7)
+    (call allocate 2)
+    (rdi <- 5)
+    (rsi <- rax)
+    (call allocate 2)
+    ((mem rsp 0) <- rax)
+    (rdi <- 5)
+    (rsi <- 11)
+    (call allocate 2)
+    (rdi <- (mem rsp 0))
+    ((mem rdi 16) <- rax)
+    (call print 1)
+    (return)))

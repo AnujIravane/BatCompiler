@@ -1,0 +1,15 @@
+(:f
+  8 1
+  (x <- rdi)
+  (y <- (stack-arg 0))
+  (z <- (stack-arg 8))
+  ((mem rsp 0) <- rsi)
+  (s0 <- (mem rsp 0))
+  (s0 += x)
+  ((mem rsp 0) <- s0)
+  (s1 <- (mem rsp 0))
+  (s1 += y)
+  ((mem rsp 0) <- s1)
+  (s2 <- (mem rsp 0))
+  (s2 += z)
+  ((mem rsp 0) <- s2))

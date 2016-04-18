@@ -1,0 +1,9 @@
+  (:go
+    1 0
+
+    (myVar <- (stack-arg 0))
+
+    (return)
+  )
+
+  myVar s_

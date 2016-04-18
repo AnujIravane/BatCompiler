@@ -1,0 +1,5 @@
+(:f 0 2
+  ((mem rsp 0) <- 3)
+  (s0 <- (mem rsp 0))
+  ((mem rsp 8) <- s0)
+  (return))

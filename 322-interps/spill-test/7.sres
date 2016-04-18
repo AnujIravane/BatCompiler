@@ -1,0 +1,14 @@
+(:f 
+  0 1
+  ((mem rsp 0) <- 0)
+  (y <- 0)
+  (s0 <- (mem rsp 0))
+  (cjump s0 = y :t :f)
+  :t 
+  (s1 <- (mem rsp 0))
+  (s1 += y)
+  ((mem rsp 0) <- s1)
+  :f
+  (s2 <- (mem rsp 0))
+  (s2 -= y)
+  ((mem rsp 0) <- s2)) 

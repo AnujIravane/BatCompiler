@@ -1,0 +1,7 @@
+(:lsjflksejfkles
+ 0 1
+ ((mem rsp 0) <- 0)
+ (s_0 <- (mem rsp 0))
+ (s_0 *= s_0)
+ ((mem rsp 0) <- s_0)
+ (return))

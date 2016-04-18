@@ -1,0 +1,14 @@
+(:comp
+	3 1
+	(xx <- rax)
+	(rax <- xx)
+	(rax <- rax)
+	(xx <- xx)
+	(xx += rax)
+	(rax += xx)
+	(rax *= rax)
+	(xx *= xx)
+	(rdi <- xx)
+	(call print 1)
+	(return))
+xx _0

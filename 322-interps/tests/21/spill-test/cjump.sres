@@ -1,0 +1,17 @@
+(:comp
+	0 1
+	((mem rsp 0) <- 4)
+	(qq <- 14)
+	(yoo0 <- (mem rsp 0))
+	(cjump yoo0 < qq :here :there)
+	:here
+	(yoo1 <- (mem rsp 0))
+	(yoo1 -= yoo1)
+	((mem rsp 0) <- yoo1)
+	:there
+	(yoo2 <- (mem rsp 0))
+	(yoo2 -= qq)
+	((mem rsp 0) <- yoo2)
+	(rdi <- (mem rsp 0))
+	(call print 1)
+	(return))

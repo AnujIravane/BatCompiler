@@ -1,0 +1,14 @@
+(:equal
+ (:equal
+  0 0
+  (rsi <- 15)
+  (rdi <- 9)
+  (cjump rdi = rsi :eq :noteq)
+  :noteq
+  (rdi *= 3)
+  (goto :fin)
+  :eq
+  (rdi *= 5)
+  :fin
+  (call print 1)
+  (return)))

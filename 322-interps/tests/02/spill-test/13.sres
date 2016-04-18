@@ -1,0 +1,10 @@
+(:f 0 1
+    ((mem rsp 0) <- 5)
+    :x
+    (s_0 <- (mem rsp 0))
+    (s_0 -= 1)
+    ((mem rsp 0) <- s_0)
+    (s_1 <- (mem rsp 0))
+    (cjump s_1 = 0 :t :x)
+    :t
+    (rax <- (mem rsp 0)))

@@ -1,0 +1,6 @@
+(:j
+0 1
+(goto :hello)
+:hello
+(t_0 <- (mem rsp 0))
+(rdx += t_0))

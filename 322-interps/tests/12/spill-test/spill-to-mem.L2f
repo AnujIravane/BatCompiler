@@ -1,0 +1,6 @@
+(:f 0 1
+  (a <- 1)
+  ((mem rsp 0) <- a)
+  (return))
+a
+s

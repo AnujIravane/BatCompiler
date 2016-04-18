@@ -1,0 +1,96 @@
+;; reverses array
+
+(:go
+    (:fill_mult
+        2 1	;; first is size, second is factor decoded
+        ;;make array
+	((mem rsp 0) <- rsi)
+        (rsi <- 1)
+        (call allocate 2)
+
+        ;;initialize counters
+        (rdi <- rax)
+        (rdi += 8)
+        (rcx <- (mem rax 0))
+	(rdx <- rcx)
+	(r8 <- (mem rsp 0))
+
+        :loop
+	(cjump rcx = 0 :done :more)
+
+	:more
+	(rsi <- rdx)
+	(rsi -= rcx)
+	(rsi *= r8)
+	(rsi *= 2)
+	(rsi += 1)
+	((mem rdi 0) <- rsi)
+	(rcx -= 1)
+	(rdi += 8)
+	(goto :loop)
+
+	:done
+	(return))
+
+	(:reverse
+		1 0 
+		(rax <- rdi)
+		(rsi <- rdi)
+		(rcx <- (mem rdi 0))
+
+		;; set rsi to point to end
+		(rdx <- rcx)
+		(rdx *= 8)
+		(rsi += rdx)
+
+		(rdx <- 0) 
+		(rdi += 8)
+
+		:reverse_loop1
+		(cjump rcx <= rdx :reverse_done1 :reverse_more1)
+		
+		:reverse_more1
+		;;swap the values
+		(r8 <- (mem rsi 0))
+		(r9 <- (mem rdi 0))
+		((mem rdi 0) <- r8)
+		((mem rsi 0) <- r9)
+
+		(rcx -= 1)
+		(rdx += 1)
+		(rdi += 8)
+		(rsi -= 8)
+		(goto :reverse_loop1)
+
+		:reverse_done1
+		(return))
+
+    (:go
+        0 0
+	(tail-call :test 0)
+	(return))
+
+    (:test
+	0 1
+	((mem rsp 0) <- rbx)
+	;; gen first array
+        (rdi <- 13)
+        (rsi <- 7)
+        ((mem rsp -8) <- :fill_ret1)
+        (call :fill_mult 2)
+        
+	:fill_ret1
+	(rdi <- rax)
+	(rbx <- rax)
+	(call print 1)
+	
+	(rdi <- rbx)
+	((mem rsp -8) <- :reverse_ret)
+	(call :reverse 1)
+	
+	:reverse_ret
+	(rdi <- rax)
+	(call print 1)
+	(rbx <- (mem rsp 0))
+        (return)))
+

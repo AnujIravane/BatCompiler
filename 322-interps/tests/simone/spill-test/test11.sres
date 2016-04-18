@@ -1,0 +1,7 @@
+  (:goA
+    2 6
+
+    (myVar2 += rdi)
+
+    (return)
+  )

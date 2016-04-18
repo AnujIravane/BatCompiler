@@ -1,0 +1,4 @@
+(:foo
+0 1
+((mem rsp 0) <- 5)
+(return))

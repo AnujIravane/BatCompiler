@@ -1,0 +1,7 @@
+(:shift
+ (:shift
+  0 0
+  (rdi <- 15)
+  (rdi >>= 1)
+  (call print 1)
+  (return)))

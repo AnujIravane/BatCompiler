@@ -1,0 +1,31 @@
+  (:go
+    0 1
+
+    ; Compute the data
+    ((mem rsp 0) <- +5)
+
+    (s_0 <- (mem rsp 0))
+    (s_0 += 3)
+    ((mem rsp 0) <- s_0)
+
+    ((mem rsp -8) <- :testFunction_ret)
+    (rdi <- (mem rsp 0))
+
+    (s_1 <- (mem rsp 0))
+    (s_1 *= 2)
+    ((mem rsp 0) <- s_1)
+
+    (s_2 <- (mem rsp 0))
+    (s_2 &= 3)
+    ((mem rsp 0) <- s_2)
+
+    (rdi <- (mem rsp 0))
+    (call :testFunction 1)
+    :testFunction_ret
+
+    ; Print the computed data
+    (rdi <- rax)
+    (call print 1)
+
+    (return)
+  )

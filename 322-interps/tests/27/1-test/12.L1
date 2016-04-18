@@ -1,0 +1,29 @@
+(:go
+    (:is_neg
+        1 0
+        (rax <- rdi)
+	(rax >>= 63)
+	(rax &= 1)
+	(rax <<= 1)
+	(rax += 1)
+        (return))
+
+    (:go
+        0 0
+	(rdi <- 11)
+	((mem rsp -8) <- :ret1)
+	(call :is_neg 1)
+	
+
+	:ret1
+	(rdi <- rax)
+	(call print 1)
+	
+	(rdi <- -5)	;; equal to -1
+	((mem rsp -8) <- :ret2)
+	(call :is_neg 1)
+
+	:ret2
+	(rdi <- rax)
+	(call print 1)
+        (return)))

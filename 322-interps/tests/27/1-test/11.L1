@@ -1,0 +1,37 @@
+;; is_even for encoded numbers
+
+(:go
+    (:is_even
+        1 0
+        (rdi >>= 1)
+        (rdi &= 1)
+        (cjump rdi = 1 :odd :even)
+
+        :odd
+        (rax <- 1)
+        (return)
+        :even
+        (rax <- 3)
+        (return))
+
+    (:go
+        0 0
+
+        ;;tests even number
+        (rdi <- 13)
+        ((mem rsp -8) <- :even1)
+        (call :is_even 1)
+
+        :even1
+        (rdi <- rax)
+        (call print 1)
+
+        ;;tests odd number
+        (rdi <- 23)
+        ((mem rsp -8) <- :even2)
+        (call :is_even 1)
+
+        :even2
+        (rdi <- rax)
+        (call print 1)
+        (return)))

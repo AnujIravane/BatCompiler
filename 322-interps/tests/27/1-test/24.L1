@@ -1,0 +1,55 @@
+(:go
+	(:is_multiple
+	2 0
+	(rdi >>= 1)
+	(rsi >>= 1)
+
+      :continue
+        (rdi -= rsi )
+
+      :check
+	(cjump rdi = 0 :isZero :isNotZero)
+       
+      :isNotZero
+	(cjump 1 < rdi :continue :terminateFalse)
+  
+      :terminateFalse
+	(rax <- 0)
+        (return )
+    
+      :isZero
+        (rax <- 1)
+        (return))
+
+	(:go
+	0 0
+	(rdi <- 17)
+	(call print 1)
+	(rdi <- 7)
+	(call print 1)
+	(rdi <- 17)
+	(rsi <- 7)
+	((mem rsp -8) <- :is_mult_return1)
+	(call :is_multiple 2)
+	:is_mult_return1
+        (rax <<= 1)
+        (rax += 1)
+	(rdi <- rax)
+	(call print 1)
+
+	(rdi <- 33)
+	(call print 1)
+	(rdi <- 17)
+	(call print 1)
+
+	(rdi <- 33)
+	(rsi <- 17)
+	((mem rsp -8) <- :is_mult_return2)
+	(call :is_multiple 2)
+	:is_mult_return2
+        (rax <<= 1)
+        (rax += 1)
+	(rdi <- rax)
+	(call print 1)
+
+        (return)))

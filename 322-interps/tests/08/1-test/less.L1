@@ -1,0 +1,13 @@
+(:less
+ (:less
+  0 0
+  (rsi <- 5)
+  (cjump rsi < 6 :truex :falsex)
+  :truex
+  (rdi <- 3)
+  (goto :end)
+  :falsex
+  (rdi <- 11)
+  :end
+  (call print 1)
+  (return)))

@@ -1,0 +1,1 @@
+(:f 8 1 (s_0 <- (mem rsp 0)) ((mem rsp 0) <- s_0) (s_1 <- (mem rsp 0)) (rax += s_1))

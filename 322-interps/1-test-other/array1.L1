@@ -1,0 +1,19 @@
+; array1.L1
+; Allocates an array of array, and then tries to modify the memory address of that array and see if all of the values of the array change. 
+; (Too many arrays in one sentence, sorry)
+
+(:main
+  (:main
+    0 2
+    (rdi <- 5)
+    (rsi <- 7)
+    (call allocate 2)
+    ((mem rsp 0) <- rax)
+    (rdi <- 7)
+    (rsi <- rax)
+    (call allocate 2)
+    (rdi <- (mem rsp 0)) 
+    ((mem rdi 8) <- 11)
+    (rdi <- rax)
+    (call print 1)
+    (return)))

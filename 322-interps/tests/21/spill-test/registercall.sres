@@ -1,0 +1,10 @@
+(:qw
+	3 7
+	((mem rsp 48) <- :lbl)
+	(rdi <- (mem rsp 48))
+	((mem rsp 48) <- rdi)
+	(w_w0 <- (mem rsp 48))
+	(call w_w0 1)
+	(rdi <- rax)
+	(call print 1)
+	(return))

@@ -1,0 +1,5 @@
+(:stack_arg_is_nice 8 0
+    (rax <- (stack-arg 8))
+    (y <- (stack-arg 0))
+    (rax += y)
+    (return)) y s

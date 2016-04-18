@@ -1,0 +1,6 @@
+(:memacc
+	0 0
+	(x <- (mem rsp 8))
+	((mem rsp 16) <- x)
+	(return))
+x __8_8_7

@@ -1,0 +1,4 @@
+(:f 9 10
+  (tail-call x 3)
+  (tail-call y 3))
+y __s_

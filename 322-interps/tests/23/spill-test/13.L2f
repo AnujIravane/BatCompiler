@@ -1,0 +1,14 @@
+(:printlocal5 0 1
+  (x <- 5)
+  (rdi <- 11)
+  ((mem rsp 0) <- rdi)
+  (rdi <- 7)
+  ((mem rsp -8) <- :f_ret)
+  ((mem rsp -16) <- 15)
+  ((mem rsp -24) <- 17)
+  (call :f 8)
+  :f_ret
+  (rdi <- (mem rsp 0))
+  (rdi += rax)
+  (rdi -= 1)
+  (tail-call :g 1)) x s_

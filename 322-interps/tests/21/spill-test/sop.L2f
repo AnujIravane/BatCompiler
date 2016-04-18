@@ -1,0 +1,8 @@
+(:sop
+	0 0
+	(so <- 3)
+	(so <<= so)
+	(so <<= 1)
+	(rax <<= so)
+	(return))
+so s_

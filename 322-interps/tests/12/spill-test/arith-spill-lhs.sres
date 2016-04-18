@@ -1,0 +1,13 @@
+(:f 0 1
+  (s0 <- (mem rsp 0))
+  (s0 += a)
+  ((mem rsp 0) <- s0)
+  (s1 <- (mem rsp 0))
+  (s1 -= b)
+  ((mem rsp 0) <- s1)
+  (s2 <- (mem rsp 0))
+  (s2 *= c)
+  ((mem rsp 0) <- s2)
+  (s3 <- (mem rsp 0))
+  (s3 &= d)
+  ((mem rsp 0) <- s3))

@@ -1,0 +1,12 @@
+(:goto
+ (:goto
+  0 0
+  (goto :jump)
+  (rdi <- 13)
+  (call print 1)
+  (goto :fin)
+  :jump
+  (rdi <- 21)
+  (call print 1)
+  :fin
+  (return)))

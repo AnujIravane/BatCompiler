@@ -1,0 +1,6 @@
+(:f 1 2
+    (s_0 <- (mem rsp 0))
+    (s_0 <- s_0 = 5)
+    ((mem rsp 0) <- s_0)
+    ((mem rsp 8) <- rdi)
+    (rax <- (mem rsp 0)))

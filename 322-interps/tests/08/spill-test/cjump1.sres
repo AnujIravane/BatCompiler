@@ -1,0 +1,5 @@
+(:cjump1
+0 1
+((mem rsp 0) <- 3)
+(t0 <- (mem rsp 0))
+(cjump t0 <= rax :yes :no))

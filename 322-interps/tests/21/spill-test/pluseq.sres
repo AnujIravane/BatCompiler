@@ -1,0 +1,6 @@
+(:main
+	0 1
+	(not0 <- (mem rsp 0))
+	(not0 += not0)
+	((mem rsp 0) <- not0)
+	(return))

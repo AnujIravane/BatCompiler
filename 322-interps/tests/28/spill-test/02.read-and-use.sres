@@ -1,0 +1,7 @@
+(:g 0 1
+    (a <- 1)
+    ((mem rsp 0) <- 1)
+    (rax <- a)
+    (s0 <- (mem rsp 0))
+    (rax += s0)
+    (return))

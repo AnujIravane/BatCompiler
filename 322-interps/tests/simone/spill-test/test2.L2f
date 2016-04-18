@@ -1,0 +1,9 @@
+  (:go
+    0 0
+
+    (myVar <- myVar < myVar)
+
+    (return)
+  )
+
+  myVar s_

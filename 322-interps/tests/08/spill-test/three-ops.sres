@@ -1,0 +1,11 @@
+(:three
+0 1
+(t_0 <- (mem rsp 0))
+(t_0 += t_0)
+((mem rsp 0) <- t_0)
+(t_1 <- (mem rsp 0))
+(t_1 -= 5)
+((mem rsp 0) <- t_1)
+(t_2 <- (mem rsp 0))
+(t_2 *= rdi)
+((mem rsp 0) <- t_2))

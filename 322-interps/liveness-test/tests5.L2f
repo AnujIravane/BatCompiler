@@ -1,0 +1,7 @@
+(:g
+ 2 0
+ (a <- (mem rdi 0))
+ (b <- (mem rsi 0))
+ ((mem rdi 0) <- a)
+ ((mem rsi 0) <- b)
+ (return))

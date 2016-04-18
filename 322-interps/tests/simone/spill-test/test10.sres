@@ -1,0 +1,9 @@
+  (:goA
+    2 6
+
+    (s0 <- (mem rsp 40))
+    (s0 += rdi)
+    ((mem rsp 40) <- s0)
+
+    (return)
+  )

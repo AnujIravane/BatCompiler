@@ -1,0 +1,4 @@
+(:f 0 0
+  (tail-call x 3))
+x
+s

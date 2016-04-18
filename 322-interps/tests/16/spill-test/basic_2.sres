@@ -1,0 +1,4 @@
+(:f 0 1
+  (xyz <- 3)
+  (yzx <- rax)
+  (zxy <- :label))

@@ -1,0 +1,9 @@
+  (:go
+    0 0
+
+    (cjump myVar < myVar2 :l1 :myVar)
+
+    (return)
+  )
+
+  myVar s_

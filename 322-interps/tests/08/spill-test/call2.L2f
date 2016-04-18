@@ -1,0 +1,1 @@
+(:call2 0 0 (x <- :label) (rdi <- x) (call rdi 0)) x s

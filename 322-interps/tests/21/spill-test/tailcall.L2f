@@ -1,0 +1,6 @@
+(:sad
+	0 0
+	(jf <- :qqq)
+	(tail-call jf 4)
+	(return))
+jf _0_

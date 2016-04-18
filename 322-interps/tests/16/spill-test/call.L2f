@@ -1,0 +1,5 @@
+(:f 8 9
+  (call :hello_world 3)
+  (call x 2)
+  (call y 2))
+x __s_

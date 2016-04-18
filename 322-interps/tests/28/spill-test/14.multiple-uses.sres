@@ -1,0 +1,10 @@
+(:multiple_uses 1 1
+    ((mem rsp 0) <- rdi)
+    (var0 <- (mem rsp 0))
+    (var0 += 5)
+    ((mem rsp 0) <- var0)
+    (var1 <- (mem rsp 0))
+    (var1 *= var1)
+    ((mem rsp 0) <- var1)
+    (rax <- (mem rsp 0))
+    (return))

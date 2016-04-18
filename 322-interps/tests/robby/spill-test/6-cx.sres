@@ -1,0 +1,1 @@
+(:f 5 4 (s0 <- (mem rsp 24)) (s0 <- s0 < rsp) ((mem rsp 24) <- s0) (s1 <- (mem rsp 24)) (s1 <- s1 < rsp) ((mem rsp 24) <- s1) (s2 <- (mem rsp 24)) (s2 <- s2 < rsp) ((mem rsp 24) <- s2))

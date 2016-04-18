@@ -1,0 +1,5 @@
+(:call2
+0 1
+((mem rsp 0) <- :label)
+(rdi <- (mem rsp 0))
+(call rdi 0))

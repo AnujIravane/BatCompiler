@@ -1,0 +1,6 @@
+(:multiple_uses 1 0
+    (y <- rdi)
+    (y += 5)
+    (y *= y)
+    (rax <- y)
+    (return)) y var

@@ -1,0 +1,5 @@
+(:f 8 10
+  (call :hello_world 3)
+  (__s_0 <- (mem rsp 72))
+  (call __s_0 2)
+  (call y 2))

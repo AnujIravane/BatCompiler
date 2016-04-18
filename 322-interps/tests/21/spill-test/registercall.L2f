@@ -1,0 +1,12 @@
+(:qw
+	3 6
+	(this <- :lbl)
+	(rdi <- this)
+	(this <- rdi)
+	(call this 1)
+	(rdi <- rax)
+	(call print 1)
+	(return))
+
+
+this w_w

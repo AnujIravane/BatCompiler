@@ -1,0 +1,9 @@
+(:man
+	0 0
+	(t <- 2)
+	(t += t)
+	(rax <- 2)
+	(rax += t)
+	(t += rax)
+	(return))
+t mm_

@@ -1,0 +1,11 @@
+(:spilling 0 5
+    (rax <- (mem rsp 0))
+    (s0 <- (mem rsp 8))
+    (rax += s0)
+    (x0 <- (mem rsp 16))
+    (rax += x0)
+    (y0 <- (mem rsp 24))
+    (rax += y0)
+    (z0 <- (mem rsp 32))
+    (rax += z0)
+    (return))

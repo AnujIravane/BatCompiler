@@ -1,0 +1,4 @@
+(:f 9 11
+  (tail-call x 3)
+  (__s_0 <- (mem rsp 80))
+  (tail-call __s_0 3))

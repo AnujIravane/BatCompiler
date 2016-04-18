@@ -1,0 +1,18 @@
+; Trivial Test Case :D
+; Return whatever gets pased in
+
+(:main
+  (:main
+    0 0
+    (rdi <- 11)
+    ((mem rsp -8) <- :vomit_same_thing_ret)
+    (call :vomit_same_thing 1)
+    :vomit_same_thing_ret
+    (rdi <- rax)
+    (call print 1)
+    (return))
+  (:vomit_same_thing
+    1 0
+    (rax <- rdi)
+    (return))
+)

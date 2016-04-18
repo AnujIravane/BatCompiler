@@ -1,0 +1,1 @@
+(:cjump3 0 0 (x += x) (cjump x < x :yes :no) :yes (x *= x) :no (x &= x)) x s

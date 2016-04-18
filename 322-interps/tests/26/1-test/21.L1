@@ -1,0 +1,12 @@
+(:main
+ (:main
+  0 0
+  (rdi <- 5)
+  (tail-call :c1 1))
+ (:c1
+  1 0
+  (tail-call :c2 1))
+ (:c2
+  1 0
+  (call print 1)
+  (return)))

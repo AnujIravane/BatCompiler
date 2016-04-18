@@ -1,0 +1,5 @@
+(:test8 1 0
+    (x <- rdi)
+    (y <- x)
+    (x <- y)
+    (return)) x s

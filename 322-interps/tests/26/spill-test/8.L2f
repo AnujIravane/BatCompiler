@@ -1,0 +1,30 @@
+(:dist
+ 2 2
+ (x <- rdi)
+ (y <- rsi)
+ ((mem rsp 0) <- x)
+ ((mem rsp 8) <- y)
+
+ (rdi <- x)
+ ((mem rsp -8) <- :sqr1)
+ (call sqr 1)
+ :sqr1
+ (x <- rax)
+
+ (rdi <- y)
+ ((mem rsp -8) <- :sqr2)
+ (call sqr 1)
+ :sqr2
+ (y <- rax)
+
+ (s <- x)
+ (s += y)
+ (rdi <- s)
+ ((mem rsp -8) <- :sqrt1)
+ (call sqrt 1)
+ :sqrt1
+ (s <- rax)
+ (rax <- s)
+ (return))
+y
+r_

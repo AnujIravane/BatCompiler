@@ -1,0 +1,1 @@
+(:f 7 4 (s0 <- rsp = 0) ((mem rsp 24) <- s0) (s1 <- rsp = 0) ((mem rsp 24) <- s1) (s2 <- rsp = 0) ((mem rsp 24) <- s2))

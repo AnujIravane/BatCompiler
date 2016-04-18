@@ -1,0 +1,5 @@
+(:test8 1 1
+    ((mem rsp 0) <- rdi)
+    (y <- (mem rsp 0))
+    ((mem rsp 0) <- y)
+    (return))

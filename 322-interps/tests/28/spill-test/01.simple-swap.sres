@@ -1,0 +1,5 @@
+(:f 0 1
+    ((mem rsp 0) <- 1)
+    (rdi <- (mem rsp 0))
+    (call print 1)
+    (return))

@@ -1,0 +1,6 @@
+(:title
+	0 5
+	(q <- 5)
+	(rax <- q)
+	(return))
+q q

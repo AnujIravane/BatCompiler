@@ -1,0 +1,6 @@
+(:main
+ 0 0
+ (a <- :fun)
+ (tail-call a 0))
+a
+s_

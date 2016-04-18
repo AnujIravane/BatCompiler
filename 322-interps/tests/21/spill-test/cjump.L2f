@@ -1,0 +1,13 @@
+(:comp
+	0 0
+	(tyu <- 4)
+	(qq <- 14)
+	(cjump tyu < qq :here :there)
+	:here
+	(tyu -= tyu)
+	:there
+	(tyu -= qq)
+	(rdi <- tyu)
+	(call print 1)
+	(return))
+tyu yoo

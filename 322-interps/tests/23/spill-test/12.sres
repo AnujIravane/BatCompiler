@@ -1,0 +1,15 @@
+(:loop 0 1
+  (rdi <- 5)
+  ((mem rsp 0) <- 7)
+  :start
+  (cjump rdi < 1 :yes :no)
+  :no
+  (rdi -= 1)
+  (s_0 <- (mem rsp 0))
+  (s_0 += 2)
+  ((mem rsp 0) <- s_0)
+  (goto :start)
+  :yes
+  (rdi <- (mem rsp 0))
+  (call print 1)
+  (return))

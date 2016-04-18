@@ -1,0 +1,13 @@
+(:main
+ 0 1
+ ((mem rsp 0) <- 3)
+ (s_0 <- (mem rsp 0))
+ (cjump s_0 <= s_0 :true :false)
+ :false
+ (rdi <- 1)
+ (goto :done)
+ :true
+ (rdi <- 3)
+ :done
+ (call print 1)
+ (return))

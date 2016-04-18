@@ -1,0 +1,6 @@
+(:sself
+0 1
+((mem rsp 0) <- 5)
+(s0 <- (mem rsp 0))
+(s0 *= 5)
+((mem rsp 0) <- s0))

@@ -1,0 +1,39 @@
+; heap1.L1 
+; implementation of "push" into heap
+; well, array..
+
+(:main
+  (:main
+    0 1
+    (rdi <- 3)
+    (rsi <- 7)
+    (call allocate 2)
+    (rdi <- rax)
+    ((mem rsp 0) <- rdi)
+    (call print 1)
+    ((mem rsp -8) <- :push_ret)
+    (rdi <- (mem rsp 0))
+    (rsi <- 9) 
+    (call :push 2)
+    :push_ret
+    (rdi <- rax)
+    (call print 1)
+    (return))
+  (:push
+    2 1
+    (r8 <- (mem rdi 0)) ; size of array
+    (r8 += 1)
+    (r8 *= 2)
+    (r8 += 1)
+    (r9 <- rdi) ; array address
+    ((mem rsp 0) <- rsi)
+    (rdi <- r8)
+    (rsi <- (mem r9 8))
+    (call allocate 2)
+    (r10 <- rax)
+    (r11 <- (mem rax 0))
+    (r11 <<= 3)
+    (r10 += r11)
+    (r11 <- (mem rsp 0))
+    ((mem r10 0) <- r11)
+    (return)))

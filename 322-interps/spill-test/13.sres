@@ -1,0 +1,14 @@
+(:f
+  1 1 
+    (x2 <- rdi)
+    (x2 *= x2)
+    ((mem rsp 0) <- x2)
+    (s0 <- (mem rsp 0))
+    (s0 *= 2)
+    ((mem rsp 0) <- s0)
+    (tx <- rdi)
+    (tx *= 3)
+    (rax <- (mem rsp 0))
+    (rax += tx)
+    (rax += 4)
+    (return))

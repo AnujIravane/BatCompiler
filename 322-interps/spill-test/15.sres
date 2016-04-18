@@ -1,0 +1,8 @@
+(:g 
+  0 2
+    ((mem rsp 0) <- 1)
+    ((mem rsp 8) <- 2)
+    (s <- (mem rsp 0))
+    (s0 <- (mem rsp 8))
+    (s0 += s)
+    ((mem rsp 8) <- s0))

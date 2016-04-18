@@ -1,0 +1,1 @@
+(:f 8 1 (s0 <- (mem rsp 0)) (s0 <- rsp = s0) ((mem rsp 0) <- s0) (s1 <- (mem rsp 0)) (s1 <- rsp = s1) ((mem rsp 0) <- s1))

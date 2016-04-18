@@ -1,0 +1,8 @@
+(:f 1 1
+    (s_0 <- (mem rsp 0))
+    (s_0 <- s_0 = 5)
+    ((mem rsp 0) <- s_0)
+    (x <- rdi)
+    (rax <- (mem rsp 0)))
+x
+t_

@@ -1,0 +1,34 @@
+;; returns 1 if falsey value
+;; 0 otherwise
+
+(:go
+    (:logical_not
+        1 0
+        (rdi >>= 1)
+        (cjump 0 < rdi :true :false)
+        :true
+        (rax <- 1)
+        (return)
+        :false
+        (rax <- 3)
+        (return))
+
+    (:go
+        0 0
+	;;true
+        (rdi <- 11)
+	((mem rsp -8) <- :not1_ret)
+        (call :logical_not 1)
+        :not1_ret
+        (rdi <- rax)
+        (call print 1)
+	
+	;;false
+        (rdi <- 1)
+	((mem rsp -8) <- :not2_ret)
+        (call :logical_not 1)
+        :not2_ret
+        (rdi <- rax)
+        (call print 1)
+
+        (return)))

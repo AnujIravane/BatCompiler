@@ -1,0 +1,11 @@
+  (:go
+    1 0
+
+    (myVar <- (stack-arg 0))
+
+    (myVar <<= myVar)
+
+    (return)
+  )
+
+  myVar _s_

@@ -1,0 +1,28 @@
+(:main
+ (:main
+  0 2
+  ((mem rsp 0) <- 3)
+  ((mem rsp 8) <- 5)
+  ((mem rsp -8) <- :ret)
+  (call :do_tail1 0)
+  :ret
+  ((mem rsp -8) <- :ret2)
+  (call :do_tail2 0)
+  :ret2
+  (rdi <- (mem rsp 0))
+  (call print 1)
+  (rdi <- (mem rsp 8))
+  (call print 1)
+  (tail-call :do_tail2 0))
+ (:do_tail1
+  0 0
+  (tail-call :tail 0))
+ (:do_tail2
+  0 1
+  (tail-call :tail 0))
+ (:tail
+  0 1
+  (rdi <- 1)
+  (call print 1)
+  (return)))
+

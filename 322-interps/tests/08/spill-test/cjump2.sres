@@ -1,0 +1,6 @@
+(:cjump2
+0 1
+(u0 <- (mem rsp 0))
+(cjump 5 = u0 :true :false)
+:true
+((mem rsp 0) <- 5))

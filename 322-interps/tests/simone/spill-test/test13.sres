@@ -1,0 +1,1 @@
+(:goA 2 6 (s0 <- (mem rsp 40)) (myVar2 += s0) (rdi <- 5) (call print 1) (return))
