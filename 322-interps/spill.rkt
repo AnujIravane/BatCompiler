@@ -3,9 +3,6 @@
 (define spill-var 'a)
 (define prefix 's)
 (define sv-counter -1)
-
-
-(define Spill-sp 0)
 (define spilled #f)
 (define spill-loc 0)
 (define (rsv x)
@@ -74,7 +71,6 @@
     (begin
       (set! spill-var (second code))
       (set! prefix (third code))
-      (set! Spill-sp spill-sp)
       (set! spill-loc (* 8 spill-sp))
       (let ([result (foldr string-append "" (map spill (cdddar code)))])
        (format "(~A ~A ~A~A)\n" fname regm  (+ 1 spill-sp) result)))))

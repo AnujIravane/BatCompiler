@@ -1,0 +1,8 @@
+(:f 1 0
+  (x <- rdi)
+  :loop
+  (x += 1)
+  (cjump x = 100 :exit :loop)
+  (x <- x)
+  :exit
+  (return))

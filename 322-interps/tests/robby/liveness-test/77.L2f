@@ -1,0 +1,17 @@
+(:f
+ 3
+ 0
+ (rax <- 0)
+ (rbx <- 1)
+ (rcx <- 2)
+ (rdx <- 3)
+ (rsi <- 4)
+ (rdi <- 5)
+ (tail-call u0 4)
+ (tail-call u1 3)
+ (rax += 0)
+ (rbx += 1)
+ (rcx += 2)
+ (rdx += 3)
+ (rsi += 4)
+ (rdi += 5))

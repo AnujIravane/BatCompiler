@@ -1,0 +1,8 @@
+(:f
+ 3
+ 0
+ :there
+ :here
+ :anywhere
+ (cjump t < t :here :there)
+ (cjump t < t :here :anywhere))

@@ -1,0 +1,7 @@
+(:f
+  0 0
+  (rdi <- 1)
+  (x <- 1)
+  (call print 1)
+  (x += 2)
+  (return))

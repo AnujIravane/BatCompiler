@@ -1,0 +1,10 @@
+(:go
+  0 0
+  (rdi <- 9)
+  (b <- 17)
+  (cjump rdi <= b :true :false)
+  :true
+  (return)
+  :false
+  (rdi <- b)
+  (return))

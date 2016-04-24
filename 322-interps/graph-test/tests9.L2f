@@ -1,0 +1,7 @@
+(:f 0 0 
+(x <- 3)
+(rdi <- x) 
+(rsi <- 7)
+(call allocate 2)
+(y <- rax)
+(return))

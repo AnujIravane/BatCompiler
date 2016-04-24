@@ -1,0 +1,3 @@
+(:f 1 0
+  ((mem x 24) <- rdi)
+  (return))

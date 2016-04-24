@@ -1,0 +1,6 @@
+((in
+  (func r12 r13 r14 r15 rbp rbx rcx rdi rdx rsi)
+  (func r12 r13 r14 r15 rbp rbx rcx rdi rdx rsi))
+ (out
+  (func r12 r13 r14 r15 rbp rbx rcx rdi rdx rsi)
+  ()))

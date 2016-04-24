@@ -1,0 +1,14 @@
+(:g
+  1 1
+  (cjump rdi = 1 :true :false)
+  :true
+  (rax <- 5)
+  (return)
+  :false
+  (x <- rdi)
+  (rdi -= 1)
+  ((mem rsp -8) <- :g_recur)
+  (call :g 1)
+  (rdi <- x)
+  (rax += rdi)
+  (return))

@@ -1,0 +1,19 @@
+(:f
+ 3
+ 0
+ :here
+ :anywhere
+ (rax <- 0)
+ (rbx <- 1)
+ (rcx <- 2)
+ (rdx <- 3)
+ (rsi <- 4)
+ (rdi <- 5)
+ (goto :here)
+ (goto :anywhere)
+ (rax += 0)
+ (rbx += 1)
+ (rcx += 2)
+ (rdx += 3)
+ (rsi += 4)
+ (rdi += 5))

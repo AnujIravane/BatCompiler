@@ -1,0 +1,32 @@
+((in
+  (r12 r13 r14 r15 rbp rbx);(rdi <- 22)
+  (r12 r13 r14 r15 rbp rbx rdi);((mem rsp -8) <- :ret1)
+  (r12 r13 r14 r15 rbp rbx rdi);(call :encode 1)
+  (r12 r13 r14 r15 rax rbp rbx);:ret1
+  (r12 r13 r14 r15 rax rbp rbx);(v <- rax)
+  (r12 r13 r14 r15 rbp rbx v);(rdi <- v)
+  (r12 r13 r14 r15 rbp rbx rdi v);(call print 1)
+  (r12 r13 r14 r15 rbp rbx v);(rdi <- v)
+  (r12 r13 r14 r15 rbp rbx rdi);((mem rsp -8) <- :ret2)
+  (r12 r13 r14 r15 rbp rbx rdi);(call :encode 1)
+  (r12 r13 r14 r15 rax rbp rbx);:ret2
+  (r12 r13 r14 r15 rax rbp rbx);(rdi <- rax)
+  (r12 r13 r14 r15 rbp rbx rdi);(call print 1)
+  (r12 r13 r14 r15 rax rbp rbx);(return)
+  )
+ (out
+  (r12 r13 r14 r15 rbp rbx rdi);((mem rsp -8) <- :ret1)
+  (r12 r13 r14 r15 rbp rbx rdi);(call :encode 1)
+  (r12 r13 r14 r15 rax rbp rbx);:ret1
+  (r12 r13 r14 r15 rax rbp rbx);(v <- rax)
+  (r12 r13 r14 r15 rbp rbx v);(rdi <- v)
+  (r12 r13 r14 r15 rbp rbx rdi v);(call print 1)
+  (r12 r13 r14 r15 rbp rbx v);(rdi <- v)
+  (r12 r13 r14 r15 rbp rbx rdi);((mem rsp -8) <- :ret2)
+  (r12 r13 r14 r15 rbp rbx rdi);(call :encode 1)
+  (r12 r13 r14 r15 rax rbp rbx);:ret2
+  (r12 r13 r14 r15 rax rbp rbx);(rdi <- rax)
+  (r12 r13 r14 r15 rbp rbx rdi);(call print 1)
+  (r12 r13 r14 r15 rax rbp rbx);(return)
+  ()
+  ))

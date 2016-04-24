@@ -1,0 +1,7 @@
+(:g 
+  0 0
+  (a <- :imaginary)
+  ((mem rsp -8) <- :i_ret)
+  (call a 1)
+  :i_ret
+  (return))

@@ -1,0 +1,13 @@
+(:f
+  0 0
+  (x <- 1)
+  (y <- 2)
+  (z <- 3)
+  (cjump x < 3 :true :false)
+  :true
+  (y += 1)
+  (goto :end)
+  :false
+  (z += 3)
+  :end
+  (return))

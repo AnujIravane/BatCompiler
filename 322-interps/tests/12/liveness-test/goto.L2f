@@ -1,0 +1,7 @@
+(:f
+  0 0
+  (x <- 1)
+  :top
+  (x += 1)
+  (goto :top)
+  (return))

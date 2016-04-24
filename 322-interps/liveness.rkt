@@ -45,7 +45,13 @@
     [`(,w <- (stack-arg ,n)) (cons '() (reg-or-var? w))]
     [`(,w <- ,s) (cons(reg-or-var? s)(reg-or-var? w))]
     [`(call ,u ,n) (cons (let ([u1 (reg-or-var? u)] [n-args (get-args n)])(if (not (equal? '() u1)) (append u1 n-args) n-args))(cons result caller-save-reg))]
-    [`(tail-call ,u ,n) (cons (let ([u1 (reg-or-var? u)] [n-args (get-args n)])(if (not (equal? '() u1)) (append u1 n-args callee-save-reg) (append n-args callee-save-reg))) '())]
+    [`(tail-call ,u ,n)
+     (cons
+      (let ([u1 (reg-or-var? u)] [n-args (get-args n)])
+        (if (not (equal? '() u1))
+            (append u1 n-args callee-save-reg)
+            (append n-args callee-save-reg)))
+      '())]
     [`(,w ,op ,s) (cons (append (reg-or-var? s) (reg-or-var? w)) (reg-or-var? w))]    
     [`(,w <- ,t1 ,cmp ,t2) (cons (append (reg-or-var? t1)  (reg-or-var? t2)) (reg-or-var? w))]
     [(? symbol?) (cons '() '())]
@@ -60,14 +66,15 @@
     (for ([i (in-range (vector-length prog-vec))]
           [instr prog-vec])
       (match instr
-        [`(cjump ,t1 ,cmp ,t2 ,l1 ,l2) (if (= i (- (vector-length prog-vec) 1))
-                                           (vector-set! succ-set i (list (find-label l1) (find-label l2)))
-                                           (vector-set! succ-set i (list (+ i 1) (find-label l1) (find-label l2))))]
-        [`(goto ,l) (if (= i (- (vector-length prog-vec) 1))
-                        (vector-set! succ-set i (list (find-label l)))
-                        (vector-set! succ-set i (list (+ i 1) (find-label l))))]
+        [`(cjump ,t1 ,cmp ,t2 ,l1 ,l2) ;(if (= i (- (vector-length prog-vec) 1))
+                                           (vector-set! succ-set i (list (find-label l1) (find-label l2)))]
+                                           ;(vector-set! succ-set i (list (+ i 1) (find-label l1) (find-label l2))))]
+        [`(goto ,l) ;(if (= i (- (vector-length prog-vec) 1))
+                        (vector-set! succ-set i (list (find-label l)))]
+                        ;(vector-set! succ-set i (list (+ i 1) (find-label l))))]
         [`(return) (vector-set! succ-set i '())]
-        [`(tail-call) (vector-set! succ-set i '())]
+        [`(call array-error ,n) (vector-set! succ-set i '())]
+        [`(tail-call ,u ,n) (vector-set! succ-set i '())]
         [_ (if (= i (- (vector-length prog-vec) 1))
                             (vector-set! succ-set i '())
                             (vector-set! succ-set i (list (+ i 1))))]))))
@@ -106,8 +113,6 @@
     
         
  
-
-
 (define (main x)
   (begin
     (set! prog-vec (list->vector (cdddr x)))
@@ -124,15 +129,33 @@
     ;;(display gen-set)
     (create-successors)
     (in-out in-set out-set(vector-length prog-vec))))
+
+(define (liveness-main x)
+  (begin
+    (set! prog-vec (list->vector (cdddr x)))
+    (set! gen-set (make-vector (vector-length prog-vec) '()))
+    (set! kill-set (make-vector (vector-length prog-vec) '()))
+    (set! in-set (make-vector (vector-length prog-vec) '()))
+    (set! out-set (make-vector (vector-length prog-vec) '()))
+    (for ([instr prog-vec]
+          [i (in-range (vector-length prog-vec))])
+      (let ([gen-kill-val (gen-kill instr)])
+        (begin
+          (vector-set! gen-set i (remove-duplicates (car gen-kill-val)))
+          (vector-set! kill-set i (remove-duplicates (cdr gen-kill-val))))))
+    ;;(display gen-set)
+    (create-successors)
+    (cons (vector->list kill-set) (in-out in-set out-set(vector-length prog-vec)))))
   
   
 (when (= (vector-length (current-command-line-arguments)) 1)
   (call-with-input-file
       (vector-ref (current-command-line-arguments) 0)
     (lambda (x)
-      (display (main (read x))
+      (display (liveness-main (read x))
                ))))
 
+(provide liveness-main all-regs isReg? isVar?)
 
 ; (main '(:go
  ; 0 0

@@ -1,0 +1,11 @@
+(:f
+  0 0
+  (x <- 1)
+  (cjump x < 2 :true :false)
+  :true
+  (x += 2)
+  (goto :end)
+  :false
+  :end
+  (rax <- x)
+  (return))

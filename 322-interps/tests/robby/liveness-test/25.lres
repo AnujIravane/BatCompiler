@@ -1,0 +1,2 @@
+((in (sx w0 w1) (sx w0 w1) (sx w0 w1) (sx w1) () ())
+ (out (sx w0 w1) (sx w0 w1) (sx w1) () () ()))

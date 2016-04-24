@@ -1,0 +1,7 @@
+(:f
+ 0 1
+ ((mem rsp 0) <- 1)
+ (x <- 3)
+ (y <- (mem rsp 0))
+ (x += y)
+ (return))

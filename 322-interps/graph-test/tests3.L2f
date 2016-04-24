@@ -1,0 +1,6 @@
+(:f 0 0 
+	(x <- rdi)
+	(a <- rsi)
+	(rax += rdi)
+	(rsi <- 3)
+	(return))

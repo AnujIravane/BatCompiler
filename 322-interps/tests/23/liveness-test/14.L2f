@@ -1,0 +1,5 @@
+(:printfive 0 0
+  (x <- 11)
+  (rdi <- x)
+  (call print 1)
+  (return))

@@ -1,0 +1,6 @@
+(:assign 2 0
+	(x <- rdi)
+	(rax <- rsi)
+	(x += rax)
+	(rax <- x)
+	(return))

@@ -1,0 +1,15 @@
+(:f
+  2 0
+  (a <- (mem rdi 0))
+  (a += 1)
+  (y <- rdi)
+  (m <- rsi)
+  (rdi <- a)
+  (rsi <- (mem y 8))
+  (call allocate 2)
+  (a <- rax)
+  (y <- (mem a 0))
+  (a += y)
+  (y <- (mem rsp 0))
+  ((mem a 0) <- y)
+  (return))

@@ -1,0 +1,10 @@
+(:f
+  6 0
+  (x <- 1)
+  (x += rdi)
+  (x -= rsi)
+  (x *= rdx)
+  (x <<= rcx)
+  (x &= r8)
+  ((mem r9 8) <- x)
+  (return))

@@ -1,0 +1,11 @@
+(:loop 0 0
+	(r9 <- 8)
+	:top
+	(cjump r9 = 0 :stop :go)
+	:go
+	(rdi <- r9)
+	(call print 1)
+	(r9 -= 1)
+	(goto :top)
+	:stop
+	(return))

@@ -1,0 +1,8 @@
+((in
+  (rdi)
+  (rdi rsi)
+  (rdi rsi))
+ (out
+  (rdi rsi)
+  (rdi rsi)
+  ()))

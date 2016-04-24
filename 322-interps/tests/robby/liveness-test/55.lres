@@ -1,0 +1,14 @@
+((in
+  (r8 rcx rdi rdx rsi u0 u1)
+  (r8 rcx rdi rdx rsi u0 u1)
+  (r8 rcx rdi rdx rsi u0 u1)
+  (r8 r9 rcx rdi rdx rsi u1)
+  ()
+  ())
+ (out
+  (r8 rcx rdi rdx rsi u0 u1)
+  (r8 rcx rdi rdx rsi u0 u1)
+  (r8 r9 rcx rdi rdx rsi u1)
+  ()
+  ()
+  ()))

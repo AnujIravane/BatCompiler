@@ -1,0 +1,4 @@
+(:f 0 0
+  (call print 1)
+  (call allocate 2)
+  (call array-error 2))

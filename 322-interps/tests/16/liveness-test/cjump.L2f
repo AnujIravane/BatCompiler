@@ -1,0 +1,9 @@
+(:f 1 0
+  (x <- rdi)
+  (cjump x = 0 :zero :not_zero)
+  :zero
+  (rax <- x)
+  (return)
+  :not_zero
+  (rax <- x)
+  (return))

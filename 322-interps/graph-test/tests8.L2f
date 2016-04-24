@@ -1,0 +1,12 @@
+(:f
+ 1 0
+ (x2 <- rdi)
+ (x2 *= x2)
+ (dx2 <- x2)
+ (dx2 *= 3)
+ (tx <- rdi)
+ (tx *= 7)
+ (rax <- dx2)
+ (rax += tx)
+ (rax += 5)
+ (return))

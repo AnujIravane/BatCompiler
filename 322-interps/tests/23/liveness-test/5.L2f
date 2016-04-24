@@ -1,0 +1,1 @@
+(:f 1 0 (x <- rdi) (rax <- x) (r12 <- x) (rax += r12) (return))

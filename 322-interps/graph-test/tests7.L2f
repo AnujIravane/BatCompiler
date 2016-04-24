@@ -1,0 +1,9 @@
+(:f 1 1
+(x <- rdi)
+(y <- (mem rsp 0))
+(z <- 3)
+(z += y)
+(y += x)
+(z += y)
+(rax <- z)
+(return))
