@@ -1,0 +1,1 @@
+(:f 1 0 (x <- rdi) (y <- 1) (y <<= x) (x <<= y) (rax <- x) (return))

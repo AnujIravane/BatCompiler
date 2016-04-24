@@ -1,0 +1,11 @@
+(:f
+  0 0
+  (cjump rdi < rsi :l1 :l2)
+  :l1
+  (rdi <- 3)
+  (call print 1)
+  (return)
+  :l2
+  (rdi <- 5)
+  (call print 1)
+  (return))

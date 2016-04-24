@@ -77,14 +77,25 @@
 
 (define (color-recur vars coloring graph)
   (if (empty? vars) coloring
-      (color-recur (cdr vars) (append coloring (list (car vars) (car (set-subtract all-regs (map (lambda (x) (cadr x)) coloring) (hash-ref graph (car vars))))))))) 
+      (let ([free-regs (sort (set-subtract all-regs
+                                           (map (lambda (x) (cadr x)) coloring)
+                                           (set->list (hash-ref graph (car vars)))) symbol<?)])
+        (if (empty? free-regs) #f
+            (color-recur (cdr vars) (append coloring (list (list (car vars)
+                                                                 (car free-regs)))) graph)))))
 
 (define (color-graph graph)
-  (let ([vars (filter isVar? (hash-keys graph))])
+  (let ([vars (filter isVar2? (hash-keys graph))])
     (color-recur vars '() graph)))
 
+(define (mod<? x y)
+  (if (symbol<? (car x) (car y))
+      x
+      y))
+   
+
 (define (graph->list graph)
-  (sort (map (lambda (x) (list (car x) (sort (set->list (cdr x)) symbol<?))) (hash->list graph)) symbol<?))
+   (sort (map (lambda (x) (list (car x) (sort (set->list (cdr x)) symbol<?))) (hash->list graph)) #:key car symbol<?) )
  
 (define (L2Graph func)
   (make-graph func)
@@ -101,11 +112,6 @@
       (display (L2Graph (read x))
                ))))
                        
-(L2Graph
- '(:f 0 0 
-	(x <- rdi)
-	(a <- rsi)
-	(rax += rdi)
-	(rsi <- 3)
-	(return)))      
-      
+  
+(L2Graph '(:f 0 0 (x <- 1) (rax += x) (return)))
+   

@@ -148,12 +148,12 @@
     (cons (vector->list kill-set) (in-out in-set out-set(vector-length prog-vec)))))
   
   
-(when (= (vector-length (current-command-line-arguments)) 1)
-  (call-with-input-file
-      (vector-ref (current-command-line-arguments) 0)
-    (lambda (x)
-      (display (liveness-main (read x))
-               ))))
+;(when (= (vector-length (current-command-line-arguments)) 1)
+ ; (call-with-input-file
+  ;    (vector-ref (current-command-line-arguments) 0)
+   ; (lambda (x)
+    ;  (display (liveness-main (read x))
+     ;          ))))
 
 (provide liveness-main all-regs isReg? isVar?)
 
