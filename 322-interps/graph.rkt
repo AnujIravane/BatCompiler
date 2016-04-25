@@ -29,7 +29,10 @@
    (if (number? x) #f
        (if (isReg? x) #f
            (if (or (equal? x 'print) (equal? x 'allocate) (equal? x 'allocate-error) (equal? x 'rsp)) #f
-               (regexp-match #rx"^[a-zA-Z_][a-zA-Z_0-9]*$" (symbol->string x))))))
+               (match x
+                 [`(mem ,a ,b) #f]
+                 [_ (regexp-match #rx"^[a-zA-Z_][a-zA-Z_0-9]*$" (symbol->string x))])
+               ))))
   
 (define (add-edge x y)
   (unless (equal? x y)
@@ -40,21 +43,27 @@
       (hash-set! graph x (set-add x_neighbors y))
       (hash-set! graph y (set-add y_neighbors x)))))
 
+(define (remove-edge x y)
+  (unless (equal? x y)
+    (check-graph-key x)
+    (check-graph-key y)
+    (let ([x_neighbors (hash-ref graph x)]
+          [y_neighbors (hash-ref graph y)])
+      (hash-set! graph x (set-remove x_neighbors y))
+      (hash-set! graph y (set-remove y_neighbors x)))))
 
-  
-
-(define (live-recur out-list)
+(define (live-recur out-list w s)
   (if (empty? out-list) #t
       (begin
-        (for-each (lambda (x) (add-edge (car out-list) x)) (cdr out-list))
-        (live-recur (cdr out-list)))))
+        (for-each (lambda (x) (check-graph-key x) (unless (equal? (set (car out-list) x) (set w s))(add-edge (car out-list) x))) (cdr out-list))
+        (live-recur (cdr out-list) w s))))
 
       
 
-(define (find-interference instr kill in out i)
-  (if (= i 0)
-      (live-recur in)
-      (live-recur (append kill out))))
+(define (find-interference instr kill in out i w s)
+  (when (= i 0)
+    (live-recur in w s))
+  (live-recur (append kill out) w s))
 
   
   
@@ -71,9 +80,12 @@
             [out out-set]
             [i (in-range (length prog))])
         (match instr
-          [`(,w <- ,s) (unless (and (isVar2? w) (isVar2? s))
-                           (find-interference instr kill in out i))]
-          [_ (find-interference instr kill in out i)])))))
+          [`(,w <- ,s) (find-interference instr kill in out i w s)]
+          [`(,w <<= ,s) (for-each (lambda (x) (add-edge s x)) (set->list (set-remove all-regs 'rcx)))
+                        (find-interference instr kill in out i #f #f)]
+          [`(,w >>= ,s) (for-each (lambda (x) (add-edge s x)) (set->list (set-remove all-regs 'rcx)))
+                        (find-interference instr kill in out i #f #f)]
+          [_ (find-interference instr kill in out i #f #f)])))))
 
 (define (color-recur vars coloring graph)
   (if (empty? vars) coloring
@@ -84,8 +96,12 @@
             (color-recur (cdr vars) (append coloring (list (list (car vars)
                                                                  (car free-regs)))) graph)))))
 
+
+(define (hash-length>? x y)
+  (if (> (set-count (hash-ref graph x)) (set-count (hash-ref graph y))) #t #f))
+
 (define (color-graph graph)
-  (let ([vars (filter isVar2? (hash-keys graph))])
+  (let ([vars (sort (filter isVar2? (hash-keys graph)) hash-length>?)])
     (color-recur vars '() graph)))
 
 (define (mod<? x y)
@@ -95,12 +111,14 @@
    
 
 (define (graph->list graph)
-   (sort (map (lambda (x) (list (car x) (sort (set->list (cdr x)) symbol<?))) (hash->list graph)) #:key car symbol<?) )
+   (sort (map (lambda (x) (append (list (car x)) (sort (set->list (cdr x)) symbol<?))) (hash->list graph)) #:key car symbol<?) )
  
 (define (L2Graph func)
   (make-graph func)
-  (list (graph->list graph)
-        (color-graph graph)))
+  (display (graph->list graph))
+  (let ([colored-graph (color-graph graph)])
+    (if colored-graph (display (sort colored-graph #:key car symbol<?)) #f)))
+
 
 
 
@@ -109,9 +127,7 @@
   (call-with-input-file
       (vector-ref (current-command-line-arguments) 0)
     (lambda (x)
-      (display (L2Graph (read x))
-               ))))
-                       
-  
-(L2Graph '(:f 0 0 (x <- 1) (rax += x) (return)))
-   
+      (L2Graph (read x))
+               )))
+
+

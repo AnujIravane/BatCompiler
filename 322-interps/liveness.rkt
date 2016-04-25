@@ -152,7 +152,7 @@
  ; (call-with-input-file
   ;    (vector-ref (current-command-line-arguments) 0)
    ; (lambda (x)
-    ;  (display (liveness-main (read x))
+    ;  (display (main (read x))
      ;          ))))
 
 (provide liveness-main all-regs isReg? isVar?)
