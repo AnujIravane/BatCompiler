@@ -1,0 +1,15 @@
+(:main
+ (:main
+  0
+  1
+  (call read 0)
+  (tot <- rax)
+  (call read 0)
+  (tot += rax)
+  (tot -= 1)
+  (call read 0)
+  (tot += rax)
+  (tot -= 1)
+  (rdi <- tot)
+  (call print 1)
+  (return)))

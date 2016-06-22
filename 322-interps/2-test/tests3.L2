@@ -1,0 +1,6 @@
+(:main 
+(:main 0 0
+(a <- 5)
+(a <- a < a)
+(rax <- a)
+(return)))

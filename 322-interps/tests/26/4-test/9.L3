@@ -1,0 +1,5 @@
+((let ([ar 4])
+   (let ([a (a? ar)])
+     (let ([n (number? ar)])
+       (let ([x (print a)])
+         (print n))))))

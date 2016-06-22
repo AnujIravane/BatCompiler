@@ -1,0 +1,21 @@
+(:main
+ (:main
+  0
+  0
+  (rdi <- 5)
+  (rsi <- 5)
+  (rdx <- 5)
+  (rcx <- 5)
+  (r8 <- 5)
+  (r9 <- 5)
+  ((mem rsp -16) <- 5)
+  ((mem rsp -24) <- 5)
+  ((mem rsp -8) <- :ret)
+  (call :g 8)
+  :ret
+  (rax *= 2)
+  (rax += 1)
+  (rdi <- rax)
+  (call print 1)
+  (return))
+ (:g 8 0 (rax <- rdi) (return)))

@@ -1,0 +1,1 @@
+(:fnc (:fnc 0 0 (rdi <- 3) (r10 <- rdi) (rax <- r10) (cjump r10 < rax :t :f) :t (rax <- 2) :f (rax <- 3) (rdi <- rax) (call print 1) (return)))

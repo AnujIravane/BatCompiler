@@ -1,0 +1,7 @@
+((print (:encode 6))
+ (:encode (x)
+          (:add1 (:mult2 x)))
+ (:mult2 (x)
+          (* 2 x))
+ (:add1 (x)
+        (+ 1 x)))

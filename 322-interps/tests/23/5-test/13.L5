@@ -1,0 +1,5 @@
+(let ([a 2])
+(let ([x (let ([y 3]) (+ y 2))])
+ (let ([f (lambda (a) (* x a))])
+  (let ([g (lambda (x f) (print (+ a (x f))))])
+  (g f 4)))))

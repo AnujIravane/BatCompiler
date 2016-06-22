@@ -1,0 +1,7 @@
+((let ([x 6])
+  (let ([midd (:f 20)])
+    (let ([result (<= 6 midd)])
+      (print result))))
+  (:f (x)
+    (< x 100)))
+

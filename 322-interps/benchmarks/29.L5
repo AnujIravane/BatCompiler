@@ -1,0 +1,14 @@
+(letrec ([even (lambda (x) (if (= x 0) 1 (if (< x 0) 0 (even (- x 2)))))])
+  (letrec ([div (lambda (y) (letrec ([helper (lambda (z w) (if (= z 0) w (helper (- z 2) (- w 1))))])
+                              (helper y y)))])
+    (letrec ([col (lambda (num ct)
+                    (if (= num 1) ct (col (if (even num) (div num) (+ (* num 3) 1)) (+ ct 1))))])
+      (let ([the-number (read)])
+        (letrec ([times
+                  (lambda (n)
+                    (if (= n 0)
+                        (print (col the-number 0))
+                        (begin
+                          (col the-number 0)
+                          (times (- n 1)))))])
+          (times 500))))))

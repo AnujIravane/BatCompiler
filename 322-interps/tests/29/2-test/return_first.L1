@@ -1,0 +1,8 @@
+(:return_first
+  (:return_first 0 0
+    (return)
+    (r10 <- 1)
+    (r11 <- 2)
+    (r8 <- 5)
+    (r10 += r11)))
+

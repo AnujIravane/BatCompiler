@@ -1,0 +1,26 @@
+(:main
+  (:main
+    0 0
+    (rdi <- 5)
+    (rsi <- 7)
+    (call allocate 2)
+    (rdi <- rax)
+    (arr <- rdi)
+    (call print 1)
+    ((mem rsp -8) <- :pop_ret)
+    (rdi <- arr)
+    (call :pop 1)
+    :pop_ret
+    (rdi <- rax)
+    (call print 1)
+    (return))
+  (:pop
+    1 0
+    (n <- (mem rdi 0)) ; size of array
+    (n -= 1)
+    (n *= 2)
+    (n += 1)
+    (rsi <- (mem rdi 8))
+    (rdi <- n)
+    (call allocate 2)
+    (return)))

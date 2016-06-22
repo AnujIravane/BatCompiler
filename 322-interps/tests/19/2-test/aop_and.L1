@@ -1,0 +1,18 @@
+(:main
+  (:main
+    0 0
+    (r8 <- 1)
+    (rsi <- 3)
+    (r8 &= rsi)
+    (r8 <<= 1)
+    (r8 += 1)
+    (rdi <- r8)
+    (call print 1)
+    (r8 <- 0)
+    (rsi <- 7)
+    (r8 &= rsi)
+    (r8 <<= 1)
+    (r8 += 1)
+    (rdi <- r8)
+    (call print 1)
+    (return)))

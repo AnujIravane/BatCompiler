@@ -1,0 +1,12 @@
+(:f
+  (:f 0 0
+    (rdi <- 7)
+    (rsi <- 0)
+    (call allocate 2)
+    ((mem rax 8) <- 3)
+    ((mem rax 16) <- 5)
+    ((mem rax 24) <- 9)
+    (rdi <- rax)
+    (rsi <- 9)
+    (call array-error 2)
+    (return)))

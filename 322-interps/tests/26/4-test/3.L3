@@ -1,0 +1,5 @@
+((let ([x 5])
+  (let ([x (+ x x)])
+    (let ([x (* x x)])
+      (let ([x (- x x)])
+        (print x))))))

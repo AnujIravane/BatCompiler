@@ -1,0 +1,10 @@
+((let ([t (new-tuple (read) (read))])
+  (begin
+    (print t)
+    (begin
+      (aset t 1 2)
+      (begin
+        (print t)
+        (begin
+          (print (alen t))
+          (print (aref t 1))))))))

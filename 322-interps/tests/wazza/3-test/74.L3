@@ -1,0 +1,6 @@
+((:main)
+  (:main ()
+    (let ([res (:bounds_fail_label 1)])
+      (print res)))
+  (:bounds_fail_label (n)
+    n))

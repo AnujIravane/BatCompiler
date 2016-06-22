@@ -1,0 +1,12 @@
+(let ([get-guess (lambda () (read))])
+  (let ([secret-num 16243])
+    (letrec
+        ([play
+          (lambda ()
+            (let ([guess (get-guess)])
+              (if (= guess secret-num)
+                  (print 0)
+                  (begin
+                    (print -1)
+                    (play)))))])
+      (play))))

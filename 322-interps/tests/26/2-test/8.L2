@@ -1,0 +1,15 @@
+(:main
+ (:main
+  0 0
+  (warg <- 41)
+  (sflk <- 91)
+  (tihnggy <- warg)
+  (tihnggy &= warg)
+  (foo <- tihnggy <= warg)
+  (sflk <- tihnggy <= sflk)
+  (foo &= sflk)
+  (foo <<= 1)
+  (foo += 1)
+  (rdi <- foo)
+  (call print 1)
+  (return)))

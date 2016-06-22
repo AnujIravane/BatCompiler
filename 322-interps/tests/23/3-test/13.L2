@@ -1,0 +1,27 @@
+(:main
+ (:main 0 0
+  (rdi <- 11)
+  (tail-call :f 1)
+ )
+ (:f 1 0
+  (x <- rdi)
+  (c <- x = 1)
+  (c *= 2)
+  (c += 1)
+  (cjump c = 3 :true :false)
+  :true
+  (rax <- 1)
+  (return)
+  :false
+  (x1 <- x)
+  (x1 -= 2)
+  (rdi <- x1)
+  ((mem rsp -8) <- :f_ret)
+  (call :f 1)
+  :f_ret
+  (r <- rax)
+  (r *= 2)
+  (rax <- r)
+  (return)
+ )
+)

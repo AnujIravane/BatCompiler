@@ -1,0 +1,1 @@
+(:func 0 0 (x <- r10) (x <- r11) (x <- r12) (x <- r13) (x <- r14) (x <- r15) (x <- r8) (x <- r9) (x <- rax) (x <- rbp) (x <- rbx) (x <- rcx) (x <- rdi) (x <- rdx) (x <- rsi) (x <- rsp) (x <- r10) (return))

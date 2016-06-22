@@ -1,0 +1,13 @@
+(:g
+  (:g 0 1
+      (r9 <- 841)
+      (r10 <- 5)
+      (r8 <- r9)
+      (r9 <- r10)
+      (r10 <- r8)
+      (rdi <- r10)
+      ((mem rsp 0) <- r9)
+      (call print 1)
+      (rdi <- (mem rsp 0))
+      (call print 1)
+      (return)))

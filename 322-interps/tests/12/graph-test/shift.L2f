@@ -1,0 +1,7 @@
+(:f
+ 0 0
+ (a <- 1)
+ (rdi <- 2)
+ (rdi <<= a)
+ (rax <- rdi)
+ (return))

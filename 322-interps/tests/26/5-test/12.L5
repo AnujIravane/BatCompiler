@@ -1,0 +1,4 @@
+(let ([array-error
+       (lambda (x y)
+         (aref y x))])
+  (array-error 100 (new-tuple)))

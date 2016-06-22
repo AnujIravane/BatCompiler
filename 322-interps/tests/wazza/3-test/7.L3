@@ -1,0 +1,21 @@
+((:main)
+  (:main ()
+    (let ([arr (new-array 4 3 )])
+      (let ([zero (aset arr 0 6)])
+        (let ([zero (aset arr 1 -1)])
+          (let ([zero (aset arr 2 5)])
+            (let ([zero (aset arr 3 6)])
+              (let ([res (:find_max_array arr 0 0)])
+                (print res))))))))
+  (:find_max_array (arr index max)
+    (let ([len (alen arr)])
+      (let ([lenminusone (- len 1)])
+        (let ([indexgtlen (< lenminusone index)])
+            (if indexgtlen
+            max
+              (let ([arrmem (aref arr index)])
+                (let ([indexplusone (+ index 1)])
+                  (let ([newmax (< max arrmem)])
+ 		    (if newmax
+                      (:find_max_array arr indexplusone arrmem)
+                      (:find_max_array arr indexplusone max))))))))))) 

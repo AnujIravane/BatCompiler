@@ -1,0 +1,2 @@
+#!/bin/sh
+racket L3c.rkt "$@"

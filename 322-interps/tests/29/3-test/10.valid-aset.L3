@@ -1,0 +1,5 @@
+((let ([arr (new-array 20 10)])
+  (let ([ this_hurts_me (aset arr 5 100) ])
+    (let ([ hopefully_0 (print this_hurts_me) ])
+      (print arr)))))
+

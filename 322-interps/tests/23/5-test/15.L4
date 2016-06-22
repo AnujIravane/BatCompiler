@@ -1,0 +1,9 @@
+(
+(let ([b 3])
+(let ([x (new-tuple 0)])
+ (begin (aset x 0 (make-closure :f (new-tuple b)))
+  (print ((closure-proc (aref x 0)) (closure-vars (aref x 0)) 5))
+ )
+))
+(:f (vars a)
+ (if (< a 1) 1 (* (:f vars (- a 1)) (aref vars 0)))))

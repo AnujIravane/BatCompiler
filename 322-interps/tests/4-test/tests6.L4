@@ -1,0 +1,5 @@
+((print (aref 
+          (new-tuple
+          (+ 1 1)
+          (+ 2 3))
+          0)))

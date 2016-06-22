@@ -1,0 +1,14 @@
+(:big
+ 8 1
+ (u <- 0)
+ (d <- rdi)
+ :top
+ (cjump d = 0 :z :nz)
+
+ :z
+ (rax <- u)
+ (return)
+ :nz
+ (u += 1)
+ (d -= 1)
+ (goto :top))

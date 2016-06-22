@@ -1,0 +1,19 @@
+(:main
+  (:main
+    0 0
+    (rdi <- 3)
+    (rsi <- 1)
+    ((mem rsp -8) <- :bsret)
+    (call :bitshift 2)
+    :bsret
+    (rdi <- rax)
+        (rdi *= 2)
+        (rdi += 1)
+    (call print 1)
+    (return))
+   (:bitshift
+     2 0
+     (a <- rsi)
+     (rdi <<= a)
+     (rax <- rdi)
+     (return)))

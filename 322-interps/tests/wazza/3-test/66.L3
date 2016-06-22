@@ -1,0 +1,18 @@
+((:main)
+ (:main ()
+  (let ([arr1 (new-array 7 1)])
+   (let ([as (aset arr1 3 75)])
+    (let ([found (:find arr1 75 0)])
+     (let ([p1 (print found)])
+      (print arr1))))))
+ (:find (arr what i)
+  (let ([n (alen arr)])
+   (let ([ni (+ i 1)])
+    (let ([term1 (= n ni)])
+     (if term1
+         i
+         (let ([x (aref arr i)])
+          (let ([term2 (= x what)])
+           (if term2
+               i
+               (:find arr what ni))))))))))

@@ -1,6 +1,0 @@
-#!/bin/bash
-racket compiler.rkt $1 > prog.S
-as -o prog.o prog.S
-gcc -O2 -c -g -o runtime.o runtime.c
-gcc -o a.out prog.o runtime.o
-./a.out

@@ -1,0 +1,13 @@
+(:main
+  (:main
+   0 0
+   (myVar1 <- 2)
+   (myVar1 += myVar1)
+   (myVar1 *= myVar1)
+   (myVar1 &= myVar1)
+   (myVar1 -= myVar1)
+   (myVar1 <<= 1)
+   (myVar1 += 1)
+   (rdi <- myVar1)
+   (call print 1)
+   (return)))

@@ -1,0 +1,5 @@
+((print (:fib 5 0 1))
+ (:fib (n p result)
+  (if (= n 0)
+   result
+   (:fib (- n 1) result (+ result p)))))

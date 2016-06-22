@@ -1,0 +1,21 @@
+(:fact
+  1 0
+  (x <- rdi)
+  (cjump x = 1 :zero :recur)
+  :zero
+  (rax <- 3)
+  (return)
+  :recur
+  (save <- x)
+  (x -= 2)
+  (rdi <- x)
+  ((mem rsp -8) <- :return)
+  (call :fact 1)
+  :return
+  (xes <- save)
+  (xes >>= 1)
+  (rax >>= 1)
+  (rax *= xes)
+  (rax <<= 1)
+  (rax += 1)
+  (return))

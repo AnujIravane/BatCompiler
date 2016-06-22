@@ -1,0 +1,5 @@
+((:f)
+ (:f ()
+ (print (new-tuple (aref (new-array 2 3) 2) (+ 2 3)))
+ )
+)

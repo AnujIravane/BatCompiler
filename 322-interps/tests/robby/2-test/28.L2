@@ -1,0 +1,13 @@
+(:L_1
+ (:L_1
+  0
+  0
+  (rdi <- 1)
+  ((mem rsp -8) <- :fret)
+  (call :f 1)
+  :fret
+  (v <- rax)
+  (rdi <- v)
+  (call print 1)
+  (return))
+ (:f 1 0 (x <- rdi) (rax <- x) (return)))

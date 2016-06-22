@@ -1,0 +1,38 @@
+(:L_1
+ (:L_1
+  0
+  0
+  (r12 <- r12)
+  (r13 <- r13)
+  (r14 <- r14)
+  (r15 <- r15)
+  (rbp <- rbp)
+  (rbx <- rbx)
+  (rdi <- 21)
+  (rsi <- 23)
+  (call allocate 2)
+  (r10 <- rax)
+  (r11 <- 201)
+  (r8 <- (mem r10 0))
+  (r8 <<= 1)
+  (r8 += 1)
+  (cjump r11 < r8 :oka_5 :die_4)
+  :oka_5
+  (cjump 0 <= r11 :okb_6 :die_4)
+  :die_4
+  (rdi <- r10)
+  (rsi <- 201)
+  (call array-error 2)
+  :okb_6
+  (r11 >>= 1)
+  (r11 *= 8)
+  (r11 += r10)
+  ((mem r11 8) <- 643)
+  (rax <- 1)
+  (r12 <- r12)
+  (r13 <- r13)
+  (r14 <- r14)
+  (r15 <- r15)
+  (rbp <- rbp)
+  (rbx <- rbx)
+  (return)))

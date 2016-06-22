@@ -1,0 +1,37 @@
+(:main
+  (:main 
+  0 0
+  ((mem rsp -8) <- :l1)
+  (rdi <- 1)
+  (rsi <- 200)
+  (call :greater_one 2)
+  :l1
+  (rdi <- rax)
+  (rdi <<= 1)
+  (rdi += 1)
+  (call print 1)
+  ((mem rsp -8) <- :l2)
+  (rdi <- 20)
+  (rsi <- 20)
+  (call :greater_one 2)
+  :l2
+  (myVar <- rax)
+  (myVar <- rax)
+  (myVar <<= 1)
+  (myVar += 1)
+  (rdi <- myVar)
+  (call print 1)
+  (return))
+
+  (:greater_one
+    2 0
+    (v1 <- rdi)
+    (v2 <- rsi)
+    (cjump v1 < v2 :lhs :rhs)
+    :lhs
+    (rax <- v2)
+    (goto :end)
+    :rhs
+    (rax <- v1)
+    :end
+    (return)))

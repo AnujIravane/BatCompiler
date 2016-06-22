@@ -1,0 +1,4 @@
+((let ([ arr (new-tuple 1 2 3) ])
+  (let ([ probably_0 (aset arr 4 20)])
+    (print probably_0))))
+

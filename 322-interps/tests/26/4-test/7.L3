@@ -1,0 +1,7 @@
+((:f 1)
+ (:f (x)
+    (let ([cl (make-closure :g 12)])
+      (let ([g (closure-proc cl)])
+        (g x))))
+ (:g (x)
+    (print x)))

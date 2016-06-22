@@ -1,0 +1,13 @@
+(:f
+  (:f 0 0
+    ((mem rsp -8) <- :r)
+    (call :x 0)
+    :r
+    (rdi <- rax)
+    (call print 1)
+    (return))
+  (:x 0 0
+    (rdi <- 124003)
+    (call print 1)
+    (return)))
+

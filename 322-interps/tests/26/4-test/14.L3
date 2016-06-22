@@ -1,0 +1,9 @@
+((let ([r1 (read)])
+  (if r1
+     (let ([r2 (read)])
+       (let ([r3 (read)])
+        (let ([res (- r2 r3)])
+	  (print res))))
+      (let ([res (read)])
+        (print res)))))
+	

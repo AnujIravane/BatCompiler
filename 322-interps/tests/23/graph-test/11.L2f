@@ -1,0 +1,1 @@
+(:f 0 0 (x <- :g) (x <- r10) (r11 <- x) (call x 0) (return))

@@ -1,0 +1,14 @@
+(:loop
+  (:loop 0 1
+    (r9 <- 17)
+    :top
+    (cjump r9 = 1 :stop :go)
+    :go
+    (rdi <- r9)
+    ((mem rsp 0) <- r9)
+    (call print 1)
+    (r9 <- (mem rsp 0))
+    (r9 -= 2)
+    (goto :top)
+    :stop
+    (return)))

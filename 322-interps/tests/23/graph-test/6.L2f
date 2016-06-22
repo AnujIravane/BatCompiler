@@ -1,0 +1,1 @@
+(:f 0 0 (rax <- x) (cjump 1 < 2 :t :f) :t (rax <- 1) :f (rax <- s)(return))

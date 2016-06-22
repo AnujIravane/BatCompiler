@@ -1,0 +1,3 @@
+((print (:sadd 2 3))
+ (:sadd (x y)
+             (+ (* x x) (* y y))))

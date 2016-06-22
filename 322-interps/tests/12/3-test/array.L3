@@ -1,0 +1,8 @@
+((let ([a1 (new-array 3 2)])
+  (let ([x1 (print a1)])
+    (let ([s (alen a1)])
+      (let ([x2 (print s)])
+        (let ([x3 (aset a1 0 4)])
+          (let ([e1 (aref a1 0)])
+            (let ([x4 (print e1)])
+              (print a1)))))))))

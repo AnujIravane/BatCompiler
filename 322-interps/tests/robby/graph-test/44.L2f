@@ -1,0 +1,17 @@
+(:f
+ 3
+ 0
+ :anywhere
+ (rax <- 0)
+ (rbx <- 1)
+ (rcx <- 2)
+ (rdx <- 3)
+ (rsi <- 4)
+ (rdi <- 5)
+ :there
+ (rax += 0)
+ (rbx += 1)
+ (rcx += 2)
+ (rdx += 3)
+ (rsi += 4)
+ (rdi += 5))

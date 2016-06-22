@@ -1,0 +1,16 @@
+(:f
+ (:f
+  0 0
+  (rdi <- 11)
+  (rsi <- 7)
+  ((mem rsp -8) <- :make_array_print_return)
+  (call :make_array_print 2)
+  :make_array_print_return
+  (return))
+ (:make_array_print
+  2 0
+  (call allocate 2)
+  (arr <- rax)
+  (rdi <- arr)
+  (call print 1)
+  (return)))

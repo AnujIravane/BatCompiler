@@ -1,0 +1,10 @@
+((:f 100)
+ (:f (x)
+    (let ([f (new-tuple 213 232 534 12398 12 0 0 0 1 3 5 7)])
+      (let ([len (:g f)])
+        (print len))))
+ (:g (g)
+    (let ([q (a? g)])
+      (if q
+          (alen g)
+          -1))))

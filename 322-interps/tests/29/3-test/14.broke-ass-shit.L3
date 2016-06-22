@@ -1,0 +1,11 @@
+((let ([result (:f 1 2 3 4 5 6 :a :b :c :hello 102)])
+  (print result))
+  (:a () :b)
+  (:b () :c)
+  (:c () (:hello))
+  (:hello () (print 1))
+  (:f (one two thr for fiv six a b c hello stack)
+    (let ([ arr (new-tuple one two thr for fiv six a b c hello stack) ])
+      (let ([ l (alen arr) ])
+        (- l stack)))))
+

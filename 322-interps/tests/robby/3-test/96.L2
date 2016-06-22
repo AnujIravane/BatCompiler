@@ -1,0 +1,28 @@
+(:L_1
+ (:L_1
+  0
+  0
+  :tailgoto_2
+  (rdi <- 3)
+  (rsi <- 5)
+  ((mem rsp -8) <- :ret_3)
+  (call :f 2)
+  :ret_3
+  (v <- rax)
+  (rdi <- v)
+  (call print 1)
+  (rax <- rax)
+  (return))
+ (:f
+  2
+  0
+  (a <- rdi)
+  (b <- rsi)
+  :tailgoto_4
+  (cjump a < b :L_5 :L_6)
+  :L_5
+  (rax <- 31)
+  (return)
+  :L_6
+  (rax <- 3)
+  (return)))

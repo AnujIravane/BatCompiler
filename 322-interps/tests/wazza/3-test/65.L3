@@ -1,0 +1,18 @@
+((:main)
+ (:main ()
+  (let ([arr1 (new-array 9 1)])
+   (let ([asr1 (aset arr1 1 3)])
+    (let ([p1 (print arr1)])
+     (let ([arr2 (:reverse arr1 0 8)])
+      (print arr2))))))
+ (:reverse (arr i1 i2)
+  (let ([term (<= i2 i1)])
+   (if term
+       arr
+   (let ([ai1 (aref arr i1)])
+    (let ([ai2 (aref arr i2)])
+     (let ([as1 (aset arr i1 ai2)])
+      (let ([as2 (aset arr i2 ai1)])
+       (let ([ni1 (+ i1 1)])
+        (let ([ni2 (- i2 1)])
+         (:reverse arr ni1 ni2)))))))))))

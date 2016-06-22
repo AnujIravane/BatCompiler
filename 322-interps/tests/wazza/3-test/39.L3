@@ -1,0 +1,6 @@
+((:main)
+ (:main ()
+  (let ([a 1000])
+   (let ([b 500])
+    (let ([c (* a b)])
+     (print c))))))

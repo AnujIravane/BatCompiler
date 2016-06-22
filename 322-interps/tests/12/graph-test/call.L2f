@@ -1,0 +1,9 @@
+(:f
+ 0 0
+ (rdi <- 3)
+ (rsi <- 4)
+ (rdx <- 5)
+ (x <- 1)
+ (call :g 2)
+ (rax += x)
+ (return))

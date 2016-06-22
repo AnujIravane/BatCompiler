@@ -1,0 +1,41 @@
+(:main
+  (:main
+    0 1
+    (rdi <- 9)
+    (rsi <- 7)
+    (call allocate 2)
+    ((mem rax 8) <- 13)
+    ((mem rax 16) <- 3)
+    ((mem rax 24) <- 11)
+    ((mem rax 32) <- 13)
+    ((mem rsp -8) <- :add_array_elem_ret)
+    (rdi <- rax)
+    (call :add_array_elem 1)
+    :add_array_elem_ret
+    (rdi <- rax)
+    (call print 1)
+    (return))
+  (:add_array_elem
+    1 0
+    (a <- rdi)
+    (a += 8)
+    (b <- (mem rdi 0))
+    (b <<= 3) 
+    (b += rdi)
+    (rax <- 0)
+    :for_start
+    (cjump a <= b :for_body :for_end)
+    :for_body
+    (rcx <- (mem a 0))
+    (rcx -= 1)
+    (rcx >>= 1)
+    (rax += rcx)
+    (a += 8)
+    (goto :for_start)
+    :for_end
+    (rax <<= 1)
+    (rax += 1)
+    (return))
+)
+
+

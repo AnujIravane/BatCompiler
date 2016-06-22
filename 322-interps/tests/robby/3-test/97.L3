@@ -1,0 +1,9 @@
+((let ((allocatebinding (new-array 1 1)))
+   (let ((v (:f 1 2))) (let ((allocatebindingx (new-tuple 0 1 2))) (print v))))
+ (:f
+  (a b)
+  (let ((allocatebinding (new-array 1 1)))
+    (let ((y (< a b)))
+      (if y
+        (let ((allocatebindingx (new-tuple 0 1 2 3 4))) 15)
+        (let ((allocatebindingx (new-tuple 0 1 2 3 4))) 1))))))

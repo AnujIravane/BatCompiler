@@ -1,0 +1,6 @@
+((:main)
+  (:main ()
+     (let ([res (:vomit_same_thing 5)])
+       (print res)))
+  (:vomit_same_thing (n)
+    n))

@@ -1,0 +1,23 @@
+(:main
+  (:main 
+   0 0
+   (cjump 0 <= 0 :then :else)
+   :then
+   (rdi <- 1)
+   (call print 1)
+   :else
+   (rdi <- 2)
+   ((mem rsp -8) <- :ret)
+   (call :g 1)
+   :ret 
+   (return))
+  (:g
+    1 0
+    (cjump rdi = 2 :then :else)
+    :then
+    (rdi <- 3)
+    (call print 1)
+    :else
+    (rdi <- 5)
+    (call print 1)
+    (return))

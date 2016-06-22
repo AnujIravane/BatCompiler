@@ -1,0 +1,5 @@
+((let ([x1 (+ 1 1)])
+  (let ([x2 (new-array x1 3)])
+    (:f x2)))
+ (:f (a)
+  (print a)))

@@ -1,0 +1,2 @@
+((print (let ([x (new-tuple 0)])
+(begin (aset x 0 (+ (aref x 0) 5)) (+ (aref x 0) 1)))))

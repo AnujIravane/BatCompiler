@@ -1,0 +1,28 @@
+(:f
+ (:f 0 0
+  (rdi <- 7)
+  (rsi <- 7)
+  (x <- rdi)
+  (y <- rsi)
+  (rdi <- x)
+  (rsi <- y)
+  (call allocate 2)
+  (v <- rax)
+  (s <- v)
+  (_s <- 11)
+  (_s >>= 1)
+  (tmp <- (mem v 0))
+  (cjump _s < tmp :bpass :bfail)
+  :bfail
+  (rdi <- v)
+  (rsi <- 11)
+  (call array-error 2)
+  :bpass
+  (_s *= 8)
+  (s += _s)
+  ((mem s 8) <- 11)
+  (s <- 0)
+  (rdi <- v)
+  (call print 1)
+  (return)
+))

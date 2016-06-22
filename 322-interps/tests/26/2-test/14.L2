@@ -1,0 +1,10 @@
+(:main
+ (:main
+  0 0
+  (r8 <- 23)
+  (sflk <- 23)
+  (r8 *= 2)
+  (sflk <<= 1)
+  (rdi <- r8 = sflk)
+  (call print 1)
+  (return)))

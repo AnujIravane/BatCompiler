@@ -1,0 +1,13 @@
+(:main
+  (:main
+    0 0
+    (x <- 1)
+    (cjump x = 1 :f :t)
+    :t
+    (rdi <- 3)
+    (call print 1)
+    (return)
+    :f
+    (rdi <- 1)
+    (call print 1)
+    (return)))

@@ -1,0 +1,12 @@
+(:f
+  (:f 0 1
+    (rdi <- 41)
+    (rsi <- 21)
+    (call allocate 2)
+    ((mem rsp 0) <- rax)
+    (rdi <- 1)
+    (call print 1)
+    (rdi <- (mem rsp 0))
+    ((mem rdi 48) <- 201)
+    (call print 1)
+    (return)))

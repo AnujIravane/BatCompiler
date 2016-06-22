@@ -1,0 +1,8 @@
+(:main
+ (:main 
+  0 0 
+  (x <- 1000) 
+  (x -= 999) 
+  (rdi <- x) 
+  (call print 1) 
+  (return)))

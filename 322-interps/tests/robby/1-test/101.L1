@@ -1,0 +1,1 @@
+(:go (:go 0 1 (call read 0) (rdi <- rax) (call print 1) (return)))

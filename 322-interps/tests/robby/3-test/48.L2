@@ -1,0 +1,16 @@
+(:L_1
+ (:L_1
+  0
+  0
+  :tailgoto_2
+  (cjump 3 = 1 :L_4 :L_3)
+  :L_4
+  (rdi <- 3)
+  (call print 1)
+  (rax <- rax)
+  (return)
+  :L_3
+  (rdi <- 1)
+  (call print 1)
+  (rax <- rax)
+  (return)))

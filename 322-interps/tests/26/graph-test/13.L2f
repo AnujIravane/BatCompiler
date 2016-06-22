@@ -1,0 +1,12 @@
+(:main
+ 0 0
+ (s <- 3)
+ (cjump s <= s :true :false)
+ :false
+ (rdi <- 1)
+ (goto :done)
+ :true
+ (rdi <- 3)
+ :done
+ (call print 1)
+ (return))

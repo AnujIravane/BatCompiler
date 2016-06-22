@@ -1,0 +1,17 @@
+(:f
+(:f 0 0
+(rdi <- 3)
+(rsi <- 4)
+(x <- rdi)
+(x *= 2)
+(x += 1)
+(y <- rsi)
+(y *= 2)
+(y += 1)
+(s <- x)
+(s += y)
+(s -= 1)
+(rdi <- s)
+(call print 1)
+(return))
+)

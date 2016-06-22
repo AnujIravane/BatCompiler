@@ -1,0 +1,307 @@
+(:L_50
+ (:L_50
+  0
+  0
+  :tailgoto_51
+  (rdi <- 1)
+  (rsi <- 0)
+  (call allocate 2)
+  (x_13 <- rax)
+  (rdi <- 5)
+  (rsi <- 0)
+  (call allocate 2)
+  ((mem rax 8) <- :fib_outer)
+  ((mem rax 16) <- x_13)
+  (x_14 <- rax)
+  (rdi <- x_14)
+  ((mem rsp -8) <- :ret_52)
+  (call :Y 1)
+  :ret_52
+  (t_1 <- rax)
+  (x_15 <- (mem t_1 8))
+  (x_16 <- (mem t_1 16))
+  (rdi <- x_16)
+  (rsi <- 11)
+  ((mem rsp -8) <- :ret_53)
+  (call x_15 2)
+  :ret_53
+  (x_17 <- rax)
+  (rdi <- x_17)
+  (call print 1)
+  (rax <- rax)
+  (return))
+ (:fib_outer
+  2
+  0
+  (__2 <- rdi)
+  (fib_3 <- rsi)
+  :tailgoto_54
+  (rdi <- 3)
+  (rsi <- 0)
+  (call allocate 2)
+  ((mem rax 8) <- fib_3)
+  (x_18 <- rax)
+  (rdi <- 5)
+  (rsi <- 0)
+  (call allocate 2)
+  ((mem rax 8) <- :fib_inner)
+  ((mem rax 16) <- x_18)
+  (rax <- rax)
+  (return))
+ (:fib_inner
+  2
+  0
+  (fib_inner_vars_4 <- rdi)
+  (n_5 <- rsi)
+  :tailgoto_55
+  (cjump n_5 < 5 :L_56 :L_57)
+  :L_56
+  (rax <- 3)
+  (return)
+  :L_57
+  (x_58 <- 1)
+  (bnds_59 <- (mem fib_inner_vars_4 0))
+  (bnds_59 <<= 1)
+  (bnds_59 += 1)
+  (cjump x_58 < bnds_59 :oka_61 :die_60)
+  :oka_61
+  (cjump 0 <= x_58 :okb_62 :die_60)
+  :die_60
+  (rdi <- fib_inner_vars_4)
+  (rsi <- 1)
+  (call array-error 2)
+  :okb_62
+  (x_58 >>= 1)
+  (x_58 *= 8)
+  (x_58 += fib_inner_vars_4)
+  (x_20 <- (mem x_58 8))
+  (x_58 <- 0)
+  (x_21 <- (mem x_20 8))
+  (x_63 <- 1)
+  (bnds_64 <- (mem fib_inner_vars_4 0))
+  (bnds_64 <<= 1)
+  (bnds_64 += 1)
+  (cjump x_63 < bnds_64 :oka_66 :die_65)
+  :oka_66
+  (cjump 0 <= x_63 :okb_67 :die_65)
+  :die_65
+  (rdi <- fib_inner_vars_4)
+  (rsi <- 1)
+  (call array-error 2)
+  :okb_67
+  (x_63 >>= 1)
+  (x_63 *= 8)
+  (x_63 += fib_inner_vars_4)
+  (x_22 <- (mem x_63 8))
+  (x_63 <- 0)
+  (x_23 <- (mem x_22 16))
+  (x_24 <- n_5)
+  (x_24 -= 2)
+  (rdi <- x_23)
+  (rsi <- x_24)
+  ((mem rsp -8) <- :ret_68)
+  (call x_21 2)
+  :ret_68
+  (x_25 <- rax)
+  (x_69 <- 1)
+  (bnds_70 <- (mem fib_inner_vars_4 0))
+  (bnds_70 <<= 1)
+  (bnds_70 += 1)
+  (cjump x_69 < bnds_70 :oka_72 :die_71)
+  :oka_72
+  (cjump 0 <= x_69 :okb_73 :die_71)
+  :die_71
+  (rdi <- fib_inner_vars_4)
+  (rsi <- 1)
+  (call array-error 2)
+  :okb_73
+  (x_69 >>= 1)
+  (x_69 *= 8)
+  (x_69 += fib_inner_vars_4)
+  (x_26 <- (mem x_69 8))
+  (x_69 <- 0)
+  (x_27 <- (mem x_26 8))
+  (x_74 <- 1)
+  (bnds_75 <- (mem fib_inner_vars_4 0))
+  (bnds_75 <<= 1)
+  (bnds_75 += 1)
+  (cjump x_74 < bnds_75 :oka_77 :die_76)
+  :oka_77
+  (cjump 0 <= x_74 :okb_78 :die_76)
+  :die_76
+  (rdi <- fib_inner_vars_4)
+  (rsi <- 1)
+  (call array-error 2)
+  :okb_78
+  (x_74 >>= 1)
+  (x_74 *= 8)
+  (x_74 += fib_inner_vars_4)
+  (x_28 <- (mem x_74 8))
+  (x_74 <- 0)
+  (x_29 <- (mem x_28 16))
+  (x_30 <- n_5)
+  (x_30 -= 4)
+  (rdi <- x_29)
+  (rsi <- x_30)
+  ((mem rsp -8) <- :ret_79)
+  (call x_27 2)
+  :ret_79
+  (x_31 <- rax)
+  (rax <- x_25)
+  (rax += x_31)
+  (rax -= 1)
+  (return))
+ (:self_app
+  1
+  0
+  (y_6 <- rdi)
+  :tailgoto_80
+  (x_32 <- (mem y_6 8))
+  (x_33 <- (mem y_6 16))
+  (rdi <- x_33)
+  (rsi <- y_6)
+  (tail-call x_32 2))
+ (:eta_rec
+  2
+  0
+  (eta_rec_vars_7 <- rdi)
+  (x_8 <- rsi)
+  :tailgoto_81
+  (x_82 <- 1)
+  (bnds_83 <- (mem eta_rec_vars_7 0))
+  (bnds_83 <<= 1)
+  (bnds_83 += 1)
+  (cjump x_82 < bnds_83 :oka_85 :die_84)
+  :oka_85
+  (cjump 0 <= x_82 :okb_86 :die_84)
+  :die_84
+  (rdi <- eta_rec_vars_7)
+  (rsi <- 1)
+  (call array-error 2)
+  :okb_86
+  (x_82 >>= 1)
+  (x_82 *= 8)
+  (x_82 += eta_rec_vars_7)
+  (x_34 <- (mem x_82 8))
+  (x_82 <- 0)
+  (x_35 <- (mem x_34 8))
+  (x_87 <- 1)
+  (bnds_88 <- (mem eta_rec_vars_7 0))
+  (bnds_88 <<= 1)
+  (bnds_88 += 1)
+  (cjump x_87 < bnds_88 :oka_90 :die_89)
+  :oka_90
+  (cjump 0 <= x_87 :okb_91 :die_89)
+  :die_89
+  (rdi <- eta_rec_vars_7)
+  (rsi <- 1)
+  (call array-error 2)
+  :okb_91
+  (x_87 >>= 1)
+  (x_87 *= 8)
+  (x_87 += eta_rec_vars_7)
+  (x_36 <- (mem x_87 8))
+  (x_87 <- 0)
+  (x_37 <- (mem x_36 16))
+  (x_92 <- 1)
+  (bnds_93 <- (mem eta_rec_vars_7 0))
+  (bnds_93 <<= 1)
+  (bnds_93 += 1)
+  (cjump x_92 < bnds_93 :oka_95 :die_94)
+  :oka_95
+  (cjump 0 <= x_92 :okb_96 :die_94)
+  :die_94
+  (rdi <- eta_rec_vars_7)
+  (rsi <- 1)
+  (call array-error 2)
+  :okb_96
+  (x_92 >>= 1)
+  (x_92 *= 8)
+  (x_92 += eta_rec_vars_7)
+  (x_38 <- (mem x_92 8))
+  (x_92 <- 0)
+  (rdi <- x_37)
+  (rsi <- x_38)
+  ((mem rsp -8) <- :ret_97)
+  (call x_35 2)
+  :ret_97
+  (t_9 <- rax)
+  (x_39 <- (mem t_9 8))
+  (x_40 <- (mem t_9 16))
+  (rdi <- x_40)
+  (rsi <- x_8)
+  (tail-call x_39 2))
+ (:make_fix
+  2
+  0
+  (make_fix_vars_10 <- rdi)
+  (y_11 <- rsi)
+  :tailgoto_98
+  (x_99 <- 1)
+  (bnds_100 <- (mem make_fix_vars_10 0))
+  (bnds_100 <<= 1)
+  (bnds_100 += 1)
+  (cjump x_99 < bnds_100 :oka_102 :die_101)
+  :oka_102
+  (cjump 0 <= x_99 :okb_103 :die_101)
+  :die_101
+  (rdi <- make_fix_vars_10)
+  (rsi <- 1)
+  (call array-error 2)
+  :okb_103
+  (x_99 >>= 1)
+  (x_99 *= 8)
+  (x_99 += make_fix_vars_10)
+  (x_41 <- (mem x_99 8))
+  (x_99 <- 0)
+  (x_42 <- (mem x_41 8))
+  (x_104 <- 1)
+  (bnds_105 <- (mem make_fix_vars_10 0))
+  (bnds_105 <<= 1)
+  (bnds_105 += 1)
+  (cjump x_104 < bnds_105 :oka_107 :die_106)
+  :oka_107
+  (cjump 0 <= x_104 :okb_108 :die_106)
+  :die_106
+  (rdi <- make_fix_vars_10)
+  (rsi <- 1)
+  (call array-error 2)
+  :okb_108
+  (x_104 >>= 1)
+  (x_104 *= 8)
+  (x_104 += make_fix_vars_10)
+  (x_43 <- (mem x_104 8))
+  (x_104 <- 0)
+  (x_44 <- (mem x_43 16))
+  (rdi <- 3)
+  (rsi <- 0)
+  (call allocate 2)
+  ((mem rax 8) <- y_11)
+  (x_45 <- rax)
+  (rdi <- 5)
+  (rsi <- 0)
+  (call allocate 2)
+  ((mem rax 8) <- :eta_rec)
+  ((mem rax 16) <- x_45)
+  (x_46 <- rax)
+  (rdi <- x_44)
+  (rsi <- x_46)
+  (tail-call x_42 2))
+ (:Y
+  1
+  0
+  (f_12 <- rdi)
+  :tailgoto_109
+  (rdi <- 3)
+  (rsi <- 0)
+  (call allocate 2)
+  ((mem rax 8) <- f_12)
+  (x_47 <- rax)
+  (rdi <- 5)
+  (rsi <- 0)
+  (call allocate 2)
+  ((mem rax 8) <- :make_fix)
+  ((mem rax 16) <- x_47)
+  (x_48 <- rax)
+  (rdi <- x_48)
+  (tail-call :self_app 1)))

@@ -1,0 +1,1 @@
+(print (alen (aref (new-tuple (new-array 5 3) 3) 0)))

@@ -1,0 +1,12 @@
+(:go
+ (:go
+  0
+  1
+  (call read 0)
+  ((mem rsp 0) <- rax)
+  (call read 0)
+  (rdi <- (mem rsp 0))
+  (rdi += rax)
+  (rdi -= 1)
+  (call print 1)
+  (return)))

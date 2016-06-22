@@ -1,0 +1,8 @@
+((let ([t (new-tuple 1 2 3)])
+  (let ([x1 (print t)])
+    (let ([x2 (aset t 0 4)])
+      (let ([x3 (aset t 1 5)])
+        (let ([x4 (aset t 2 6)])
+          (let ([v (aref t 1)])
+            (let ([x5 (print v)])
+              (print t)))))))))

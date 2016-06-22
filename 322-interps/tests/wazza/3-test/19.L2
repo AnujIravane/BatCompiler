@@ -1,0 +1,34 @@
+(:main
+  (:main
+    0 0
+    (rdi <- 3)
+    (rsi <- 7)
+    (call allocate 2)
+    (rdi <- rax)
+    (arr <- rdi)
+    (call print 1)
+    ((mem rsp -8) <- :push_ret)
+    (rdi <- arr)
+    (rsi <- 9)
+    (call :push 2)
+    :push_ret
+    (rdi <- rax)
+    (call print 1)
+    (return))
+  (:push
+    2 0
+    (n <- (mem rdi 0)) ; size of array
+    (n += 1)
+    (n *= 2)
+    (n += 1)
+    (arr <- rdi) ; array address
+    (elem <- rsi)
+    (rdi <- n)
+    (rsi <- (mem arr 8))
+    (call allocate 2)
+    (new_arr <- rax)
+    (new_n <- (mem rax 0))
+    (new_n <<= 3)
+    (new_arr += new_n)
+    ((mem new_arr 0) <- elem)
+    (return)))

@@ -1,0 +1,18 @@
+(let ([a (read)])
+  (letrec ([dumb-not-fact
+    (lambda (n f h e l o)
+      (if (= 0 n)
+          (* a f)
+          (dumb-not-fact (- n 1)
+                         (+ n f)
+                         h
+                         e
+                         l
+                         o)))])
+    (print (dumb-not-fact
+            200000
+            0
+            (read)
+            (read)
+            (read)
+            (read)))))

@@ -1,0 +1,8 @@
+((let ([a (:recur 5)])
+ (print a))
+ (:recur (n)
+  (if n
+   (let ([x_1 (- n 1)])
+   (let ([x_2 (:recur x_1)])
+   (new-tuple n x_2)))
+  (new-array 2 0))))

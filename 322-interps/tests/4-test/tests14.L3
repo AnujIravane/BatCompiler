@@ -1,0 +1,2 @@
+((let ([x1 (new-array 5 5)])
+   (aref x1 -1)))

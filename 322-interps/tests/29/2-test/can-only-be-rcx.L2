@@ -1,0 +1,13 @@
+(:g
+  (:g 0 0
+      (x <- 5)
+      (rax <- :potato)
+      (r10 += x)
+      (r11 += x)
+      (r8 += x)
+      (r9 += x)
+      (rax += x)
+      (rdi += x)
+      (rdx += x)
+      (rsi += x)
+      (return)))

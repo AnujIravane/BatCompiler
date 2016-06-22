@@ -1,0 +1,16 @@
+(:main
+ (:main
+  0
+  0
+  (a <- 1)
+  (b <- 2)
+  (cjump a = b :then :else)
+  :then
+  (rdi <- 3)
+  (call print 1)
+  (goto :done)
+  :else
+  (rdi <- 1)
+  (call print 1)
+  :done
+  (return)))

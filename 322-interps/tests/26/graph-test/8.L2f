@@ -1,0 +1,9 @@
+(:dist
+ 8 0
+ (x <- 0)
+ :restart
+ (x += 1)
+ (cjump x = 5 :end :restart)
+ :end
+ (rax <- x)
+ (return))

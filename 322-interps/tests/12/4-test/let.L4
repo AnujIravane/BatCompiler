@@ -1,0 +1,5 @@
+((print
+  (let ([a (new-array 2 3)])
+    (begin
+      (aset a 0 1)
+      a))))

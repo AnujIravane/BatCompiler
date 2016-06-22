@@ -1,0 +1,19 @@
+(:main
+(:main
+0 0
+(rdi <- 5)
+(rsi <- 5)
+(call allocate 2)
+(rdi <- rax)
+(rsi <- rax)
+((mem rsp -8) <- :f_ret)
+(call :g 2)
+:f_ret
+(return)) 
+(:g
+ 2 0
+ (a <- (mem rdi 0))
+ (b <- (mem rsi 0))
+ ((mem rdi 8) <- a)
+ ((mem rsi 8) <- b)
+ (return)))

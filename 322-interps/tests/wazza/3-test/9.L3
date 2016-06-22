@@ -1,0 +1,25 @@
+((:main)
+  (:main ()
+    (let ([arr (new-array 5 3)])
+      (let ([zero (aset arr 0 1)])
+        (let ([zero (aset arr 1 2)])
+          (let ([zero (aset arr 2 3)])
+            (let ([zero (aset arr 3 4)])
+              (let ([zero (aset arr 4 5)])
+                (let ([reversed (:reverse arr 0)])
+                  (print reversed)))))))))
+  (:reverse (arr index)
+    (let ([lenarr (alen arr)])
+      (let ([lastind (- lenarr index)])
+        (let ([lastind (- lastind 1)])
+          (let ([end (<= lastind index)])
+            (if end
+              arr
+              (let ([first (aref arr index)])
+                (let ([last (aref arr lastind)])
+                  (let ([zero (aset arr lastind first)])
+                    (let ([zero (aset arr index last)])
+                      (let ([indexplusone (+ index 1)])
+                        (:reverse arr indexplusone)))))))))))))
+ 
+                

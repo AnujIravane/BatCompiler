@@ -1,0 +1,35 @@
+(:main
+ (:main
+  0
+  0
+  (rdi <- 1)
+  (rsi <- 3)
+  (rdx <- 5)
+  (rcx <- 7)
+  (r8 <- 9)
+  (r9 <- 11)
+  ((mem rsp -8) <- :fret)
+  ((mem rsp -16) <- 13)
+  ((mem rsp -24) <- 15)
+  ((mem rsp -32) <- 17)
+  (call :f 9)
+  :fret
+  (rdi <- rax)
+  (rdi *= 2)
+  (rdi += 1)
+  (call print 1)
+  (return))
+ (:f
+  9
+  0
+  (rax <- rdi)
+  (rax += rsi)
+  (rax += rdx)
+  (rax += rcx)
+  (rax += r8)
+  (rax += r9)
+  (x <- (stack-arg 8))
+  (rax += x)
+  (x <- (stack-arg 16))
+  (rax += x)
+  (return)))

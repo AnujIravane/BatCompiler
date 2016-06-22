@@ -1,0 +1,13 @@
+(:main
+	(:main
+		0 0
+		(x <- 15)
+		(y <- 11)
+		(rdi <- x)
+		(rsi <- y)
+		(call allocate 2)
+		(x += 108)
+		(rsi <- x)
+		(rdi <- rax)
+		(call array-error 2)
+		(return)))

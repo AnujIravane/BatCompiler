@@ -1,0 +1,31 @@
+(:L_1
+ (:L_1
+  0
+  0
+  :tailgoto_2
+  (rdi <- 31)
+  (rsi <- 0)
+  (call allocate 2)
+  ((mem rax 8) <- 3)
+  ((mem rax 16) <- 5)
+  ((mem rax 24) <- 7)
+  ((mem rax 32) <- 9)
+  ((mem rax 40) <- 11)
+  ((mem rax 48) <- 13)
+  ((mem rax 56) <- 15)
+  ((mem rax 64) <- 17)
+  ((mem rax 72) <- 19)
+  ((mem rax 80) <- 21)
+  ((mem rax 88) <- 23)
+  ((mem rax 96) <- 25)
+  ((mem rax 104) <- 27)
+  ((mem rax 112) <- 29)
+  ((mem rax 120) <- 31)
+  (x <- rax)
+  (y <- (mem x 0))
+  (y <<= 1)
+  (y += 1)
+  (rdi <- y)
+  (call print 1)
+  (rax <- rax)
+  (return)))

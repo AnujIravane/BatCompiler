@@ -1,1 +1,0 @@
-(:f 0 1 ((mem rsp 8) <- :jump) ((mem rsp 0) <- a) (s0 <- (mem rsp 8)) (s0 <- 5) ((mem rsp 8) <- s0))

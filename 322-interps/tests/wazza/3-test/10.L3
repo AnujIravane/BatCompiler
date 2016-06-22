@@ -1,0 +1,5 @@
+((:main)
+  (:main ()
+    (let ([arr (new-array 2 3)])
+      (let ([arrref (aref arr -1)])
+        (print arrref))))))

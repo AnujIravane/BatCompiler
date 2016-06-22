@@ -1,0 +1,22 @@
+(letrec ([loop
+          (lambda (c)
+            (begin
+              (print (letrec ([a
+                               (lambda (k x1 x2 x3 x4 x5)
+                                 (letrec ([b
+                                           (lambda ()
+                                             (begin (aset k 0 (- (aref k 0) 1))
+                                                    (a k b x1 x2 x3 x4)))])
+                                   (if (<= (aref k 0) 0)
+                                       (+ (x4) (x5))
+                                       (b))))])
+                       (a (new-tuple c c)
+                          (lambda () 1)
+                          (lambda () -1)
+                          (lambda () -1)
+                          (lambda () 1)
+                          (lambda () 0))))
+              (if (= c 0)
+                  (print -1)
+                  (loop (- c 1)))))])
+  (loop (read)))

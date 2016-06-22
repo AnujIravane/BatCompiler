@@ -1,0 +1,12 @@
+((:go)
+ (:go ()
+  (let ([a (:fib_loop 20 1 1)])
+   (print a)))
+ (:fib_loop (n a b)
+  (let ([nz (= n 0)])
+   (if nz
+       a
+       (let ([nb a])
+        (let ([na (+ a b)])
+         (let ([nn (- n 1)])
+          (:fib_loop nn na nb))))))))

@@ -1,0 +1,44 @@
+(:main
+	(:main
+		0 0
+		(rdi <- 22)
+		(rsi <- 123)
+		(rdx <- 13)
+		(rcx <- 100)
+		(r8 <- 1)
+		(r9 <- 8)
+		((mem rsp -16) <- 1000)
+		((mem rsp -24) <- 10000)
+		((mem rsp -32) <- 200000)
+		((mem rsp -40) <- 1000000)
+
+		((mem rsp -8) <- :ret)
+		(call :addall 10)
+		:ret
+		(rdi <- rax)
+		(tail-call :p 1))
+
+	(:addall
+		10 0
+		(rax <- rdi)
+		(rax += rsi)
+		(rax += rdx)
+		(rax += rcx)
+		(rax += r8)
+		(rax += r9)
+		(rdi <- (stack-arg 24))
+		(rax += rdi)
+		(rdi <- (stack-arg 16))
+		(rax += rdi)
+		(rdi <- (stack-arg 8))
+		(rax += rdi)
+		(rdi <- (stack-arg 0))
+		(rax += rdi)
+		(return))
+		
+	(:p
+		1 0
+		(rdi *= 2)
+		(rdi += 1)
+		(call print 1)
+		(return)))

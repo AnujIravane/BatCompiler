@@ -1,0 +1,15 @@
+(let ([sub1 (lambda (x) (- x 1))])
+  (let ([stop -42])
+    (let ([H (lambda (count)
+               (lambda (f)
+                 (lambda (x)
+                   (if (< count 1)
+                       stop
+                       (((f (sub1 count)) f) (lambda (z) (x x)))))))])
+      (let ([WW
+             (lambda (z)
+               ((lambda (x) (x x)) (lambda (x) (x x))))])
+        (print (((H 15) H) WW))))))
+
+
+

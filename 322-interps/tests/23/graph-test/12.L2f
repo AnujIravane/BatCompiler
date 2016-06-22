@@ -1,0 +1,16 @@
+(:loop 0 0
+  (rdi <- 5)
+  (x <- 7)
+  :start
+  (cjump rdi < 1 :yes :no)
+  :no
+  (rdi -= 1)
+  (x += 2)
+  (x <- r10)
+  (x <- r11)
+  (s <- r10)
+  (goto :start)
+  :yes
+  (rdi <- x)
+  (call print 1)
+  (return))

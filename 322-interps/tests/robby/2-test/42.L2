@@ -1,0 +1,23 @@
+(:main
+ (:main
+  0
+  0
+  ((mem rsp -8) <- :createreturn)
+  (rdi <- 23)
+  (rsi <- 7)
+  (rdx <- 9)
+  (call :createNestedArray 3)
+  :createreturn
+  (rdi <- rax)
+  (call print 1)
+  (return))
+ (:createNestedArray
+  3
+  1
+  (y <- rsp)
+  ((mem y 0) <- rdx)
+  (call allocate 2)
+  (rdi <- (mem y 0))
+  (rsi <- rax)
+  (call allocate 2)
+  (return)))

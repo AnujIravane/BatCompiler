@@ -1,0 +1,7 @@
+((:main)
+  (:main ()
+    (let ([res (:add_two_num 2 3)])
+	  (print res)))
+  (:add_two_num (x y)
+    (let ([sum (+ x y)])
+      sum)))

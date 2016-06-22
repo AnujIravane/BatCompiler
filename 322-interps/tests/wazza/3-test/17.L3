@@ -1,0 +1,16 @@
+((:main)
+ (:main ()
+  (let ([tup (new-tuple 10 9 9 2 1 5)])
+   (let ([res (:find_min tup 0 999)])
+    (print res))))
+ (:find_min (tup i res)
+  (let ([n (alen tup)])
+   (let ([cond (<= n i)])
+    (if cond
+        res
+        (let ([ni (+ i 1)])
+         (let ([cur (aref tup i)])
+          (let ([cond (< cur res)])
+           (if cond
+               (:find_min tup ni cur)
+               (:find_min tup ni res))))))))))

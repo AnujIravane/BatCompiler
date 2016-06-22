@@ -1,0 +1,3 @@
+((print (:mult 100 200))
+ (:mult (x y)
+  (* x y)))

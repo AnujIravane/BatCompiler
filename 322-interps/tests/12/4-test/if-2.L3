@@ -1,0 +1,12 @@
+((let ([x1 (+ 1 2)])
+  (let ([x2 (number? x1)])
+    (if x2
+      (let ([x3 (new-tuple)])
+        (let ([x4 (a? x3)])
+          (if x4
+            (let ([x5 (+ 1 2)])
+              (print x5))
+            (let ([x6 (+ 3 4)])
+              (print x6)))))
+      (let ([x7 (- 3 4)])
+        (print x7))))))

@@ -1,0 +1,7 @@
+(:f
+  1 0
+  (rax <- (stack-arg 0))
+  (x <- 9)
+  (rax &= rdi)
+  (rax *= x)
+  (return))

@@ -1,0 +1,12 @@
+(:g
+  (:g 0 1
+      (y <- 841)
+      (x <- 5)
+      (r8 <- y)
+      (y <- x)
+      (x <- r8)
+      (rdi <- x)
+      (call print 1)
+      (rdi <- y)
+      (call print 1)
+      (return)))

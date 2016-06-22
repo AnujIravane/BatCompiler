@@ -1,0 +1,9 @@
+((let ([a (new-array 2 3)])
+  (let ([x (aref a 0)])
+    (begin
+      (print (alen a))
+      (begin 
+        (aset a 1 2)
+        (begin
+          (print a)
+          (print x)))))))

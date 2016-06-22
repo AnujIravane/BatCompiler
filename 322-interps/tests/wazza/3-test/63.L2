@@ -1,0 +1,24 @@
+(:main
+  (:main
+    0 0
+    (rdi <- 13)
+    (rsi <- 3)
+    (call allocate 2)
+    (arr <- rax)
+    (rdi <- 5)
+    (rsi <- 5)
+    (call allocate 2)
+    (arr2 <- rax)
+        ((mem arr 8) <- arr2)
+        ((mem arr 16) <- arr2)
+        ((mem arr 24) <- arr2)
+        ((mem arr 32) <- arr2)
+        ((mem arr 40) <- arr2)
+        ((mem arr 48) <- arr2)
+        (rdi <- arr)
+        (call print 1)
+        (rdi <- arr)
+        (arr2 <- (mem rdi 8)) ;;manipulate copied array
+        ((mem arr2 8) <- 101)
+        (call print 1) ;; should appear in all subarrays
+        (return)))

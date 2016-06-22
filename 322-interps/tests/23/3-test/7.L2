@@ -1,0 +1,25 @@
+(:f
+ (:f 0 0
+  (rdi <- 23)
+  (x <- rdi)
+  (rdi <- 15)
+  ((mem rsp -8) <- :g_ret)
+  (call :g 1)
+  :g_ret
+  (y <- rax)
+  (z <- y)
+  (z += x)
+  (z -= 1)
+  (rdi <- z)
+  (tail-call :h 1))
+ (:g 1 0
+  (x <- rdi)
+  (y <- x)
+  (y += 11)
+  (y -= 1)
+  (rax <- y)
+  (return))
+ (:h 1 0
+  (call print 1)
+  (return))
+)

@@ -1,0 +1,4 @@
+((:main)
+ (:main ()
+  (let ([r 1000])
+   (print r))))

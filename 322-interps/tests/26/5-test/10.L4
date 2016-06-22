@@ -1,0 +1,5 @@
+((:play)
+ (:play ()
+        (if (= 16243 (read))
+            (print 0)
+            (begin (print -1) (:play)))))

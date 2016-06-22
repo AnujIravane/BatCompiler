@@ -1,0 +1,11 @@
+(:main
+  (:main
+    0 0
+    (rdi <- 3)
+    (tail-call :L3_main 1))
+  (:L3_main
+    1 0
+    (x <- rdi)
+    (rdi <- x)
+    (call print 1)
+    (return)))

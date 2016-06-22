@@ -1,0 +1,16 @@
+((:main)
+  (:main ()
+    (let ([res1 (:is_odd 10 10)])
+      (let ([print1 (print res1)])
+        (let ([res2 (:is_odd 7 7)])
+          (print res2)))))
+  (:is_odd (n cur)
+    (let ([curtimes2 (* 2 cur)])
+      (let ([finish (< curtimes2 n)])
+        (if finish
+          1
+          (let ([equal (= curtimes2 n)])
+            (if equal
+              0
+              (let ([curminusone (- cur 1)])
+                (:is_odd n curminusone)))))))))

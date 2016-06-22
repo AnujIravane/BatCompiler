@@ -1,0 +1,11 @@
+((:main)
+  (:main ()
+    (let ([res (:tri 10 0)])
+      (print res)))
+  (:tri (n sum)
+    (let ([neq1 (= n 0)])
+      (if neq1
+        sum
+        (let ([newsum (+ sum n)])
+          (let ([nminus1 (- n 1)])
+            (:tri nminus1 newsum)))))))

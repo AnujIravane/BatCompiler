@@ -1,0 +1,1 @@
+(:f 1 0 (x <- rdi) (r12 <- x) :start (rax <- x) (cjump x < rax :t :f) :t (rax <- 2) (goto :start) :f (rax <- 3) (rdi <- rax) (call print 1) (return))

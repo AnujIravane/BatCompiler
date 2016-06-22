@@ -1,0 +1,12 @@
+(:f
+ 0 0
+ (rdi <- 1)
+ (rsi <- 3)
+ (rdx <- 4)
+ (rcx <- 5)
+ (r8 <- 6)
+ (r9 <- 7)
+ (x <- 4)
+ (x += 3)
+ (call allocate 2)
+ (return))

@@ -18,5 +18,4 @@
   (rdi <- rax)
   (call print 1)
   (return))
- (:f 8 0 (tail-call :g 1))
- (:g 1 0 (rax <- rdi) (return)))
+ (:f 8 0 (rax <- (mem rsp 0)) (return)))

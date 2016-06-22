@@ -1,0 +1,51 @@
+(let ([null -1])
+  (let ([nullp number?])
+    (let ([car (lambda (pair) (aref pair 0))])
+      (let ([cdr (lambda (pair) (aref pair 1))])
+        (let ([cons (lambda (car cdr) (new-tuple car cdr))])
+          (letrec ([zapp
+                    (lambda (fs xs)
+                      (if (nullp fs)
+                          null
+                          (if (nullp xs)
+                              null
+                              (cons ((car fs) (car xs))
+                                    (zapp (cdr fs) (cdr xs))))))])
+            (let ([zero (lambda (x) x)])
+              (let ([succ (lambda (n)
+                            (lambda (fs)
+                              (lambda (xs)
+                                (n (zapp fs xs)))))])
+                (let ([one (succ zero)])
+                  (let ([two (succ one)])
+                    (let ([three (succ two)])
+                      (letrec ([map
+                                (lambda (f l)
+                                  (if (nullp l)
+                                      null
+                                      (cons (f (car l))
+                                            (map f (cdr l)))))])
+                        (let ([map-star
+                               (lambda (n f xs)
+                                 ((n (map (lambda (x) f) xs)) xs))])
+                          (let ([map1 (lambda (f xs) (map-star one f xs))])
+                            (let ([map2 (lambda (f xs ys)
+                                          ((map-star two f xs) ys))])
+                              (let ([map3 (lambda (f xs ys zs)
+                                            (((map-star three f xs) ys) zs))])
+                                (begin
+                                  (print (map1 (lambda (x) (+ 1 x)) (cons 1 (cons 2 (cons 3 null)))))
+                                  (begin
+                                    (print (map2 (lambda (x) (lambda (y) (cons x y)))
+                                                 (cons 1 (cons 2 (cons 3 null)))
+                                                 (cons -1 (cons -2 (cons -3 null)))))
+                                    (print
+                                     (map3
+                                      (lambda (x)
+                                        (lambda (y)
+                                          (lambda (z)
+                                            (new-tuple x y z))))
+                                      (cons 1 (cons 2 null))
+                                      (cons -1 (cons -2 null))
+                                      (cons (cons 0 null) (cons 1 null))))))))))))))))))))))
+

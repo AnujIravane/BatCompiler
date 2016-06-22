@@ -1,0 +1,6 @@
+((:main)
+ (:main ()
+        (let ([v 1])
+          (let ([x 2])
+            (let ([c (+ v x)])
+              c)))))

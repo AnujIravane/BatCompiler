@@ -1,0 +1,12 @@
+((:main)
+ (:main ()
+  (let ([clos (make-closure :f 1)])
+   (let ([ret (:g clos)])
+    (print ret))))
+ (:f (n)
+  (+ n 1))
+ (:g (clos)
+  (let ([lab (closure-proc clos)])
+   (let ([arg (closure-vars clos)])
+    (lab arg)))))
+ 

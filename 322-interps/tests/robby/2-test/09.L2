@@ -1,0 +1,27 @@
+(:L_1
+ (:L_1
+  0
+  0
+  (rdi <- 21)
+  (rsi <- 3)
+  (call allocate 2)
+  (a <- rax)
+  (x_2 <- 7)
+  (bnds_3 <- (mem a 0))
+  (bnds_3 <<= 1)
+  (bnds_3 += 1)
+  (cjump x_2 < bnds_3 :oka_5 :die_4)
+  :oka_5
+  (cjump 0 <= x_2 :okb_6 :die_4)
+  :die_4
+  (rdi <- a)
+  (rsi <- 7)
+  (call array-error 2)
+  :okb_6
+  (x_2 >>= 1)
+  (x_2 *= 8)
+  (x_2 += a)
+  (v <- (mem x_2 8))
+  (rdi <- v)
+  (call print 1)
+  (return)))

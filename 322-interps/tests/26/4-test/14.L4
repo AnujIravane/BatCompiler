@@ -1,0 +1,4 @@
+((print
+   (if (read)
+       (- (read) (read))
+       (read))))

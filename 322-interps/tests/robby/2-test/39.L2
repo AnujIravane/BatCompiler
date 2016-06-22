@@ -1,0 +1,33 @@
+(:main
+ (:main
+  0
+  0
+  ((mem rsp -8) <- :ret)
+  (rdi <- 11)
+  (call :sum_of_x_squares 1)
+  :ret
+  (rdi <- rax)
+  (rdi *= 2)
+  (rdi += 1)
+  (call print 1)
+  (return))
+ (:sum_of_x_squares
+  1
+  0
+  (x <- rdi)
+  (cjump x <= 0 :done :more)
+  :done
+  (rax <- 0)
+  (return)
+  :more
+  (x1 <- x)
+  (x1 -= 1)
+  (rdi <- x1)
+  ((mem rsp -8) <- :recurreturn)
+  (call :sum_of_x_squares 1)
+  :recurreturn
+  (r <- rax)
+  (x *= x)
+  (r += x)
+  (rax <- r)
+  (return)))

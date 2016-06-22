@@ -1,0 +1,12 @@
+(:f 1 0
+  (x <- rdi) ; liveness ranges touch but don't overlap
+  (sx <- x)
+  (x += 5) ; add 2
+  (cjump 21 <= sx :end :recur) ; end when x > 10
+  :end
+  (rax <- x) ; start of live range for: rax, end for x
+  (return) ; end of live range for: rax
+  :recur
+  (rdi <- x) ; start of live range for: rdi
+  (tail-call :f 1)) ; end of live range for: sx, rdi
+

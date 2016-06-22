@@ -1,0 +1,17 @@
+(:main
+	(:main 0 0
+		((mem rsp -8) <- :ret)
+		((mem rsp -24) <- 5)
+		(call :nope 8)
+		(return))
+	(:nope 8 2
+  		((mem rsp 0) <- :label) ; possibilities: r10, r11, r8, r9, rax, rcx, rdi, rdx, rsi
+		(r8 <- (mem rsp 0))
+ 		(call r8 0)    ; kill: r10, r11, r8, r9, rax, rcx, rdi, rdx, rsi (REASSIGN)
+ 		(r8 += rax)
+		(r10 <- (mem rsp 24))
+		(r8 += r10)
+		((mem rsp 0) <- r8)
+ 		(rdi <- (mem rsp 0))
+ 		(call print 1)	
+ 		(return))) ; r10 r11 r8 r9 rax rcx rdi rdx rsi OUT; have to use another register but don't have one

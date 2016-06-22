@@ -1,4 +1,4 @@
 #!/bin/sh
 
-exec ~/racket/bin/racket $(dirname $0)/check-coloring.rkt "$@"
+exec racket $(dirname $0)/check-coloring.rkt "$@"
 

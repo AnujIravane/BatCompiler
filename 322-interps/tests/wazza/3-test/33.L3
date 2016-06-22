@@ -1,0 +1,5 @@
+((:main)
+ (:main ()
+  (let ([x 500])
+   (let ([y 500])
+    (print y)))))

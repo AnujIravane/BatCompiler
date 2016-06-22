@@ -1,0 +1,1 @@
+(:f 3 0 (rax <- u1) (rax <- u0) (tail-call u0 2) (u1 <- 0) (u0 <- 1))

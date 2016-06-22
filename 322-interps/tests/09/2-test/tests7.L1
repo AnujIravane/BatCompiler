@@ -1,0 +1,32 @@
+(:main
+(:main
+0 0
+(rdi <- 19)
+(rsi <- 19)
+(call allocate 2)
+(rdi <- rax)
+((mem rsp -8) <- :f_ret)
+(call :f 1)
+:f_ret
+(return))
+ (:f
+ 1 0
+ (r11 <- rdi)
+ (r11 += 8)
+ (r10 <- (mem rdi 0))
+ (r10 <<= 3)
+ (r10 += rdi)
+ (rax <- 0)
+ :start
+ (cjump r11 <= r10 :body :end)
+ :body
+ (r8 <- (mem r11 0))
+ (r8 -= 1)
+ (r8 >>= 1)
+ (rax += r8)
+ (r11 += 8)
+ (goto :start)
+ :end
+ (rax <<= 1)
+ (rax += 1)
+ (return)))

@@ -1,0 +1,6 @@
+(print
+ (letrec ([plus (lambda (x y)
+                  (if (= x 0)
+                      y
+                      (+ 1 (plus (- x 1) y))))])
+   (plus 5 (plus 2 3))))

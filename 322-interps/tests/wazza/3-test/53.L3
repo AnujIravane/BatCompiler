@@ -1,0 +1,7 @@
+((:main)
+ (:main ()
+  (let ([a :f])
+   (:f)))
+ (:f ()
+  (let ([a 1])
+   (print a))))

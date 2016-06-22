@@ -1,0 +1,5 @@
+((let ([x :x])
+ (let ([s :s])
+  (:x (:s 2 3))))
+(:x (x) (print x))
+(:s (x y) (* x y)))

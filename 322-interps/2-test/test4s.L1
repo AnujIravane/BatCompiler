@@ -1,0 +1,8 @@
+(:main 
+(:main 0 0
+(r10 <- 99)
+(rcx <- 5)
+(r10 >>= rcx)
+(rcx <<= 1)
+(rax <- rcx)
+(return)))

@@ -1,0 +1,8 @@
+(:f
+  0 0
+  (rdx <- 3)
+  (x <- 1)
+  (y <- (mem rdx 8))
+  (x += y)
+  (rax <- x)
+  (return))

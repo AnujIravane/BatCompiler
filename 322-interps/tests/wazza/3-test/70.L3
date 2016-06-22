@@ -1,0 +1,19 @@
+((:main)
+ (:main ()
+  (let ([a 8])
+   (let ([b (new-array a 1)])
+    (let ([c (new-tuple a b)])
+     (let ([ares (:f a)])
+      (let ([bres (:f b)])
+       (let ([cres (:f c)])
+        (let ([pa (print ares)])
+         (let ([pb (print bres)])
+          (print cres))))))))))
+ (:f (x)
+  (let ([xnumber (number? x)])
+   (if xnumber
+       x
+       (let ([xa (a? x)])
+        (if xa
+            x
+            (print -1)))))))

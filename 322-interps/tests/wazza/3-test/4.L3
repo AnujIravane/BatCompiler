@@ -1,0 +1,8 @@
+((:main)
+  (:main ()
+    (let ([arr (new-array 4 3)])
+      (let ([zero (aset arr 0 2)])
+        (let ([zero2 (aset arr 1 1)])
+          (let ([zero3 (aset arr 2 5)])
+            (let ([zero4 (aset arr 3 6)])
+              (print arr))))))))

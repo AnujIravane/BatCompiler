@@ -16,8 +16,8 @@
   [label-expr (l string?)]
   [goto (dest L1-expr?)]
   [cjump (op1 L1-expr?) (cmp symbol?) (op2 L1-expr?) (dest1 L1-expr?) (dest2 L1-expr?)]
-  [call (fn string?) (n-args number?)]
-  [tail-call (fn string?) (n-args number?)]
+  [call (fn symbol?) (n-args number?)]
+  [tail-call (fn symbol?) (n-args number?)]
   [return])
 
 (define (parse-L1 expr)
@@ -46,9 +46,9 @@
     [`(,w >>= ,s) (sop>> (parse-arg w) (parse-arg s))]
     [(? symbol?) (label-expr (string-append "_" (substring (symbol->string expr) 1)))]
     [`(goto ,label) (goto (parse-arg label))]
-    [`(call ,fn ,n) (call (symbol->string fn) n)]
+    [`(call ,fn ,n) (call fn n)]
     [`(cjump ,t1 ,cmp ,t2 ,label1 ,label2) (cjump (parse-arg t1) cmp (parse-arg t2) (parse-arg label1) (parse-arg label2))]
-    [`(tail-call ,fn ,n) (tail-call (symbol->string fn) n)]
+    [`(tail-call ,fn ,n) (tail-call fn n)]
     [`(return) (return)]))
     
     
@@ -85,7 +85,16 @@
     ['rdx  'dl]
     ['rsi  'sil]))
 
+(define all-regs '(rax rbx rbp r10 r11 r12 r13 r14 r15 rdi rsi rdx rcx r8 r9))
+
+(define (isReg? x)
+  (member x all-regs))
 (define args-spill 0)
+(define (label-or-reg exp)
+  (if (isReg? exp)
+      (format "*%~A" exp)
+      (format "_~A" (substring (symbol->string exp) 1))))
+
 
 (define (compile instr)
   (type-case L1-expr instr
@@ -104,7 +113,7 @@
                                      [register (name) (cond 
                                                         [(symbol=? cmp '<=) (format "cmpq ~A, ~A\nsetle %~A\nmovzbq %~A, ~A\n" (compile op2) (compile op1) (8-bit-reg (register-name dest)) (8-bit-reg (register-name dest)) (compile dest))]
                                                         [(symbol=? cmp '=) (format "cmpq ~A, ~A\nsete %~A\nmovzbq %~A, ~A\n" (compile op2) (compile op1) (8-bit-reg (register-name  dest)) (8-bit-reg (register-name  dest)) (compile dest))]
-                                                        [(symbol=? cmp '<) (format "cmpq ~A, ~A\nsetle %~A\nmovzbq %~A, ~A\n" (compile op2) (compile op1) (8-bit-reg (register-name dest)) (8-bit-reg (register-name dest)) (compile dest))]
+                                                        [(symbol=? cmp '<) (format "cmpq ~A, ~A\nsetl %~A\nmovzbq %~A, ~A\n" (compile op2) (compile op1) (8-bit-reg (register-name dest)) (8-bit-reg (register-name dest)) (compile dest))]
                                                         )]
                                      [else 'HUH])]                                                      
     [mem-read (w src offset) (format "movq ~A(~A), ~A\n" offset (compile src) (compile w))]
@@ -113,29 +122,34 @@
     [aop- (l r) (format "subq ~A, ~A\n" (compile r) (compile l))]
     [aop* (l r) (format "imulq ~A, ~A\n" (compile r) (compile l))]
     [aop& (l r) (format "andq ~A, ~A\n" (compile r) (compile l))]
-    [sop<< (l r) (format "salq ~A, ~A\n" (compile r) (compile l))]
-    [sop>> (l r) (format "sarq ~A, ~A\n" (compile r) (compile l))]
+    [sop<< (l r) (format "salq ~A, ~A\n" (type-case L1-expr r
+                                           [register (name) (format "%~A" (8-bit-reg name))]
+                                           [else (compile r)]) (compile l))]
+    [sop>> (l r) (format "sarq ~A, ~A\n" (type-case L1-expr r
+                                           [register (name) (format "%~A"(8-bit-reg name))]
+                                           [else (compile r)]) (compile l))]
     [goto (l) (format "jmp ~A\n" (substring (compile l) 1))]
     [cjump (op1 cmp op2 dest1 dest2) (type-case L1-expr op1
                                        [num (n1) (type-case L1-expr op2
                                                    [num (n2) (format "jmp ~A\n" (if ((cmp-map cmp) n1 n2)
-                                                                                    (compile dest1)
-                                                                                    (compile dest2)))]
+                                                                                    (substring (compile dest1) 1)
+                                                                                    (substring (compile dest2) 1)))]
                                                    [else (cond
                                                            [(symbol=? cmp '<=) (format "cmpq ~A, ~A\njge ~A\njmp ~A\n" (compile op1) (compile op2) (substring (compile dest1) 1) (substring (compile dest2) 1))]
                                                            [(symbol=? cmp '=) (format "cmpq ~A, ~A\nje ~A\njmp ~A\n" (compile op1) (compile op2) (substring (compile dest1) 1) (substring (compile dest2) 1))]
-                                                           [(symbol=? cmp '<) (format "cmpq ~A, ~A\njg ~A\njmp~A\n" (compile op1) (compile op2) (substring (compile dest1) 1) (substring (compile dest2) 1) )])])]
+                                                           [(symbol=? cmp '<) (format "cmpq ~A, ~A\njg ~A\njmp ~A\n" (compile op1) (compile op2) (substring (compile dest1) 1) (substring (compile dest2) 1) )])])]
                                        [register (name) (cond
                                                           [(symbol=? cmp '<=) (format "cmpq ~A, ~A\njle ~A\njmp ~A\n" (compile op2) (compile op1) (substring (compile dest1) 1) (substring (compile dest2) 1) )]
                                                           [(symbol=? cmp '=) (format "cmpq ~A, ~A\nje ~A\njmp ~A\n" (compile op2) (compile op1) (substring (compile dest1) 1) (substring (compile dest2) 1))]
                                                           [(symbol=? cmp '<) (format "cmpq ~A, ~A\njl ~A\njmp ~A\n" (compile op2) (compile op1) (substring (compile dest1) 1) (substring (compile dest2) 1) )])]
                                        [else '()])]
     [call (fn n) (match fn
-                   ["array-error" (format "call array_error\n")]
-                   ["print" (format "call print\n")]
-                   ["allocate" (format "call allocate\n")]
-                   [_ (format "subq $~A, %rsp\njmp _~A\n" (if (> n 6) (* 8 (- n 5)) 8) (substring fn 1))])]
-    [tail-call (fn n) (format "addq $~A, %rsp\njmp _~A\n" (* 8 args-spill) (substring fn 1))]
+                   ['array-error (format "call array_error\n")]
+                   ['print (format "call print\n")]
+                   ['allocate (format "call allocate\n")]
+                   ['read (format "call read\n")]
+                   [_ (format "subq $~A, %rsp\njmp ~A\n" (if (> n 6) (* 8 (- n 5)) 8) (label-or-reg fn))])]
+    [tail-call (fn n) (format "addq $~A, %rsp\njmp ~A\n" (* 8 args-spill) (label-or-reg fn))]
     [return () (format "addq $~A, %rsp\nret\n" (* 8 args-spill))]))
     
 
@@ -181,5 +195,8 @@ retq\n"
   (call-with-input-file
       (vector-ref (current-command-line-arguments) 0)
       (lambda (x) (display (L1->Assembly (read x))))))
+
+
+
 
 

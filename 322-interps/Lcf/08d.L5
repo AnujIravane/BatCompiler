@@ -1,0 +1,27 @@
+(letrec
+    ((bulk (lambda (a b c)
+             10000)))
+  (letrec
+      ((wrap (lambda (g)
+               (if (< g 0)
+                   (bulk 1 2 g)
+                   (wrap (- g 10))))))
+    (letrec 
+        ((main (lambda (x v)
+                 (begin (let ((y 1))
+                          (if (< 99999 x)
+                              (let ((z print))
+                                (z v))
+                              y))
+                        (let ((y 100000))
+                          (if (< x 100000)
+                              (let ((r (main (+ x 1) (+ v (- v v)))))
+                                (wrap r))
+                              y))))))
+      (letrec
+          ((repeat (lambda (its)
+                     (begin (main its (* its 2))
+                            (if (< its -60)
+                                (print 0)
+                                (repeat (- its 1)))))))
+        (repeat 60)))))

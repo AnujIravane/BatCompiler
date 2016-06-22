@@ -1,0 +1,40 @@
+(:L_1
+ (:L_1
+  0
+  0
+  :tailgoto_2
+  (rdi <- 3)
+  (rsi <- 5)
+  (rdx <- 7)
+  (rcx <- 9)
+  (r8 <- 11)
+  ((mem rsp -8) <- :ret_3)
+  (call :f 5)
+  :ret_3
+  (v <- rax)
+  (rdi <- v)
+  (call print 1)
+  (rax <- rax)
+  (return))
+ (:f
+  5
+  0
+  (a <- rdi)
+  (b <- rsi)
+  (c <- rdx)
+  (d <- rcx)
+  (e <- r8)
+  :tailgoto_4
+  (x <- a)
+  (x += b)
+  (x -= 1)
+  (y <- c)
+  (y += d)
+  (y -= 1)
+  (z <- e)
+  (z += y)
+  (z -= 1)
+  (rax <- x)
+  (rax += z)
+  (rax -= 1)
+  (return)))

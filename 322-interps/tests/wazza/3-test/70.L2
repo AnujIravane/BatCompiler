@@ -1,0 +1,56 @@
+(:main
+ (:main
+  0 0
+  (a <- 8)
+  (a <<= 1)
+  (a += 1)
+  (rdi <- a)
+  (rsi <- 1)
+  (rsi <<= 1)
+  (rsi += 1)
+  (call allocate 2)
+  (b <- rax)
+  (rdi <- 5)
+  (rsi <- 0)
+  (call allocate 2)
+  (c <- rax)
+  ((mem c 8) <- a)
+  ((mem c 16) <- b)
+  (rdi <- a)
+  ((mem rsp -8) <- :fret1)
+  (call :f 1)
+  :fret1
+  (rdi <- rax)
+  (call print 1)
+  (rdi <- b)
+  ((mem rsp -8) <- :fret2)
+  (call :f 1)
+  :fret2
+  (rdi <- rax)
+  (call print 1)
+  (rdi <- c)
+  ((mem rsp -8) <- :fret3)
+  (call :f 1)
+  :fret3
+  (rdi <- rax)
+  (call print 1)
+  (return))
+ (:f
+  1 0
+  (x <- rdi)
+  (xnumber <- x)
+  (xnumber &= 1)
+  (cjump xnumber = 1 :then1 :else1)
+  :then1
+  (rax <- x)
+  (return)
+  :else1
+  (xa <- x)
+  (xa &= 1)
+  (cjump xa = 0 :then2 :else2)
+  :then2
+  (rax <- x)
+  (return)
+  :else2
+  (rdi <- -1)
+  (call print 1)))

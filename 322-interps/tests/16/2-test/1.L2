@@ -1,0 +1,8 @@
+(:p
+  (:p
+    0 0
+    (x <- 9)
+	(x += 10)
+	(rdi <- x)
+	(call print 1)
+	(return)))

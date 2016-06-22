@@ -1,0 +1,4 @@
+((let ([a (read)])
+  (begin
+  (+ (read) (+ (read) (+ (read) (read))))
+  (print (* a 20000100000)))))

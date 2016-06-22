@@ -1,0 +1,17 @@
+(:f
+ (:f 0 0
+  (rdi <- 9)
+  (rsi <- 9)
+  (x <- rdi)
+  (y <- rsi)
+  (rdi <- x)
+  (rsi <- x)
+  (call allocate 2)
+  (v <- rax)
+  (s <- (mem v 0))
+  (s *= 2)
+  (s += 1)
+  (rdi <- s)
+  (call print 1)
+  (return)
+))

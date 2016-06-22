@@ -1,0 +1,8 @@
+(:f3 1 1
+     ((mem rsp 0) <- rdi)
+     (call print 1)
+     (x <- (mem rsp 0))
+     ((mem rsp 0) <- 0)
+     (x += x)
+     (rax <- x)
+     (return))

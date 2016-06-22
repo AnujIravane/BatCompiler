@@ -1,0 +1,3 @@
+(print
+  (letrec ([x 3])
+    x))

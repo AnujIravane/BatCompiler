@@ -1,0 +1,19 @@
+(:f
+ 3
+ 0
+ :there
+ :here
+ :anywhere
+ (rax <- 0)
+ (rbx <- 1)
+ (rcx <- 2)
+ (rdx <- 3)
+ (rsi <- 4)
+ (rdi <- 5)
+ (cjump t <= t :there :here)
+ (rax += 0)
+ (rbx += 1)
+ (rcx += 2)
+ (rdx += 3)
+ (rsi += 4)
+ (rdi += 5))

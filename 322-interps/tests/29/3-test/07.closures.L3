@@ -1,0 +1,8 @@
+((print 0)
+  (:hiya (tail-call array-error allocate call)
+    (let ([closed (make-closure :hiya 16)])
+      (let ([proc (closure-proc closed)])
+        (let ([blargh (print proc)])
+          (let ([vars (closure-vars closed)])
+            (print vars)))))))
+

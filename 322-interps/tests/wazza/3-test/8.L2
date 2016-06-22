@@ -1,0 +1,28 @@
+(:main
+  (:main
+    0 1
+    (rdi <- 5)
+    (rsi <- 7)
+    (call allocate 2)
+    ((mem rsp 0) <- rax)
+    ((mem rax 8) <- 13)
+    ((mem rsp -8) <- :swap_pair_ret)
+    (rax += 8)
+    (rdi <- rax)
+    (rax += 8)
+    (rsi <- rax)
+    (call :swap_pair 2)
+    :swap_pair_ret
+    (rdi <- (mem rsp 0))
+    (call print 1)
+    (return))
+  (:swap_pair
+    2 0
+    (x <- (mem rdi 0))
+    (y <- (mem rsi 0))
+    ((mem rdi 0) <- y)
+    ((mem rsi 0) <- x)
+    (return)) 
+)
+
+

@@ -1,0 +1,3 @@
+((:f (new-array (+ 1 1) 3))
+ (:f (a)
+  (print a)))

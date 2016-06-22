@@ -1,0 +1,7 @@
+#!/bin/bash
+racket Lc.rkt $1 > prog.S
+as -o prog.o prog.S
+gcc -O2 -c -g -o runtime.o runtime.c
+gcc -o a.out prog.o runtime.o
+cat prog.s
+./a.out

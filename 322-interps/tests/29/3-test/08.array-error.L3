@@ -1,0 +1,4 @@
+((let ([ arr (new-array 5 0) ])
+  (let ([ ugh (print arr) ])
+    (aref arr 6))))
+

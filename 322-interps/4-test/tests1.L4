@@ -1,0 +1,6 @@
+((print (:recur 5))
+ (:recur (n)
+ (new-tuple n
+  (if n 
+   (:recur (- n 1))
+   0))))

@@ -1,0 +1,84 @@
+(:main
+  (:main
+    0 0
+    (rdi <- 13)
+    (rsi <- 3)
+    (call allocate 2)
+    (arr <- rax)
+    (rdi <- 5)
+    (rsi <- 5)
+    (call allocate 2)
+    (arr2 <- rax)
+        ((mem arr 8) <- arr2)
+        ((mem arr 16) <- arr2)
+        ((mem arr 24) <- arr2)
+        ((mem arr 32) <- arr2)
+        ((mem arr 40) <- arr2)
+        ((mem arr 48) <- arr2)
+        (rdi <- arr)
+        (call print 1)
+	(rdi <- arr)
+        (x <- (mem arr 8)) ;;manipulate copied array
+        ((mem x 8) <- 101)
+        (call print 1) ;; should appear in all subarrays
+        (rdi <- arr)
+        ((mem rsp -8) <- :fcret)
+        (call :first_copy 1)
+        :fcret
+        (rdi <- rax)
+        (call print 1)
+        (rdi <- arr)
+        (x <- (mem rdi 8)) ;;manipulate copied array
+        ((mem x 16) <- 201)
+        (call print 1) ;; 100 should appear in only the first subarray
+        (return))
+  (:first_copy ;;replaces first element of array with a copy
+    1 0
+    (arr <- rdi)
+    (a <- (mem rdi 8)) ;;rsi = array to be copied
+    (b <- (mem a 0)) ;;rdx = length of array to be copied
+    (rdi <- a)
+    (rsi <- b)
+    (rsi *= 2)
+    (rsi += 1)
+    ((mem rsp -8) <- :subret)
+    (call :copy 2)
+    :subret
+    ((mem arr 8) <- rax)
+    (rax <- arr)
+    (return)
+    )
+  (:copy
+    2 0
+    (a <- rdi)
+    (b <- rsi)
+    (rdi <- rsi)
+    (rsi <- 1)
+    (call allocate 2)
+    (rdi <- rax)
+    (c <- rax)
+    (rsi <- a)
+    (rdx <- b)
+    ((mem rsp -8) <- :finret)
+    (call :final_copy 3)
+    :finret
+    (rax <- c)
+    (return))
+  (:final_copy
+    3 0
+    (cjump rdx <= 3 :end :cont)
+    :end
+    (return)
+    :cont
+    (rdx -= 2)
+    (a <- rdx)
+    (a >>= 1)
+    (a *= 8)
+    (b <- rsi)
+    (b += a)
+    (b <- (mem b 0)) ;; to copy
+    (c <- rdi)
+    (c += a)
+    ((mem c 0) <- b) ;; copy
+    (tail-call :final_copy 3)))
+

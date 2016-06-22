@@ -1,0 +1,7 @@
+(:main
+  (:main
+  0 0 
+  (avalue <- -1)
+  (rdi <- avalue)
+  (call print 1)
+  (return)))

@@ -1,0 +1,8 @@
+((let ([null -1])
+   (begin (print (:cons 2 (:cons 3 (:cons 4 null))))
+          (begin (print (:cons (:cons 1 null)
+                               (:cons (:cons 2 -2)
+                                      (:cons (:cons -3 -3)
+                                             null))))
+                 (print (:cons (new-tuple 1 -1 (:cons 0 -1)) (:cons (new-tuple 2 -2 1) -1))))))
+(:cons (x y) (new-tuple x y)))

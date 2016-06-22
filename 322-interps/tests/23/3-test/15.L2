@@ -1,0 +1,32 @@
+(:main
+ (:main 0 0
+  (rdi <- 7)
+  (tail-call :f 1)
+ )
+ (:f 1 0
+  (x <- rdi)
+  (rdi <- 1)
+  (rsi <- 3)
+  (rdx <- 5)
+  (rcx <- 7)
+  (r8 <- 9)
+  (r9 <- 11)
+  ((mem rsp -16) <- 13)
+  ((mem rsp -24) <- x)
+  ((mem rsp -8) <- :ret)
+  (call :g 8)
+  :ret
+  (v <- rax)
+  (rdi <- v)
+  (call print 1)
+  (return)
+ )
+ (:g 8 0
+  (x <- (stack-arg 0))
+  (y <- (stack-arg 8))
+  (x += y)
+  (x -= 1)
+  (rax <- x)
+  (return)
+ )
+)

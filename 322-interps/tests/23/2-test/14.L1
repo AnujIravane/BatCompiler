@@ -1,0 +1,9 @@
+(:printfive
+(:printfive 0 0
+  (r8 <- 11)
+  (rdi <- r8)
+  (r8 <- r10)
+  (r8 <- r11)
+  (call print 1)
+  (return))
+)

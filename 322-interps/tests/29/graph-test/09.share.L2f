@@ -1,0 +1,6 @@
+(:share 0 0
+        (rax += x)
+        (rax >>= 3)
+        (y <- 55)
+        (rax -= y)
+        (return))

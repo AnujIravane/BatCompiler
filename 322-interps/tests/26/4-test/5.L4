@@ -1,0 +1,3 @@
+((print (closure-vars (aref (:f 1) 2)))
+(:f (x)
+  (new-tuple 1 2 (make-closure :f x))))

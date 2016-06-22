@@ -1,0 +1,12 @@
+(:five_variables 0 0
+  (x <- 5)
+  (y <- 7)
+  (z <- 9)
+  (w <- 11)
+  (v <- 13)
+  (r10 += x) ; gen AND kill; can't use this before here or the value might have changed
+  (r11 += y) ; gen AND kill; can't use this before here or the value might have changed
+  (r8 += z)  ; gen AND kill; can't use this before here or the value might have changed
+  (r9 += w)  ; gen AND kill; can't use this before here or the value might have changed
+  (rax += v) ; gen AND kill; can't use this before here or the value might have changed
+  (return))

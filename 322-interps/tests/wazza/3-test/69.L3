@@ -1,0 +1,4 @@
+((:make_array_print 5 3)
+ (:make_array_print (n a)
+  (let ([arr (new-array n a)])
+   (print arr))))

@@ -1,0 +1,14 @@
+(:L_1
+ (:L_1
+  0
+  0
+  :tailgoto_2
+  ((mem rsp -8) <- :ret_3)
+  (call :f 0)
+  :ret_3
+  (x <- rax)
+  (rdi <- x)
+  (call print 1)
+  (rax <- rax)
+  (return))
+ (:f 0 0 :tailgoto_4 (rax <- :f) (rax &= 1) (rax <<= 1) (rax += 1) (return)))

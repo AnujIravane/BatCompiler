@@ -1,1 +1,0 @@
-(:f 0 2 ((mem rsp 8) <- :x) (s0 <- (mem rsp 8)) (call s0 0))

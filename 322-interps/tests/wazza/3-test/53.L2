@@ -1,0 +1,13 @@
+(:main
+ (:main 
+  0 0 
+  (a <- :f) 
+  ((mem rsp -8) <- :ret) 
+  (call a 0) 
+  :ret 
+  (return))
+ (:f 
+  0 0 
+  (rdi <- 3) 
+  (call print 1) 
+  (return)))

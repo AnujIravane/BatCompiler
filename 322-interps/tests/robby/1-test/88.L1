@@ -1,15 +1,22 @@
 (:main
- (:main 0 0 ((mem rsp -8) <- :ret1) (call :f 0) :ret1 (return))
- (:f
+ (:main
   0
-  1
-  ((mem rsp 0) <- 3)
-  ((mem rsp -8) <- :ret2)
-  (call :g 0)
-  :ret2
-  (rax <- (mem rsp 0))
+  0
+  (rdi <- 1)
+  (rsi <- 2)
+  (rdx <- 3)
+  (rcx <- 4)
+  (r8 <- 5)
+  (r9 <- 6)
+  ((mem rsp -16) <- 7)
+  ((mem rsp -24) <- 8)
+  ((mem rsp -8) <- :ret1)
+  (call :f 8)
+  :ret1
+  (rax *= 2)
+  (rax += 1)
   (rdi <- rax)
   (call print 1)
   (return))
- (:g 0 0 (tail-call :h 0))
- (:h 0 0 (return)))
+ (:f 8 0 (tail-call :g 1))
+ (:g 1 0 (rax <- rdi) (return)))

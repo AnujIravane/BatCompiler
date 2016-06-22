@@ -1,0 +1,12 @@
+(:main
+ (:main
+  0 0
+  (x <- 1)
+  (goto :t1)
+  :t1
+  (goto :t2)
+  (x <- 3)
+  :t2
+  (rdi <- x)
+  (call print 1)
+  (return)))

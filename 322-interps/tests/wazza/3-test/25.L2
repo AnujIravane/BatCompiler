@@ -1,0 +1,31 @@
+(:main
+  (:main
+    0 0
+    (rdi <- 7)
+    (rsi <- 5)
+    (call allocate 2)
+    (arr1 <- rax)
+    (rdi <- 9)
+    (rsi <- 5)
+    (call allocate 2)
+    (arr2 <- rax)
+    ((mem rsp -8) <- :create_big_array_ret)
+    (rdi <- arr1)
+    (rsi <- arr2)
+    (call :create_big_array 2)
+    :create_big_array_ret
+    (rdi <- rax)
+    (call print 1)
+    (return))
+  (:create_big_array
+    2 0
+    (n1 <- (mem rdi 0))
+    (n2 <- (mem rsi 0))
+    (rdi <- n1)
+    (rdi += n2)
+    ; need to encode these since size is not encoded for some reason..
+    (rdi *= 2)
+    (rdi += 1)
+    (rsi <- 5)
+    (call allocate 2)
+    (return)))

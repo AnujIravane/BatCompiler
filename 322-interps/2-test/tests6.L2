@@ -1,0 +1,17 @@
+(:main
+(:main
+0 0
+((mem rsp -8) <- :f_ret)
+(call :go 0)
+:f_ret
+(return)) 
+(:go
+  0 0
+  (rdi <- 9)
+  (b <- 17)
+  (cjump rdi <= b :true :false)
+  :true
+  (return)
+  :false
+  (rdi <- b)
+  (return)))

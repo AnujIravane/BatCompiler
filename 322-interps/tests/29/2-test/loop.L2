@@ -1,0 +1,12 @@
+(:loop
+  (:loop 0 0
+    (x <- 17)
+    :top
+    (cjump x = 1 :stop :go)
+    :go
+    (rdi <- x)
+    (call print 1)
+    (x -= 2)
+    (goto :top)
+    :stop
+    (return)))

@@ -1,0 +1,12 @@
+((let ([ result (:fib 15) ])
+  (print result))
+  (:fib (n)
+    (let ([ base_case (< n 2) ])
+      (if base_case
+        n
+        (let ([ n_1 (- n 1) ])
+          (let ([n_2 (- n 2)])
+            (let ([fibn_1 (:fib n_1)])
+              (let ([fibn_2 (:fib n_2)])
+                (+ fibn_1 fibn_2)))))))))
+

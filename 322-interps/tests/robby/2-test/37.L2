@@ -1,0 +1,48 @@
+(:main
+ (:main
+  0
+  0
+  (x1 <- 3)
+  (x2 <- 5)
+  (x3 <- 7)
+  (x4 <- 9)
+  (x5 <- 11)
+  (x6 <- 13)
+  (x7 <- 15)
+  (rdi <- 1)
+  ((mem rsp -8) <- :fret)
+  (call :f 1)
+  :fret
+  (rdi <- x1)
+  (call print 1)
+  (rdi <- x2)
+  (call print 1)
+  (rdi <- x3)
+  (call print 1)
+  (rdi <- x4)
+  (call print 1)
+  (rdi <- x5)
+  (call print 1)
+  (rdi <- x6)
+  (call print 1)
+  (rdi <- x7)
+  (call print 1)
+  (return))
+ (:f
+  1
+  0
+  (x <- rdi)
+  :top
+  (cjump x = 0 :return :loop)
+  :return
+  (return)
+  :loop
+  (x -= 1)
+  (x1 <- 3)
+  (x2 <- 5)
+  (x3 <- 7)
+  (x4 <- 9)
+  (x5 <- 11)
+  (x6 <- 13)
+  (x7 <- 15)
+  (goto :top)))

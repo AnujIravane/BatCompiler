@@ -8,5 +8,5 @@
   (rdi <- rax)
   (call print 1)
   (return))
- (:f 0 0 (r10 <- :g) (tail-call r10 0))
+ (:f 0 0 (tail-call :g 0))
  (:g 0 0 (rax <- 3) (return)))

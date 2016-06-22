@@ -1,0 +1,14 @@
+(:shared
+	(:shared
+	0 1
+	(x <- 4)
+	(rax <- 2)
+        (rax += x)
+        (rax >>= 3)
+        (y <- 55)
+        (rax -= y)
+        (rdi <- rax)
+        ((mem rsp 0) <- rax)
+        (call print 1)
+        (rax <- (mem rsp 0))
+        (return)))

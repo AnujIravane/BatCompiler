@@ -1,0 +1,19 @@
+(:main
+ (:main 0 0
+        (a <- 11)
+        (b <- 7)
+        ((mem rsp -8) <- :mult_ret)
+        (rdi <- a)
+        (rsi <- b)
+        (call :mult 2)
+        :mult_ret
+        (c <- rax)
+        (rax <- c)
+        (return))
+ (:mult 2 0
+        (a <- rdi)
+        (b <- rsi)
+        (c <- a)
+        (c *= b)
+        (rax <- c)
+        (return)))

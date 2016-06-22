@@ -1,0 +1,7 @@
+((:f 3 3)
+ (:f (x y)
+  (let ([v (new-array x y)])
+   (print (if 1 (aref v 2) (+ 2 3)))
+  )
+ )
+)

@@ -1,0 +1,19 @@
+(let ([sub1
+       (lambda (x)
+         (let ([pair (new-tuple 1 0)])
+           (letrec ([loop
+                     (lambda ()
+                       (if (= x (aref pair 0))
+                           (aref pair 1)
+                           (begin
+                             (aset pair 1 (aref pair 0))
+                             (begin
+                               (aset pair 0 (+ 1 (aref pair 0)))
+                               (loop)))))])
+             (loop))))])
+
+  (letrec ([sub (lambda (x y)
+                  (if (= y 0)
+                      x
+                      (sub (sub1 x) (sub1 y))))])
+    (print (sub 2736 1231))))

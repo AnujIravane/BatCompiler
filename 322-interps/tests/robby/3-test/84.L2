@@ -1,0 +1,14 @@
+(:L_1
+ (:L_1
+  0
+  0
+  :tailgoto_2
+  (x <- :f)
+  (x &= 1)
+  (x *= -2)
+  (x += 3)
+  (rdi <- x)
+  (call print 1)
+  (rax <- rax)
+  (return))
+ (:f 1 0 (x <- rdi) :tailgoto_3 (rax <- x) (return)))

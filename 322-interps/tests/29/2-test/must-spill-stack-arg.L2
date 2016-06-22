@@ -1,0 +1,15 @@
+(:main
+	(:main 0 0
+		((mem rsp -8) <- :ret)
+		((mem rsp -24) <- 5)
+		(call :nope 8)
+		(return))
+	(:nope 8 2
+  		(x <- :label) ; possibilities: r10, r11, r8, r9, rax, rcx, rdi, rdx, rsi
+ 		(call x 0)    ; kill: r10, r11, r8, r9, rax, rcx, rdi, rdx, rsi (REASSIGN)
+ 		(x += rax)
+		(r10 <- (stack-arg 8))
+		(x += r10)
+ 		(rdi <- x)
+ 		(call print 1)	
+ 		(return))) ; r10 r11 r8 r9 rax rcx rdi rdx rsi OUT; have to use another register but don't have one

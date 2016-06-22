@@ -1,0 +1,12 @@
+(:main
+ (:main
+  0 0
+  (warg <- 3)
+  (sflk <- 5)
+  (arg <- warg = sflk)
+  (hah <- 1)
+  (arg <<= hah)
+  (arg += 1)
+  (rdi <- arg)
+  (call print 1)
+  (return)))

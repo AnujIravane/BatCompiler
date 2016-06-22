@@ -1,0 +1,25 @@
+ (:main
+  (:main
+    0 0
+    (x <- 5)
+    (y <- 7)
+    (rdi <- x)
+    (rsi <- y)
+    ((mem rsp -8) <- :add_two_num_ret)
+    (call :add_two_num 2)
+    :add_two_num_ret
+    (rdi <- rax)
+    (call print 1)
+    (return))
+  (:add_two_num
+    2 0
+    (rdi -= 1)
+    (rdi >>= 1)
+    (rax <- rdi)
+    (rsi -= 1)
+    (rsi >>= 1)
+    (rax += rsi)
+    (rax *= 2)
+    (rax += 1)
+    (return))
+)

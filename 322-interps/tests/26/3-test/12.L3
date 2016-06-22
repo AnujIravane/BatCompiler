@@ -1,0 +1,10 @@
+((:f 100)
+ (:f (x)
+    (let ([f -12])
+      (let ([len (:g f)])
+        (print len))))
+ (:g (g)
+    (let ([q (a? g)])
+      (if q
+          (alen g)
+          -1))))

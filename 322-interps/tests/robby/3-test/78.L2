@@ -1,0 +1,30 @@
+(:L_1
+ (:L_1 0 0 :tailgoto_2 (rdi <- 43) (tail-call :f 1))
+ (:f 1 0 (x <- rdi) :tailgoto_3 (rdi <- x) (rsi <- x) (tail-call :g 2))
+ (:g
+  2
+  0
+  (x <- rdi)
+  (y <- rsi)
+  :tailgoto_4
+  (rdi <- x)
+  (rsi <- y)
+  (rdx <- y)
+  (tail-call :h 3))
+ (:h
+  3
+  0
+  (x <- rdi)
+  (y <- rsi)
+  (z <- rdx)
+  :tailgoto_5
+  (rdi <- x)
+  (call print 1)
+  (d1 <- rax)
+  (rdi <- y)
+  (call print 1)
+  (d2 <- rax)
+  (rdi <- z)
+  (call print 1)
+  (rax <- rax)
+  (return)))

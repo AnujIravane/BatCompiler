@@ -1,0 +1,14 @@
+(:main
+ (:main
+  0 0
+  (sflk <- 13)
+  (hooo <- 3)
+  (cjump sflk < hooo :true :false)
+  :true
+  (rdi <- 1)
+  (goto :print)
+  :false
+  (rdi <- 3)
+  :print
+  (call print 1)
+  (return)))

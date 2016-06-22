@@ -1,0 +1,6 @@
+(:main
+ (:main
+  0 0
+  (rdi <- -15)
+  (call print 1)
+  (return)))

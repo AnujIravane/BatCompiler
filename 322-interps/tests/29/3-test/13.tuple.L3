@@ -1,0 +1,5 @@
+((let ([x (:fff 1 3 5 7 6 4 2 9)])
+   (print x))
+ (:fff (q w e r t y u i)
+       (new-tuple q w e r t y u i)))
+

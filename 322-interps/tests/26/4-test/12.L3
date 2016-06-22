@@ -1,0 +1,6 @@
+((let ([x (print -27)])
+   (let ([x (print 27)])
+     (let ([x (print -12)])
+       (let ([x (print 3)])
+         (let ([x (print 0)])
+           (print 0)))))))

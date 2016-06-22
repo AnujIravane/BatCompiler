@@ -1,0 +1,10 @@
+(:main
+ (:main
+  0 0
+  (rdi <- 3)
+  (rsi <- 5)
+  (call allocate 2)
+  (v <- rax)
+  (rdi <- (mem v 0))
+  (call print 1)
+  (return)))

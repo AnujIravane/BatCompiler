@@ -1,0 +1,5 @@
+((:main)
+ (:main ()
+  (let ([a 3])
+   (let ([b (* a -3)])
+    (print b)))))

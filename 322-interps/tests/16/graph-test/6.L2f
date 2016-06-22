@@ -1,0 +1,6 @@
+(:f 1 0
+  (rcx <- 5)
+  (x <- rdi)
+  (x >>= x)
+  (rax <- rcx)
+  (return))

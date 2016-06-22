@@ -1,0 +1,2 @@
+((let ([ar (+ 2 (+ 1 1))])
+  (begin (print (a? ar)) (print (number? ar)))))

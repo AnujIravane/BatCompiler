@@ -1,0 +1,58 @@
+(:main
+  (:main
+    0 0
+    (rdi <- 10)
+    (rsi <- 9)
+    (rdx <- 9)
+    (rcx <- 2)
+    (r8 <- 1)
+    (r9 <- 5)
+    ((mem rsp -8) <- :find_min_ret)
+    (call :find_min 6)
+    :find_min_ret
+    (rdi <- rax)
+    ((mem rsp -8) <- :encode_ret)
+    (call :encode 1)
+    :encode_ret
+    (rdi <- rax)
+    (call print 1)
+    (return))
+  (:encode
+    1 0
+    (rdi *= 2)
+    (rdi += 1)
+    (rax <- rdi)
+    (return))
+  (:decode
+    1 0
+    (rdi -= 1)
+    (rdi >>= 1)
+    (rax <- rdi)
+    (return))
+  (:find_min
+    6 0
+    (res <- rdi)
+    (cjump rsi < res :replace_1 :next_reg_1)
+    :replace_1
+    (res <- rsi)
+    :next_reg_1
+    (cjump rdx < res :replace_2 :next_reg_2)
+    :replace_2
+    (res <- rdx)
+    :next_reg_2
+    (cjump rcx < res :replace_3 :next_reg_3)
+    :replace_3
+    (res <- rcx)
+    :next_reg_3
+    (cjump r8 < res :replace_4 :next_reg_4)
+    :replace_4
+    (res <- r8)
+    :next_reg_4
+    (cjump r9 < res :replace_5 :return)
+    :replace_5
+    (res <- r9)
+    :return
+    (rax <- res)
+    (return))
+)
+

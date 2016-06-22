@@ -1,0 +1,24 @@
+(:f
+(:f 0 0
+(rdi <- 4)
+(rsi <- 5)
+(x <- rdi)
+(x *= 2)
+(x += 1)
+(y <- rsi)
+(y *= 2)
+(y += 1)
+(x1 <- x)
+(x1 += 2)
+(y2 <- y)
+(y2 += 4)
+(cjump x1 < y2 :true :false)
+:true
+(rdi <- 1)
+(call print 1)
+(return)
+:false
+(rdi <- 3)
+(call print 1)
+(return)
+))

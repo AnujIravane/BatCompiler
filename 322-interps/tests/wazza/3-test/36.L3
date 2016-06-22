@@ -1,0 +1,5 @@
+((:main)
+ (:main ()
+  (let ([r 500])
+   (let ([x (- r 50)])
+    (print x)))))

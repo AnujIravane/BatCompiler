@@ -1,0 +1,1 @@
+(letrec ([x (lambda (a) (if (< a 1) 1 (* (x (- a 1)) a)))]) (print (x 5)))

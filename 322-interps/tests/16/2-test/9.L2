@@ -1,0 +1,30 @@
+(:p
+  (:p
+    0 0
+	((mem rsp -8) <- :f_ret)
+	(rdi <- 3)
+	(rsi <- 5)
+	(rdx <- 7)
+	(rcx <- 9)
+	(r8 <- 11)
+	(r9 <- 13)
+	((mem rsp -16) <- 15)
+	((mem rsp -24) <- 17)
+	(call :f 8)
+	:f_ret
+	(rdi <- rax)
+	(call print 1)
+	(return))
+  (:f
+    8 0
+	(a <- rdi)
+	(b <- rsi)
+	(c <- rdx)
+	(d <- rcx)
+	(e <- r8)
+	(f <- r9)
+	(g <- (stack-arg 8))
+	(h <- (stack-arg 0))
+	(i <- 1)
+	(rax <- 59)
+	(return)))

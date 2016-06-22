@@ -1,0 +1,28 @@
+(:go
+ (:fib_loop
+  3
+  0
+  (cjump rdi = 0 :done :more)
+  :done
+  (rax <- rsi)
+  (return)
+  :more
+  (rcx <- rsi)
+  (rsi += rdx)
+  (rdx <- rcx)
+  (rdi -= 1)
+  (tail-call :fib_loop 3))
+ (:go
+  0
+  0
+  (rdi <- 20)
+  (rsi <- 1)
+  (rdx <- 1)
+  ((mem rsp -8) <- :fib_return)
+  (call :fib_loop 3)
+  :fib_return
+  (rax *= 2)
+  (rax += 1)
+  (rdi <- rax)
+  (call print 1)
+  (return)))

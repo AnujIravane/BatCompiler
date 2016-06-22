@@ -1,0 +1,7 @@
+((:main)
+ (:main ()
+  (let ([a 2])
+   (let ([b 1])
+    (let ([c (new-array a b)])
+     (let ([d (aref c 1)])
+      (print d)))))))

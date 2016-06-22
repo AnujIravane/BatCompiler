@@ -1,0 +1,42 @@
+(:main
+  (:main
+    0 0
+    (rdi <- 15)
+    (rsi <- 3)
+    (call allocate 2)
+    (arr <- rax)
+    (rdi <- rax)
+    ((mem rdi 32) <- 151) ;;store 75 at position 4
+    (rsi <- 151)
+    (rdx <- 0)
+    ((mem rsp -8) <- :fret)
+    ((mem rsp -16) <- 0)
+    (call :find 3)
+    :fret
+    (rdi <- rax)
+    (rdi *= 2)
+    (rdi += 1)
+    (call print 1)
+    (rdi <- arr)
+    (call print 1)
+    (return))
+  (:find
+    3 0
+    (rax <- (mem rdi 0))
+    (cjump rdx = rax :end :cont)
+    :end
+    (rdi <- rdx)
+    (return)
+    :cont
+    (a <- rdx)
+    (a += 1)
+    (a *= 8)
+    (a += rdi)
+    (rax <- (mem a 0))
+    (cjump rax = rsi :found :notfound)
+    :found
+    (rax <- rdx)
+    (return)
+    :notfound
+    (rdx += 1)
+    (tail-call :find 3)))

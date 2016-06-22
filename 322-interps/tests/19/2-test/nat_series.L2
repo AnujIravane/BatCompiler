@@ -1,0 +1,22 @@
+(:go
+  (:go 
+    0 0
+    (myVar <- 101)
+    (rdi <- myVar)
+    (tail-call :nat_series 1)
+    (return))
+  (:nat_series
+    1 1
+    (myVar <- rdi)
+    (cjump 0 < myVar :more :done)
+    :more
+    ((mem rsp 0) <- rdi)
+    (myVar <<= 1)
+    (myVar += 1)
+    (rdi <- myVar)
+    (call print 1)
+    (rdi <- (mem rsp 0))
+    (rdi -= 1)
+    (tail-call :nat_series 1)
+    :done
+    (return)))

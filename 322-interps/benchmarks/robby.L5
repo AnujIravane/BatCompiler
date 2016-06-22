@@ -1,0 +1,45 @@
+;; speed test entry; bubble sort
+(let ([vec (new-array 10000 0)])
+  (letrec ([reset
+            ;; only works properly if vec's length is even
+            (lambda (i)
+              (if (= i 0)
+                  0
+                  (begin
+                    (aset vec (- i 1) (- (alen vec) i))
+                    (begin
+                      (aset vec (- i 2) (- i 1))
+                      (reset (- i 2))))))])
+    (letrec ([bubble_sort_inner_loop 
+              (lambda (i)
+                (if (= i 0)
+                    0
+                    (let ([ai (aref vec i)])
+                      (let ([aione (aref vec (- i 1))])
+                        (begin
+                          (if (< aione ai)
+                              0
+                              (begin
+                                (aset vec i aione)
+                                (aset vec (- i 1) ai)))
+                          (bubble_sort_inner_loop (- i 1)))))))])
+      (letrec ([bubble_sort
+                (lambda (i)
+                  (if (= i 0)
+                      0
+                      (begin (bubble_sort_inner_loop (- (alen vec) 1))
+                             (bubble_sort (- i 1)))))])
+	(let ([to-swap (read)])
+	  (letrec ([n-times 
+		    (lambda (n)
+		      (if (= n 0)
+			  (print vec)
+			  (begin
+			    (reset (alen vec))
+			    (begin
+			      (aset vec to-swap -1)
+			      (begin
+				(bubble_sort (alen vec))
+				(n-times (- n 1)))))))])
+	    (n-times 10)))))))
+

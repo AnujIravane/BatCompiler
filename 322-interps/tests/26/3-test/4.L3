@@ -1,0 +1,3 @@
+((let ([res (:f 0)]) (print res))
+ (:f (x)
+    (if x 0 1)))

@@ -1,0 +1,8 @@
+((:main)
+ (:main ()
+  (let ([a (print 6)])
+   (let ([b (print 7)])
+    (let ([c (print 8)])
+     (let ([d (print 9)])
+      (let ([e (print 10)])
+       (print 11))))))))

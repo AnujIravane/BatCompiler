@@ -1,0 +1,19 @@
+(:func3
+ (:func3 0 0
+  (x <- 5)
+  ((mem rsp -8) <- :f_ret)
+  ((mem rsp -16) <- 3)
+  (call :f 7)
+  :f_ret
+  (rdi <- x)
+  (call print 1)
+  (return)
+)
+ (:f 7 1
+  (x <- (stack-arg 0))
+  (rdi <- x)
+  (call print 1)
+  (return)
+)
+)
+

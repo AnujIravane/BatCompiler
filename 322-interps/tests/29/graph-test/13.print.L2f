@@ -1,0 +1,8 @@
+(:print 0 2
+  (x <- rdi) ; start live range: x
+  (x += 15)  ; gen and kill x
+  (rdi <- x) ; gen x
+  (call print 1) ; gen rdi rsi rdx rcx r8 r9, kill r10 r11 r8 r9 rax rcx rdi rdx rsi
+  (x -= rax) ; gen rax
+  (rax <- x)
+  (return)) ;

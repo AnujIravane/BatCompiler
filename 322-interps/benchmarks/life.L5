@@ -1,0 +1,168 @@
+(let ([width 11])
+  (let ([height 20])
+    (let ([board1 (new-array height 0)])
+      (let ([board2 (new-array height 0)])
+	(let ([boards (new-tuple board1 board2)])
+	  (let ([swap (lambda ()
+			(let ([o (aref boards 0)])
+			  (begin (aset boards 0 (aref boards 1))
+				 (aset boards 1 o))))])
+	    (letrec ([create-board
+		      (lambda (board row)
+			(if (= row (alen board))
+			    0
+			    (begin
+			      (aset board row (new-array width 0))
+			      (begin 
+				(aset board2 row (new-array width 0))
+				(create-board board (+ row 1))))))])
+	      (letrec ([pow10
+			(lambda (i)
+			  (if (= i 0)
+			      1
+			      (* 10 (pow10 (- i 1)))))])
+		(letrec ([print-row
+			  (lambda (a i acc)
+			    (if (= i width)
+				(print (+ acc (pow10 (+ width 1))))
+				(print-row a (+ i 1) (+ acc (if (aref a i) (pow10 i) 0)))))])
+		  (letrec ([print-board-help
+			    (lambda (row)
+			      (if (= row (alen board1))
+				  0
+				  (begin
+				    (print-row (aref (aref boards 1) row) 0 0)
+				    (print-board-help (+ row 1)))))])
+		    (let ([print-board (lambda () (begin (print-board-help 0) (print 0)))])
+		      (let ([lookup (lambda (x y)
+				      (if (< x 0)
+					  0
+					  (if (<= width x)
+					      0
+					      (if (< y 0)
+						  0
+						  (if (<= height y)
+						      0
+						      (aref (aref (aref boards 0) y) x))))))])
+			(let ([set (lambda (x y v)
+				     (if (< x 0)
+					 0
+					 (if (<= width x)
+					     0
+					     (if (< y 0)
+						 0
+						 (if (<= height y)
+						     0
+						     (aset (aref (aref boards 1) y) x v))))))])
+			  (let ([neighbors
+				 (lambda (i j)
+				   (+ (lookup (- i 1) (- j 1))
+				      (+ (lookup (- i 1) j)
+					 (+ (lookup (- i 1) (+ j 1))
+					    (+ (lookup (+ i 1) (- j 1))
+					       (+ (lookup (+ i 1) j)
+						  (+ (lookup (+ i 1) (+ j 1))
+						     (+ (lookup i (- j 1))
+							(lookup i (+ j 1))))))))))])
+			    (letrec ([next-help
+				      (lambda (i)
+					(if (< i width)
+					    (begin
+					      (letrec ([nexti
+							(lambda (j)
+							  (if (< j height)
+							      (begin
+								(let ([n (neighbors i j)])
+								  (if (lookup i j)
+								      (if (< n 2)
+									  (set i j 0)
+									  (if (<= n 3)
+									      (set i j 1)
+									      (set i j 0)))
+								      (if (= n 3)
+									  (set i j 1)
+									  (set i j 0))))
+								(nexti (+ j 1)))
+							      0))])
+						(nexti 0))
+					      (next-help (+ i 1)))
+					    0))])
+			      (let ([next (lambda () 
+					    (begin (swap)
+						   (next-help 0)))])
+				(let ([init
+				       (lambda ()
+					 (begin
+					   (set 5 3 1)
+					   (begin
+					     (set 4 4 1)
+					     (begin
+					       (set 5 4 1)
+					       (begin
+						 (set 6 4 1)
+
+						 (begin
+						   (set 3 5 1)
+						   (begin
+						     (set 4 5 1)
+						     (begin
+						       (set 5 5 1)
+						       (begin
+							 (set 6 5 1)
+							 (begin
+							   (set 7 5 1)
+
+							   (begin
+							     (set 3 12 1)
+							     (begin
+							       (set 4 12 1)
+							       (begin
+								 (set 5 12 1)
+								 (begin
+								   (set 6 12 1)
+								   (begin
+								     (set 7 12 1)
+
+								     (begin
+								       (set 4 13 1)
+								       (begin
+									 (set 5 13 1)
+									 (begin
+									   (set 6 13 1)
+
+									   (set 5 14 1)))))))))))))))))))])
+				  (letrec ([iterate
+					    (lambda (times do-print)
+					      (if (= times 0)
+						  0
+						  (begin
+						    (if do-print (print-board) 0)
+						    (begin
+						      (next)
+						      (iterate (- times 1) do-print)))))])
+				    (letrec ([timingloop2
+					      (lambda (times)
+						(if (= times 0)
+						    0
+						    (begin
+						      (iterate 15 0)
+						      (timingloop2 (- times 1)))))])
+				    (letrec ([timingloop
+					      (lambda (times)
+						(if (= times 0)
+						    0
+						    (begin
+						      (timingloop2 times)
+						      (timingloop (- times 1)))))])
+				      (begin
+					(create-board (aref boards 0) 0)
+					(begin
+					  (create-board (aref boards 1) 0)
+					  (begin
+					    (init)
+					    (begin
+					      (timingloop (read))
+					      (begin
+						(iterate 15 1)
+						(print-board))))))))))))))))))))))))))
+

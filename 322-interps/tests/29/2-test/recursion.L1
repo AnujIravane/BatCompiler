@@ -1,0 +1,20 @@
+(:main
+  (:main 0 0
+      ((mem rsp -8) <- :ret)
+      (rdi <- 0)
+      (call :f 1)
+      :ret
+      (rdi <- rax)
+      (call print 1)
+      (return))
+  (:f 1 0
+      (r8 <- rdi)
+      (r8 += 5) ; add 2
+      (r9 <- r8)
+      (cjump 21 <= r9 :end :recur)
+      :end
+      (rax <- r8)
+      (return)
+      :recur
+      (rdi <- r8)
+      (tail-call :f 1)))

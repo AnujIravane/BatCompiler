@@ -1,0 +1,11 @@
+((:main)
+ (:main ()
+  (let ([res (:fib 0 10 0 1)])
+   (print res)))
+ (:fib (i n prev cur)
+  (let ([ieqn (= i n)])
+   (if ieqn
+       cur
+       (let ([ni (+ i 1)])
+        (let ([ncur (+ prev cur)])
+         (:fib ni n cur ncur)))))))

@@ -1,0 +1,29 @@
+(:L_3
+ (:L_3
+  0
+  0
+  :tailgoto_4
+  (rdi <- 3)
+  (rsi <- 3)
+  (call allocate 2)
+  (allocatebinding <- rax)
+  (a <- -1)
+  (rdi <- 3)
+  (rsi <- 3)
+  (call allocate 2)
+  (allocatebindingx <- rax)
+  (x_1 <- a)
+  (x_1 -= 10)
+  (rdi <- 11)
+  (rsi <- 0)
+  (call allocate 2)
+  ((mem rax 8) <- 1)
+  ((mem rax 16) <- 3)
+  ((mem rax 24) <- 5)
+  ((mem rax 32) <- 7)
+  ((mem rax 40) <- 9)
+  (allocatebindingxx <- rax)
+  (rdi <- x_1)
+  (call print 1)
+  (rax <- rax)
+  (return)))

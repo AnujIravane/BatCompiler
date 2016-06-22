@@ -1,0 +1,4 @@
+((:f 1)
+(:f (x)
+    ((closure-proc (make-closure :g 12)) (+ x 0)))
+(:g (x) (print x)))

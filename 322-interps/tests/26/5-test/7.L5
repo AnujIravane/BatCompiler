@@ -1,0 +1,5 @@
+(letrec ([curry1
+          (lambda (f v)
+            (lambda (v2) (f v v2)))])
+  (letrec ([add1 (curry1 + 1)])
+    (print (add1 (add1 91)))))

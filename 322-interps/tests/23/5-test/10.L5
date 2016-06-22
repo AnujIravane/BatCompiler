@@ -1,0 +1,2 @@
+(let ([f (lambda (y) (+ (read) (read)))])
+  (print (f 1)))

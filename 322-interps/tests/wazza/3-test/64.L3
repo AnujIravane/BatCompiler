@@ -1,0 +1,15 @@
+((:main)
+ (:main ()
+  (let ([a (:bitshift 3 1)])
+   (print a)))
+ (:bitshift (a b)
+  (let ([c (:pow2 b)])
+   (let ([d (* a c)])
+    d)))
+ (:pow2 (a)
+  (let ([az (= a 0)])
+   (if az
+       1
+       (let ([na (- a 1)])
+        (let ([irec (:pow2 na)])
+         (* irec 2)))))))

@@ -1,0 +1,24 @@
+(letrec 
+  ([check-num (lambda (x)
+    (if (= x 0)
+      0
+      (+ (number? x)
+        (+ (a? x) (check-num (- x 1))))))])
+  (letrec
+    ([ss (lambda (x)
+      (if (<= x (check-num x))
+        (if (= x 0)
+          0
+          (+ (* x x) (ss (- x 1))))
+        -1))])
+    (letrec 
+      ([f (lambda (x)
+        (if (= x 0)
+          (ss 0)
+          (+ (ss x) (f (- x 1)))))])
+      (letrec
+        ([g (lambda (a n)
+          (if (= (alen a) n)
+            0
+            (+ (f (aref a n)) (g a (+ n 1)))))])
+        (print (g (new-tuple (read) (read) (read) (read) (read)) 0))))))

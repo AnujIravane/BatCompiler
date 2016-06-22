@@ -1,0 +1,26 @@
+(:p
+  (:p
+    0 0
+	(a <- 2)
+	(b <- 2)
+	(c <- 2)
+	(d <- 2)
+	(e <- 2)
+	(sum <- 1)
+	(sum += a)
+	(rdi <- sum)
+	(call print 1)
+	(sum += b)
+	(rdi <- sum)
+	(call print 1)
+	(sum += c)
+	(rdi <- sum)
+	(call print 1)
+	(sum += d)
+	(rdi <- sum)
+	(call print 1)
+	(sum += e)
+	(rdi <- sum)
+	(call print 1)
+	(return)))
+

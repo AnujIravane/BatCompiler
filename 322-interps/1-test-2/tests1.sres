@@ -1,1 +1,0 @@
-(:f 0 1 ((memr rsp 0) <- 1) (s0 <- (mem rsp 0)) (rax += s0))

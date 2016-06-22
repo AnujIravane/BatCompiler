@@ -1,0 +1,12 @@
+(:p
+  (:p
+    0 0
+	(r12 <- 1)
+	(r13 <- 9)
+	(rdi <- 3)
+	(rsi <- 3)
+	(call allocate 2)
+	(rdi <- rax)
+	(rsi <- r13)
+	(call array-error 2)
+	(return)))

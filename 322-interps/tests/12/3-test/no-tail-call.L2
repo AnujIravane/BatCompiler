@@ -1,0 +1,23 @@
+(:main
+  (:main
+    0 0
+    (tail-call :L3_main 0))
+  (:L3_main
+    0 0
+    (rdi <- 3)
+    (rsi <- 5)
+    (rdx <- 7)
+    (rcx <- 9)
+    (r8 <- 11)
+    (r9 <- 13)
+    ((mem rsp -16) <- 15)
+    ((mem rsp -8) <- :L3_f_ret)
+    (call :L3_f 7)
+    :L3_f_ret
+    (return))
+  (:L3_f
+    7 0
+    (x1 <- rdi)
+    (rdi <- x1)
+    (call print 1)
+    (return)))

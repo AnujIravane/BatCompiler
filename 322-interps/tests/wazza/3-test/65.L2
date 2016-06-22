@@ -1,0 +1,41 @@
+(:main
+  (:main
+    0 0
+    (rdi <- 19) ;; array of 9 1's
+    (rsi <- 3)
+    (call allocate 2)
+    (rdi <- rax) ;; array to reverse
+    (arr1 <- rax)
+    (arr2 <- rax)
+    (arr2 += 16)
+    ((mem arr2 0) <- 7)
+    (call print 1)
+    (rdi <- arr1)
+    (rsi <- 1)   ;; left-side element to swap
+    (rdx <- 9)   ;; right-side element to swap
+    ((mem rsp -8) <- :rret)
+    (call :reverse 3)
+    :rret
+    (rdi <- rax)
+    (call print 1)
+    (return))
+  (:reverse
+    3 0
+    (cjump rdx <= rsi :end :cont)
+    :end
+    (rax <- rdi)
+    (return)
+    :cont
+    (a <- rsi)
+    (a *= 8)
+    (a += rdi) ;; left address
+    (b <- (mem a 0)) ;;left value
+    (c <- rdx)
+    (c *= 8)
+    (c += rdi) ;; right address
+    (d <- (mem c 0)) ;; right value
+    ((mem a 0) <- d) ;; set left address
+    ((mem c 0) <- b) ;; set right address
+    (rsi += 1) ;;increment left side
+    (rdx -= 1) ;;decrement right side
+    (tail-call :reverse 3)))

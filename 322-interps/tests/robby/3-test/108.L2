@@ -1,0 +1,42 @@
+(:L_9
+ (:L_9
+  0
+  0
+  :tailgoto_10
+  (rdi <- 11)
+  ((mem rsp -8) <- :ret_11)
+  (call :fib 1)
+  :ret_11
+  (x_2 <- rax)
+  (rdi <- x_2)
+  (call print 1)
+  (rax <- rax)
+  (return))
+ (:fib
+  1
+  0
+  (n_1 <- rdi)
+  :tailgoto_12
+  (cjump n_1 < 5 :L_13 :L_14)
+  :L_13
+  (rax <- 3)
+  (return)
+  :L_14
+  (x_4 <- n_1)
+  (x_4 -= 2)
+  (rdi <- x_4)
+  ((mem rsp -8) <- :ret_15)
+  (call :fib 1)
+  :ret_15
+  (x_5 <- rax)
+  (x_6 <- n_1)
+  (x_6 -= 4)
+  (rdi <- x_6)
+  ((mem rsp -8) <- :ret_16)
+  (call :fib 1)
+  :ret_16
+  (x_7 <- rax)
+  (rax <- x_5)
+  (rax += x_7)
+  (rax -= 1)
+  (return)))

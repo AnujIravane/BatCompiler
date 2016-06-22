@@ -1,0 +1,49 @@
+(:L_4
+ (:L_4 0 0 :tailgoto_5 (rdi <- 43) (tail-call :f 1))
+ (:f
+  1
+  0
+  (x <- rdi)
+  :tailgoto_6
+  (rdi <- x)
+  (rsi <- x)
+  ((mem rsp -8) <- :ret_7)
+  (call :g 2)
+  :ret_7
+  (x_1 <- rax)
+  (rax <- x_1)
+  (rax += 2)
+  (return))
+ (:g
+  2
+  0
+  (x <- rdi)
+  (y <- rsi)
+  :tailgoto_8
+  (rdi <- x)
+  (rsi <- y)
+  (rdx <- y)
+  ((mem rsp -8) <- :ret_9)
+  (call :h 3)
+  :ret_9
+  (x_2 <- rax)
+  (rax <- x_2)
+  (rax += 2)
+  (return))
+ (:h
+  3
+  0
+  (x <- rdi)
+  (y <- rsi)
+  (z <- rdx)
+  :tailgoto_10
+  (rdi <- x)
+  (call print 1)
+  (d1 <- rax)
+  (rdi <- y)
+  (call print 1)
+  (d2 <- rax)
+  (rdi <- z)
+  (call print 1)
+  (rax <- rax)
+  (return)))

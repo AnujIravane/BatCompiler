@@ -1,0 +1,6 @@
+((:main)
+ (:main ()
+        (let ([x (new-array 3 3)])
+          (let ([a (alen x)])
+            (let ([b (<= a 5)])
+              b)))))

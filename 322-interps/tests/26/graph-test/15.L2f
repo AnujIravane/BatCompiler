@@ -1,0 +1,10 @@
+(:main
+ 0 0
+ (s <- 0)
+ (cjump 1 < 2 :t :f)
+ :t
+ (a <- :fun)
+ (tail-call a 0)
+ :f
+ (rax <- s)
+ (return))

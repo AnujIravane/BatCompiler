@@ -1,0 +1,4 @@
+((print
+  (let ((a (new-tuple 10)))
+    (begin (aset a 0 1) (if (= (aref a 0) 10) (:f_1 10) (aref a 0)))))
+ (:f_1 (x) (:f_1 x)))

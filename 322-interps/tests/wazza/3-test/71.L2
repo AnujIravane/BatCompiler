@@ -1,0 +1,32 @@
+(:main
+ (:main
+  0 0
+  (rdi <- 5)
+  (rsi <- 0)
+  (call allocate 2)
+  (clos <- rax)
+  ((mem clos 8) <- :f)
+  ((mem clos 16) <- 3)
+  (rdi <- clos)
+  ((mem rsp -8) <- :g_ret)
+  (call :g 1)
+  :g_ret
+  (rdi <- rax)
+  (call print 1)
+  (return))
+ (:f
+  1 0
+  (n <- rdi)
+  (rax <- n)
+  (rax += 2)
+  (return))
+ (:g
+  1 0
+  (clos <- rdi)
+  (lab <- (mem clos 8))
+  (arg <- (mem clos 16))
+  (rdi <- arg)
+  ((mem rsp -8) <- :clos_ret)
+  (call lab 1)
+  :clos_ret
+  (return)))

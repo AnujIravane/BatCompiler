@@ -1,0 +1,5 @@
+(letrec ([pair
+       (new-tuple
+        (lambda () (aref pair 1))
+        42)])
+  (print ((aref pair 0))))

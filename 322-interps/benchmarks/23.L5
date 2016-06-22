@@ -1,0 +1,28 @@
+(let ([loop 1])
+  (letrec ([x (lambda (l)
+                (if (= l 0) (print 0) (begin
+  (let ([amount 100000])
+   (let ([k (new-array amount 1)])
+                      (let ([d 
+                             (letrec ([r (lambda (x k)
+                                           (if (= 0 x)
+                                               
+                                               0
+(aset k (- x 1) (new-tuple (r (- x 1) k) (read)))
+))]) (r amount k))])
+(let ([k2 (new-array amount 1)])
+(letrec ([a (lambda (x k k2)
+(if (= 0 x)
+k2
+(begin (aset k2 (- x 1) (aref (aref k (- x 1)) 1)) (a (- x 1) k k2))))])
+  (let ([n (a amount k k2)])
+(letrec ([b (lambda (k n)
+              (if (= n (- amount 1)) k
+(letrec ([c (lambda (k n)
+    (if (= n (- amount 1)) k
+        (let ([na (if (let ([bi (aref k n)]) (let ([bc (aref k (+ n 1))])
+                      (< bi bc))) (let ([bi (aref k n)]) (let ([bc (aref k (+ n 1))])
+                      (begin (aset k n bc) (begin (aset k (+ n 1) bi) k)))) k)])
+          (c na (+ n 1)))))]) (begin (c k n) (b k (+ n 1))))))])
+  (b n 0)))))))) (x (- l 1)))))]) (x loop)))
+

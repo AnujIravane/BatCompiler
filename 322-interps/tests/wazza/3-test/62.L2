@@ -1,0 +1,21 @@
+(:main
+  (:main
+    0 0
+    (rdi <- 3)
+    (rsi <- 1)
+    (call allocate 2)
+    (rdi <- rax)
+    (arr <- rax)
+    (call print 1)
+    (rdi <- arr)
+    ((mem rsp -8) <- :cret)
+    (call :clobber 1)
+    :cret
+    (rdi <- rax)
+    (call print 1)
+    (return))
+  (:clobber
+    1 0
+    ((mem rdi 8) <- 101)
+    (rax <- rdi)
+    (return)))

@@ -1,0 +1,4 @@
+((let ([f (make-closure :f (new-tuple 1))])
+  ((closure-proc f) 2 (closure-vars f)))
+  (:f (y vars)
+    (+ (aref vars 0) y)))

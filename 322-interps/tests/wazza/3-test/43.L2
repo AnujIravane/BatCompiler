@@ -1,0 +1,13 @@
+(:main
+ (:main
+  0
+  0
+  (s <- 999)
+  (d <- 1001)
+  (a <- 2)
+  (a <- s < d)
+  (a += a)
+  (a += 1)
+  (rdi <- a)
+  (call print 1)
+  (return)))

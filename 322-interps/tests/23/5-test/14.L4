@@ -1,0 +1,8 @@
+(
+(let ([x (new-tuple 0)])
+ (begin (aset x 0 :f)
+  (print ((aref x 0) 5))
+ )
+)
+(:f (a)
+ (if (< a 1) 1 (* (:f (- a 1)) a))))

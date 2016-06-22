@@ -1,0 +1,17 @@
+(:main
+ (:main 0 0
+        (rdi <- 7)
+        (rsi <- 7)
+        (call allocate 2)
+        (x <- rax)
+        (a <- x)
+        (a &= 1)
+        (a *= -2)
+        (a += 3)
+        (cjump a = 3 :l1 :l2)
+        :l1
+        (rax <- 7)
+        (return)
+        :l2
+        (rax <- 13)
+        (return)))

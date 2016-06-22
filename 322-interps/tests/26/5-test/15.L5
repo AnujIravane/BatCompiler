@@ -1,0 +1,6 @@
+(let ([f (lambda (x)
+           (print
+            ((lambda ()
+               ((lambda (x) x)
+                5)))))])
+  (f (read)))

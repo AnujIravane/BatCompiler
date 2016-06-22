@@ -1,0 +1,25 @@
+(:f
+  0 0
+  (r10 <- 1)
+  (r11 <- 2)
+  (r8 <- 3)
+  (r9 <- 4)
+  (rax <- 5)
+  (rcx <- 6)
+  (rdi <- 7)
+  (rdx <- 8)
+  (rsi <- 9)
+  (x <- 10)
+  (rax += r10)
+  (rax -= r11)
+  (rax *= r8)
+  (rax &= r9)
+  (rax <<= rcx)
+  (rax >>= 6)
+  :g
+  (rax <- (mem rcx 0))
+  ((mem rdx 0) <- rax)
+  (cjump rdi < rsi :g :h)
+  :h
+  (rax += x)
+  (return))

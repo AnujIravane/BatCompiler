@@ -1,0 +1,44 @@
+(:main
+ (:main
+  0 0
+  (rdi <- 5)
+  ((mem rsp -8) <- :encret)
+  (call :encode 1)
+  :encret
+  (rdi <- rax)
+  ((mem rsp -8) <- :factret)
+  (call :fact 1)
+  :factret
+  (rdi <- rax)
+  (call print 1)
+  (return))
+
+ (:fact
+  1 1
+  (n <- rdi)
+  (cjump n = 1 :zero :recur)
+  :zero
+  (rax <- 3)
+  (return)
+  :recur
+  ((mem rsp 0) <- n)
+  (n -= 2)
+  (rdi <- n)
+  ((mem rsp -8) <- :return)
+  (call :fact 1)
+  :return
+  (z <- (mem rsp 0))
+  (z >>= 1)
+  (rax >>= 1)
+  (rax *= z)
+  (rax <<= 1)
+  (rax += 1)
+  (return))
+
+ (:encode
+  1 0
+  (x <- rdi)
+  (x <<= 1)
+  (x += 1)
+  (rax <- x)
+  (return)))

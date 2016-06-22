@@ -1,0 +1,15 @@
+(letrec ([fib
+	  (lambda (n)
+	    (if (<= n 1)
+		n
+		(+ (fib (- n 1))
+		   (fib (- n 2)))))])
+  (let ([what (read)])
+    (letrec ([times
+	      (lambda (n)
+		(if (= n 0)
+		    (print (fib what))
+		    (begin
+		      (fib what)
+		      (times (- n 1)))))])
+      (times (read)))))

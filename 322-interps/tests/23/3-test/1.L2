@@ -1,0 +1,1 @@
+(:f (:f 0 0 (rdi <- 1) (x <- rdi) (x *= 2) (x += 1) (x += 2) (rdi <- x) (call print 1) (return)))

@@ -1,0 +1,36 @@
+;; Please don't hate us ....
+((:f :g (* 9 3) (* 9 9) (+ (- -14 14) 13))
+(:f (rsi0 rdi0 x rax0)
+    (let ([x
+           (let ([x
+                  (let ([x
+                         (begin
+                           (print (+ 1 (* 2 (- 3 17))))
+                           (let ([x
+                                  (begin (+ (+ x rdi0) rax0)
+                                         (let ([rax0 rdi0])
+                                           (+ rax0 rax0)))])
+                             (let ([rax0 x])
+                               rax0)))])
+                    (let ([x
+                           (if x
+                               (let ([x rdi0]) (print x))
+                               (print rax0))])
+                      (+ (- x (* x x)) (* (- x 1) (+ rdi0 rax0)))))])
+                  (let ([rax0 x]) rax0))])
+      (print (let ([x ((rsi0 x))]) (print x)))))
+
+
+(:g (x)
+  (begin (print x)
+         :k))
+(:k ()
+  (let ([rsp0 (new-tuple 1 2 3 :k)])
+    (print (begin (aset rsp0 3 29)
+                  (begin (aset rsp0 0 :f)
+                         (aref rsp0 (+ 1 1))))))))
+
+
+ 
+
+    

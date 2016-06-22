@@ -1,0 +1,22 @@
+(:main
+ (:main
+  0 0
+  (rdi <- 1)
+  (rsi <- 3)
+  ((mem rsp -8) <- :ret)
+  (call :print2 2)
+  :ret
+  (return))
+
+ (:print2
+  2 1
+  (x <- rdi)
+  (fwagg <- rsi)
+  ((mem rsp 0) <- fwagg)
+  (rdi <- x)
+  (call print 1)
+  (x <- (mem rsp 0))
+  (rdi <- x)
+  (call print 1)
+  (return)))
+

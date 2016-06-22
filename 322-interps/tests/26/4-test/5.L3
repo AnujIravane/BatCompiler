@@ -1,0 +1,7 @@
+((let ([t (:f 1)])
+   (let ([c (aref t 2)])
+     (let ([vars (closure-vars c)])
+       (print vars))))
+ (:f (x)
+    (let ([cl (make-closure :f x)])
+      (new-tuple 1 2 cl))))

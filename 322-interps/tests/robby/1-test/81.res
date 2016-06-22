@@ -1,1 +1,1 @@
-attempted to use position 9 in an array that only has 3 positions
+attempted to use position 8 in an array that only has 1 position
